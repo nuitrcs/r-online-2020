@@ -197,13 +197,20 @@ Alternative/extra material:
 
 Want more?  See our [online guide to learning ggplot2](https://sites.northwestern.edu/researchcomputing/2020/04/13/online-learning-resources-r-ggplot2/) - most of these will take you longer than a few hours.  
 
+### Exercises
+
+Coming soon
+
+
+
+
 
 
 ## Thursday: Data Exploration and Statistics
 
 -----
 
-10am Zoom session: 
+10am Zoom session: Formula syntax, interpreting linear regression output
 
 3pm Zoom session: Quiz, Review, and Office Hours
 
@@ -215,17 +222,27 @@ Want more?  See our [online guide to learning ggplot2](https://sites.northwester
 * Run a t-test
 * Formula syntax
 * Linear regression
+* ANOVA
 
 
 
 ### Materials
 
-Start here: 
+**Start here:** Learning Statistics with R [Ch. 5 Descriptive Statistics](https://learningstatisticswithr.com/book/descriptives.html) and [Part V Statistical Tools](https://learningstatisticswithr.com/book/part-v-statistical-tools.html) choose the sections relevant to the methods and models for your field.  This book teaches statistics in addition to R, so there's theoretical material you may be able to skip.
 
 Alternative/extra material: 
 
 * Descriptive and Exploratory Analysis: [Cloud Based Data Science](https://leanpub.com/courses/jhu/cbds-analysis/home) Data Analysis Course: focuses on concepts more than the R code
 * Statistics: [R Cookbook](https://learning.oreilly.com/library/view/r-cookbook-2nd/9781492040675) - has several useful sections if you already know what you want to do
+
+Want more?  See [Statistics and Machine Learning](https://github.com/nuitrcs/rworkshops#statistics-and-machine-learning) resource list, or our [online guide to learning linear regression in R](https://sites.northwestern.edu/researchcomputing/2020/05/09/online-learning-resources-linear-regression-in-r/).
+
+
+### Exercises
+
+Coming soon
+
+
 
 
 
@@ -233,16 +250,20 @@ Alternative/extra material:
 
 -----
 
-10am Zoom session: 
+10am Zoom session: Putting it all together in a script; if/else vs. ifelse()
 
 3pm Zoom session: Quiz, Review, and Office Hours
 
 ### Concepts
-* 
+* If/else statements
+* ifelse()
+* for loops
+* Writing functions
+* Creating an R script
 
 ### Materials
 
-Start here: 
+**Start here:**
 
 * If/else: [Software Carpentry Programming in R](http://swcarpentry.github.io/r-novice-inflammation/04-cond/index.html) Making Choices
 * Loops: [Software Carpentry Programming in R](http://swcarpentry.github.io/r-novice-inflammation/15-supp-loops-in-depth/index.html) Loops
@@ -252,3 +273,9 @@ Alternative/extra material:
 
 * [Learning Statistics with R v1](https://learningstatisticswithr.com/book/scripting.html) Chapter 8 Basic Programming
 * [R Cookbook](https://learning.oreilly.com/library/view/r-cookbook-2nd/9781492040675/ch15.html#SimpleProgramming) Simple Programming - gets less "simple" as the chapter progresses
+
+### Exercises
+
+Coming soon
+
+
