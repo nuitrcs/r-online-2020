@@ -26,7 +26,7 @@ Zoom sessions will be recorded and available in Canvas for a limited time.  But 
 
 **Morning Zoom Session**: 60-90 minutes live session teaching new skills at 10am each day.  These sessions will mostly be demonstration.  They may include a few exercises, but you will NOT need to watch the video and code in R at the same time.  Questions always welcome via the chat; no need to share your video for this session.
 
-**Mid-day Work Session**: Each day has online materials for you to work through on your own.  The materials include explanations of new concepts as well as exercises.  As questions arise, ask them on the Canvas discussion board - we'll actively monitor it during the day,  Or bring your questions to the afternoon office hours.  
+**Mid-day Work Session**: Each day has online materials for you to work through on your own.  The materials include explanations of new concepts as well as exercises.  Start with the **Start here** materials; check out the other resources if you need more information or want more practice.  Then do the exercises.  As questions arise, ask them on the Canvas discussion board - we'll actively monitor it during the day.  Or bring your questions to the afternoon office hours.  
 
 **Afternoon Zoom Session**: 60-90 minutes live session at 3pm daily reviewing material, with the opportunity to ask questions.  Think of this session as group office hours.  We'll have a quiz to review key concepts, but otherwise, the content will be driven by your questions and the quiz results.  Share your video if you can, since this session will be more interactive.  
 
@@ -36,7 +36,9 @@ Zoom sessions will be recorded and available in Canvas for a limited time.  But 
 
 Don't just read along with the materials during the work sessions -- try out the code in R!  Typing it, fixing the errors, and getting used to using R is important.  
 
-Focus on the **Start here** resource.  The others are provided in case you want another perspective, additional info on a topic, or more practice.  But don't try to do it all!  
+Focus on the **Start here** resources.  The others are provided in case you want another perspective, additional info on a topic, or more practice.  But don't try to do it all!  
+
+While some general exercises are provided, you'll learn more by trying to apply your new skills to your own data (or a dataset you're interested in).  
 
 Errors are normal.
 
@@ -50,7 +52,6 @@ Try changing the code to see what happens - you won't break anything.
 
 ## Before the Workshop
 
------
 
 ### Set up R and RStudio
 
@@ -81,9 +82,10 @@ There are links to many free online resources below.  A few resources require re
 [Cloud Based Data Science](https://leanpub.com/universities/set/jhu/cloud-based-data-science) - an online set of courses from Johns Hopkins University faculty.  Not required for the workshop, but links to relevant material from those courses is included below under extra materials.  Pricing is flexible (including free).
 
 
+-----
+
 ## Monday: Introduction
 
------
 
 10am Zoom session: RStudio Tour, Basics of Using R
 
@@ -121,10 +123,10 @@ Alternative/extra material:
 
 Coming soon
 
+-----
 
 ## Tuesday: Data Frames
 
------
 
 10am Zoom session: Reading in Data, Working with Data Frames
 
@@ -169,10 +171,11 @@ Coming soon
 
 
 
+-----
 
 ## Wednesday: Visualization 
 
------
+
 
 10am Zoom session: Base R Plots, ggplot2 basics
 
@@ -204,11 +207,10 @@ Coming soon
 
 
 
-
+-----
 
 ## Thursday: Data Exploration and Statistics
 
------
 
 10am Zoom session: Formula syntax, interpreting linear regression output
 
@@ -244,11 +246,10 @@ Coming soon
 
 
 
-
+-----
 
 ## Friday: Programming
 
------
 
 10am Zoom session: Putting it all together in a script; if/else vs. ifelse()
 
