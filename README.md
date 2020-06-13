@@ -64,12 +64,14 @@ Also, install the tidyverse package.  Instructions are at the bottom of the [ins
 
 [Download this repository](https://sites.northwestern.edu/researchcomputing/resources/downloading-from-github/)
 
+Then you will have the datasets and exercises downloaded to your computer to work on.  Open the `r-online-2020.Rproj` file in the project directory to make sure your working directory is set correctly for the scripts.
+
 
 ### Handouts
 
 During in-person workshops, these are the handouts we usually provide.  You may find them useful.  
 
-[RStudio Cheat Sheets](https://www.rstudio.com/resources/cheatsheets/) are short pdfs that summarize key R functions on specific topics. Many people print them out for reference while working in R.  The `ggplot2` cheat sheet, in particular, in indispensable when working with that package.  
+[RStudio Cheat Sheets](https://www.rstudio.com/resources/cheatsheets/) are short pdfs that summarize key R functions on specific topics. Many people print them out for reference while working in R.  The `ggplot2` cheat sheet, in particular, is indispensable when working with that package.  
 
 [R Reference Card](https://cran.r-project.org/doc/contrib/Baggott-refcard-v2.pdf): lists many commonly used functions, so that you can find what you're looking for, since the R help is most useful when you already know the function name you want.
 
@@ -103,6 +105,7 @@ There are links to many free online resources below.  A few resources require re
 * Vectors and indexing vectors
 * Missing Data
 * Factors
+* Create a frequency/count table
 
 
 ### Materials
@@ -119,9 +122,11 @@ Alternative/extra material:
 * Packages: [Learning Statistics with R v1](https://learningstatisticswithr.com/book/mechanics.html#packageinstall)
 * Reference: [R Cookbook](https://learning.oreilly.com/library/view/r-cookbook-2nd/9781492040675/) Chapter 2 Some Basics: mostly about working with vectors
 
+**BONUS**: You may also want to learn about R Markdown files (and R Notebooks, which are a special type): https://rmarkdown.rstudio.com.  The file for Tuesday morning's session is an R Notebook, and some other materials later may be R Markdown files.  They're useful for when you want to combine R code, output, and text together in a document.
+
 ### Exercises
 
-Coming soon
+See the exercises in the [exercises/part1](exercises/part1).  Open the .R files on your own computer and write your answers in the scripts.  There are answer files to check your work.
 
 -----
 
@@ -167,7 +172,9 @@ Notes:
 
 ### Exercises
 
-Coming soon
+See the exercises in the [exercises/part2](exercises/part2). Open the .R files on your own computer and write your answers in the scripts.  There are answer files to check your work.
+
+Want more practice?  Read one of your own datasets into R and use the skills you've learned to count rows, compute max and min values, make tables, create new variables, etc.  Need a data set to work with?  Download one from: https://www.openintro.org/data/index.php.  It's good to practice doing all of the steps you've learned with data that you haven't been handed as part of the workshop to make sure you really do know how to do it on your own.
 
 
 
@@ -202,8 +209,9 @@ Want more?  See our [online guide to learning ggplot2](https://sites.northwester
 
 ### Exercises
 
-Coming soon
+See the exercises in the [exercises/part3](exercises/part3). Open the .R files on your own computer and write your answers in the scripts.  There are answer files to check your work.
 
+Want more practice?  Read one of your own datasets into R and start making some plots.  Don't like what they look like?  Start trying to change the styling (lots of googling is to be expected).  Looking for data to work with?  Try https://github.com/rfordatascience/tidytuesday or https://data.fivethirtyeight.com/.  As with the data frame material, trying your new skills on your own data will help you learn faster.
 
 
 
@@ -218,19 +226,16 @@ Coming soon
 
 ### Concepts
 
-* Create a frequency/count table
 * Compute basic statistics such as mean and standard deviation
-* Detect missing values
 * Run a t-test
 * Formula syntax
 * Linear regression
 * ANOVA
 
 
-
 ### Materials
 
-**Start here:** Learning Statistics with R [Ch. 5 Descriptive Statistics](https://learningstatisticswithr.com/book/descriptives.html) and [Part V Statistical Tools](https://learningstatisticswithr.com/book/part-v-statistical-tools.html) choose the sections relevant to the methods and models for your field.  This book teaches statistics in addition to R, so there's theoretical material you may be able to skip.
+**Start here:** Learning Statistics with R [Ch. 5 Descriptive Statistics](https://learningstatisticswithr.com/book/descriptives.html) and [Part V Statistical Tools](https://learningstatisticswithr.com/book/part-v-statistical-tools.html): **choose the sections relevant to the methods and models for your field.**  Note: This book teaches statistics in addition to R, so there's theoretical material you may be able to skip.
 
 Alternative/extra material: 
 
@@ -242,13 +247,12 @@ Want more?  See [Statistics and Machine Learning](https://github.com/nuitrcs/rwo
 
 ### Exercises
 
-Coming soon
-
+See the exercises in the [exercises/part4](exercises/part4) directory for t-test and linear regression exercises.  If these methods aren't relevant to your field, try instead to run a statistical test or model that you have computed in another program in R instead.  Ask on the discussion forum if you need help finding the right package or function in R for your analysis (because one is almost guaranteed to exist).
 
 
 -----
 
-## Friday: Programming
+## Friday: Programming (Option 1)
 
 
 10am Zoom session: Putting it all together in a script; if/else vs. ifelse()
@@ -260,7 +264,6 @@ Coming soon
 * ifelse()
 * for loops
 * Writing functions
-* Creating an R script
 
 ### Materials
 
@@ -279,4 +282,10 @@ Alternative/extra material:
 
 Coming soon
 
+----
 
+## Friday: Data Project (Option 2)
+
+Instead of learning the programming concepts above, you can instead apply the skills you learned in the previous 4 days working on a small data project.  There will be no video lessons for the project, but you're welcome to ask questions and seek help as you work on it.  
+
+Details coming soon.  

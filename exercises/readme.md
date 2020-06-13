@@ -1,0 +1,1 @@
+Exercises are sorted by day/part according to the schedule on the main page.
