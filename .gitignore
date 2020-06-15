@@ -39,6 +39,7 @@ vignettes/*.pdf
 .Renviron
 
 data/resumes.csv
+videoideas.txt
 
 
 

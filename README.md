@@ -18,15 +18,15 @@ If this workshop does not fit with your schedule, or you have significant experi
 
 # Structure
 
-This is a remote workshop that combines live sessions on Zoom with independent work on recommended exercises and materials.  We'll use Canvas to manage the Zoom sessions, email communications, and discussion lists.  
+This is a remote workshop that combines live sessions on Zoom with independent work on recommended exercises and materials.  We'll use [Canvas](https://canvas.northwestern.edu/courses/117494) to manage the Zoom sessions, email communications, and discussion lists.  
 
-Zoom sessions will be recorded and available in Canvas for a limited time.  But you will get the most out of this workshop if you cover the topics according to the schedule.  If this workshop doesn't fit with your schedule at the moment, we recommend one of the many online R courses instead, as they are designed for remote, self-paced learning.  
+Zoom sessions will be recorded and available in [Canvas](https://canvas.northwestern.edu/courses/117494) for a limited time.  But you will get the most out of this workshop if you cover the topics according to the schedule.  If this workshop doesn't fit with your schedule at the moment, we recommend one of the many online R courses instead, as they are designed for remote, self-paced learning.  
 
 ## Daily Schedule
 
-**Morning Zoom Session**: 60-90 minutes live session teaching new skills at 10am each day.  These sessions will mostly be demonstration.  They may include a few exercises, but you will NOT need to watch the video and code in R at the same time.  Questions always welcome via the chat; no need to share your video for this session.
+**Morning Zoom Session**: 60-90 minutes live session teaching new skills at 10am each day.  These sessions will be demonstration plus a few exercises, but you will NOT need to watch the video and code in R at the same time.  We'll pause when you need to switch to doing something yourself in R.  Questions welcome via the chat; no need to share your video for this session.
 
-**Mid-day Work Session**: Each day has online materials for you to work through on your own.  The materials include explanations of new concepts as well as exercises.  Start with the **Start here** materials; check out the other resources if you need more information or want more practice.  Then do the exercises.  As questions arise, ask them on the Canvas discussion board - we'll actively monitor it during the day.  Or bring your questions to the afternoon office hours.  
+**Mid-day Work Session**: Each day has online materials for you to work through on your own.  The materials include explanations of new concepts as well as exercises.  Start with the **Start here** materials; check out the other resources if you need more information or want more practice.  Then do the exercises.  As questions arise, ask them on the [Canvas](https://canvas.northwestern.edu/courses/117494) discussion board - we'll actively monitor it during the day.  Or bring your questions to the afternoon office hours.  
 
 **Afternoon Zoom Session**: 60-90 minutes live session at 3pm daily reviewing material, with the opportunity to ask questions.  Think of this session as group office hours.  We'll have a quiz to review key concepts, but otherwise, the content will be driven by your questions and the quiz results.  Share your video if you can, since this session will be more interactive.  
 
@@ -62,7 +62,7 @@ Also, install the tidyverse package.  Instructions are at the bottom of the [ins
 
 ### Get Materials
 
-[Download this repository](https://sites.northwestern.edu/researchcomputing/resources/downloading-from-github/)
+[Download this repository](https://sites.northwestern.edu/researchcomputing/resources/downloading-from-github/) (but wait until late Sunday or early Monday, as I'll be updating materials until then)
 
 Then you will have the datasets and exercises downloaded to your computer to work on.  Open the `r-online-2020.Rproj` file in the project directory to make sure your working directory is set correctly for the scripts.
 
