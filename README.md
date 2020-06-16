@@ -6,6 +6,14 @@ For: Northwestern researchers
 
 Note: *This is still being developed*
 
+Quick links to schedule:
+
+* [Monday: Introduction](#monday-introduction)
+* [Tuesday: Data Frames](#tuesday-data-frames)
+* [Wednesday: Visualization](#wednesday-visualization)
+* [Thursday: Data Exploration and Statistics](*thursday-data-exploration-and-statistics)
+* [Friday: Programming](#friday-programming-option-1) or [Friday: Data Project](#friday-data-project-option-2)
+
 ## Description
 
 This introductory workshop is designed to help you get familiar with the core concepts and functions in R.  You'll learn the basics that will help you use R in your research and provide a foundation for further learning in the future.  This workshop assumes no prior knowledge of R.
@@ -20,7 +28,7 @@ If this workshop does not fit with your schedule, or you have significant experi
 
 This is a remote workshop that combines live sessions on Zoom with independent work on recommended exercises and materials.  We'll use [Canvas](https://canvas.northwestern.edu/courses/117494) to manage the Zoom sessions, email communications, and discussion lists.  
 
-Zoom sessions will be recorded and available in [Canvas](https://canvas.northwestern.edu/courses/117494) for a limited time.  But you will get the most out of this workshop if you cover the topics according to the schedule.  If this workshop doesn't fit with your schedule at the moment, we recommend one of the many online R courses instead, as they are designed for remote, self-paced learning.  
+Morning Zoom sessions will be recorded and available in [Canvas](https://canvas.northwestern.edu/courses/117494) for a limited time.  But you will get the most out of this workshop if you cover the topics according to the schedule.  If this workshop doesn't fit with your schedule at the moment, we recommend one of the many online R courses instead, as they are designed for remote, self-paced learning.  
 
 ## Daily Schedule
 
@@ -34,7 +42,7 @@ Zoom sessions will be recorded and available in [Canvas](https://canvas.northwes
 
 ## Tips for Success
 
-Don't just read along with the materials during the work sessions -- try out the code in R!  Typing it, fixing the errors, and getting used to using R is important.  
+Don't just read along with the materials during the independent work sessions -- try out the code in R!  Typing it, fixing the errors, and getting used to using R is important.  
 
 Focus on the **Start here** resources.  The others are provided in case you want another perspective, additional info on a topic, or more practice.  But don't try to do it all!  
 
