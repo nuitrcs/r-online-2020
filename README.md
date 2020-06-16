@@ -288,7 +288,7 @@ Alternative/extra material:
 
 ### Exercises
 
-Coming soon
+See the exercises in the [exercises/part5](exercises/part5) directory.  
 
 ----
 
