@@ -11,7 +11,7 @@ Quick links to schedule:
 * [Monday: Introduction](#monday-introduction)
 * [Tuesday: Data Frames](#tuesday-data-frames)
 * [Wednesday: Visualization](#wednesday-visualization)
-* [Thursday: Data Exploration and Statistics](*thursday-data-exploration-and-statistics)
+* [Thursday: Data Exploration and Statistics](#thursday-data-exploration-and-statistics)
 * [Friday: Programming](#friday-programming-option-1) or [Friday: Data Project](#friday-data-project-option-2)
 
 ## Description
