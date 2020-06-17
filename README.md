@@ -97,7 +97,8 @@ There are links to many free online resources below.  A few resources require re
 ## Monday: Introduction
 
 
-10am Zoom session: RStudio Tour, Basics of Using R
+10am Zoom session: RStudio Tour, Basics of Using R  
+Session File: `session_notes/part1.Rmd` or [HTML version](https://nuitrcs.github.io/r-online-2020/session_notes/part1.html) - you don't need the .Rmd file open today
 
 3pm Zoom session: Quiz, Review, and Office Hours
 
@@ -118,9 +119,12 @@ There are links to many free online resources below.  A few resources require re
 
 ### Materials
 
-**Start here:** [Learning Statistics with R v2](https://tidylsr.djnavarro.net/index.html): Chapter 2 Getting Started in R; Appendices A1 Vectors and A2 Factors
+**Start here:** 
+* [Learning Statistics with R v2](https://tidylsr.djnavarro.net/index.html): [Chapter 2 Getting Started in R](https://tidylsr.djnavarro.net/r-start.html#arithmetic-operations); Appendices [A1 Vectors](https://tidylsr.djnavarro.net/data-types.html#vectors) and [A2 Factors](https://tidylsr.djnavarro.net/data-types.html#factors)
+* [Logical Indexing](https://bookdown.org/ndphillips/YaRrr/logical-indexing.html) and [Changing values of a vector](https://bookdown.org/ndphillips/YaRrr/changing-values-of-a-vector.html) from [YaRrr! The Pirate’s Guide to R](https://bookdown.org/ndphillips/YaRrr/)
 
 Alternative/extra material:   
+* Additional sections of [YaRrr! The Pirate’s Guide to R](https://bookdown.org/ndphillips/YaRrr/) may be helpful -- the index is fairly clear for finding relevant material, chapters 4-7 roughly correspond to today's material
 * Covers many of the same concepts, except factors: [Data Carpentry Data Analysis and Visualization in R for Ecologists](https://datacarpentry.org/R-ecology-lesson/01-intro-to-r.html): Introduction to R Lesson -- not specific to ecologists!
 * Covers many of the same concepts, except factors: [Cloud Based Data Science](https://leanpub.com/universities/set/jhu/cloud-based-data-science) Intro to R Course - first 6 sections (through Working with Logicals) 
 * Data types and vectors: [Software Carpentry Programming in R](http://swcarpentry.github.io/r-novice-inflammation/13-supp-data-structures/index.html) Data Structures.  At the end this introduces data frames, which are the topic for Tuesday.
@@ -130,7 +134,7 @@ Alternative/extra material:
 * Packages: [Learning Statistics with R v1](https://learningstatisticswithr.com/book/mechanics.html#packageinstall)
 * Reference: [R Cookbook](https://learning.oreilly.com/library/view/r-cookbook-2nd/9781492040675/) Chapter 2 Some Basics: mostly about working with vectors
 
-**BONUS**: You may also want to learn about R Markdown files (and R Notebooks, which are a special type): https://rmarkdown.rstudio.com.  The file for Tuesday morning's session is an R Notebook, and some other materials later may be R Markdown files.  They're useful for when you want to combine R code, output, and text together in a document.
+**BONUS**: You may also want to learn about R Markdown files (and R Notebooks, which are a special type): https://rmarkdown.rstudio.com.  They're useful for when you want to combine R code, output, and text together in a document.  The files for the morning sessions are partly R Markdown files and partly R Notebook files.
 
 ### Exercises
 
@@ -141,7 +145,8 @@ See the exercises in the [exercises/part1](exercises/part1).  Open the .R files 
 ## Tuesday: Data Frames
 
 
-10am Zoom session: Reading in Data, Working with Data Frames
+10am Zoom session: Reading in Data, Working with Data Frames  
+File: `session_notes/part2.Rmd` or [HTML version](https://nuitrcs.github.io/r-online-2020/session_notes/part2.nb.html)
 
 3pm Zoom session: Quiz, Review, and Office Hours
 

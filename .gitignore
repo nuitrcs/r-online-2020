@@ -41,5 +41,9 @@ vignettes/*.pdf
 data/resumes.csv
 videoideas.txt
 
+# attendance sheet - make more specific if using an excel file later
+*.xlsx  
+
+intronotes.md
 
 

@@ -1,9 +1,11 @@
 # Missing values
 
-# Some reminders:
-x <- c(NA, 2, NA, 4, NA, 6, NA)
+# Missing Values Mini-Lesson:
+NA  # this is the symbol for missing data; can be used with any data type
+y <- c("dog", "cat", NA, NA, "bird")
+x <- c(NA, 2, NA, 4, NA, 6, NA, 6, 6, 4)
 is.na(x)  # boolean vector: which are missing?
-sum(is.na(x))  # how many are missing
+sum(is.na(x))  # how many are missing: TRUE >> 1 and FALSE >> 0, so you can sum
 sum(!is.na(x))  # how many are not missing?
 x[!is.na(x)]  # elements from x that are not missing
 table(x)  # tally distinct values

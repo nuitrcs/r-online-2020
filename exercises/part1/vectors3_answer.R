@@ -4,28 +4,30 @@
 x1 <- c(-1.2,  0.27,  1.08, -2.34,  0.42)
 x2 <- c(18, 20, 21, 20, 24, 26, 27, 25, 24, 26, 26, 24, 23, 22, 40, 30)
 
+# Refresher/mini-lession:
+
 # You can use %in% to test if a value is present in a vector:
-3 %in% c(1,2,3)
-3 %in% c(4,5,6)
-3 %in% c(3,3,NA,4)
+3 %in% c(1, 2, 3)
+3 %in% c(4, 5, 6)
+3 %in% c(3, 3, NA, 4)
 
 # Use %in% to determine whether the value 20 is in x2
 30 %in% x2
 
 
 # To get the index position that value first occurs in a vector, use match()
-match(3, c(1,2,3))
-match(3, c(4,5,6))
-match(3, c(3,3,NA,4))
+match(3, c(1, 2, 3))
+match(3, c(4, 5, 6))
+match(3, c(3, 3, NA, 4))
 
 # Find the first index of the value 24 in x2
 match(24, x2)
 
 
 # to get all index positions of a value in a vector, use which() with a boolean vector
-which(3 == c(1,2,3))
-which(3 == c(4,5,6))  
-which(3 == c(3,3,NA,4))
+which(3 == c(1, 2, 3))
+which(3 == c(4, 5, 6))  
+which(3 == c(3, 3, NA, 4))
 
 # At what index positions does the value 20 appear in x2?
 which(20 == x2)

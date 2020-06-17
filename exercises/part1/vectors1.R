@@ -17,7 +17,9 @@ x1
 # (copy and modify the code in line 9 above)
 # drawn from distribution with mean 0.5; 
 # look in the distributions section on the reference card
-# to see how to specify the mean (it's another argument)
+# https://cran.r-project.org/doc/contrib/Baggott-refcard-v2.pdf
+# or the help for the rnorm function
+# to see how to specify the mean (it's another argument to rnorm())
 
 
 # Compare the maximum values of each vector;

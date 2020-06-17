@@ -1,0 +1,165 @@
+---
+title: "Part 1"
+output:
+  html_document:
+    df_print: paged
+editor_options:
+  chunk_output_type: console
+---
+
+This file has notes for the morning session of Day 1 of the workshop.
+
+# Welcome
+
+* Introduction
+
+* The morning sessions are being recorded.  Videos off and muted.  Use chat for questions.
+  * I will stop if you should type or try something.  (leave sound on so you know when to come back)
+* Between sessions: independent work.  Use discussion boards on Canvas for questions (please do!)
+  * Materials from people other than me to read and work through.
+  * Exercises in the github repository.  
+    * Some exercises have refreshers or mini-lessons at the top.  If you think there's something in an exercise though that wasn't covered in the day's material, please do let me know so I can fix that for the future.
+* The afternoon sessions will not be recorded.  Videos on (if you can).  Can unmute to ask questions or use chat.  Think: office hours, so bring your questions.
+
+# RStudio Tour Notes
+
+* Can run R without R Studio
+* Open project files
+* RStudio Panes
+  * Console
+  * Lower right:
+    * Files: exercise files
+    * More > Go to Working Directory
+    * Plots, Viewer output
+    * Packages: install button, check boxes next to names, installing
+      * Is tidyverse installed?
+      * Install praise
+      * **EXERCISE:** Open R Studio and install the praise package
+    * Help
+  * Upper right:
+    * Environment
+    * History
+  * New File
+    * File Types
+
+* Type in Console
+    * working directory: getwd()
+    * Type commands @ prompt, get output
+    * Getting stuck with + - esc (twice), Control-C
+    * up arrow for previous commands
+    * R as a calculator
+      * () for grouping `(3 + 1)^2 * 5`
+    * Call a function: 
+      * Functions have a name
+      * They optionally take one or more input values (arguments)
+      * They optionally return a value (or more complicated object) or do something
+      * `log(16)`, `round(2.1)`, `round(pi, 3)` - pi is built in value
+      * Can nest function calls: `round(log(16))`, `round(log(16), 2)`
+    * assign a value: `x <- 3` >> shows up in environment
+      * right hand side evaluated first: `x <- x + 1`
+    * case sensitive
+    * Spaces: mostly don't matter (matter in operators, names): `x < - 4`
+    * **EXERCISE**: 
+      * Create a variable x with a numerical value of your choice
+      * Multiply x by 3 and save the value back to x
+      * Take the log of x
+      * Subtract 4 from the log of x
+      * Square the above
+    * Comparing Values: > == <= !
+* Create a code file
+    * comment character
+    * library commands at top
+* Send code from file to console (MAC: command + return, PC: Ctrl + return)
+    * Cursor
+      * Send a comment line and it sends the line below
+      * Sends a full command, even over multiple lines
+      * Cursor advances
+    * Highlighted region
+* **EXERCISE**: 
+  * Open a new R Script file
+  * Type a comment at the top
+  * load the praise library
+  * Call the praise() function
+  * Run the code in your file
+  * Save the file
+
+
+# Vectors
+
+Vectors hold multiple values (all of the same type).  Create a vector with the `c()` function:
+```{r}
+x <- c(1, 4, 6, 3, 4, 2, 3, 4)
+x
+```
+
+Access elements of the vector using an index for the position.  First element is at position 1.
+```{r}
+x[1]
+```
+
+Range of values:
+```{r}
+x[1:3]
+```
+
+Some functions take vectors as input and operate on each element.
+```{r}
+log(x)
+```
+
+Functions don't (generally) change their input values:
+```{r}
+x  # still the same as before
+```
+
+Other functions take vectors as input and do something with the whole vector.
+```{r}
+sum(x)
+```
+
+```{r}
+table(x)
+```
+
+With a table, the top line is the values, and the bottom line is the counts of each value.
+
+We can use vectors in comparsions
+```{r}
+x > 3
+```
+
+TRUE and FALSE are important, because we can use them to select values from vectors
+```{r}
+x[x > 3]
+```
+
+You'll learn more about vectors in your independent work and exercises.
+
+**EXERCISE**: In the console or an open R Script file, make a vector called fav_numbers and put 5 numbers in it.  Then write an expression to select just the 4th value from that vector.
+
+```{r}
+
+```
+
+
+# Missing Values
+
+`NA` is the symbol for missing data; it can be used with any data type
+```{r}
+NA  
+y <- c("dog", "cat", NA, NA, "bird")
+x <- c(NA, 2, NA, 4, NA, 6, NA, 6, 6, 4)
+is.na(x)  
+```
+
+```{r}
+sum(c(TRUE, FALSE))
+sum(is.na(x))  
+```
+
+
+# Coming Up
+
+You'll learn more about working with vectors.  You'll also learn about factors today, which is how R stores and helps you work with categorical variables.  Factors can be a bit tricky, so I expect there will be some questions about them in the afternoon session.  
+
+Remember: ask questions on the Canvas discussion board, and bring questions about any of the material to the afternoon session.  We'll start the afternoon session with a short quiz and then open it up for questions or topics that you'd like me to review.  We can also talk through exercise answers.
