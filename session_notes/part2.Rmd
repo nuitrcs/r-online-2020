@@ -1,7 +1,9 @@
 ---
 title: "Part 2"
-output: html_notebook
-editor_options: 
+output:
+  html_document:
+    df_print: paged
+editor_options:
   chunk_output_type: inline
 ---
 
@@ -11,11 +13,15 @@ We're going to work with data on penguins from https://github.com/allisonhorst/p
 
 You'll likely be asked about updating packages during the installation.  You can skip the updates (just hit Return or enter the value for None).
 
-```{r, installpackages}
+```{r, installpackages, eval=FALSE}
 install.packages("remotes")
 remotes::install_github("allisonhorst/palmerpenguins")
+```
+
+```{r}
 library(palmerpenguins)
 ```
+
 
 ## Manual Creation
 
@@ -184,7 +190,7 @@ penguins[penguins$culmen_length_mm < 34,]
 Note the rows of `NA`.
 
 If I forget the `,` in the `[]`:
-```{r}
+```{r, eval=FALSE}
 penguins[penguins$culmen_length_mm < 34]
 ```
 

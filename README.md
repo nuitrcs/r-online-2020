@@ -146,7 +146,7 @@ See the exercises in the [exercises/part1](exercises/part1).  Open the .R files 
 
 
 10am Zoom session: Reading in Data, Working with Data Frames  
-File: `session_notes/part2.Rmd` or [HTML version](https://nuitrcs.github.io/r-online-2020/session_notes/part2.nb.html)
+File: `session_notes/part2.Rmd` or [HTML version](https://nuitrcs.github.io/r-online-2020/session_notes/part2.html)
 
 3pm Zoom session: Quiz, Review, and Office Hours
 
