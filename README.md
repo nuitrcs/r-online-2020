@@ -98,7 +98,7 @@ There are links to many free online resources below.  A few resources require re
 
 
 10am Zoom session: RStudio Tour, Basics of Using R  
-Session File: [`session_notes/part1.Rmd`](session_notes/part1.Rmd) or [HTML version](session_notes/part1.html) - you don't need the .Rmd file open today
+Session File: [`session_notes/part1.Rmd`](session_notes/part1.Rmd) or [HTML version](https://nuitrcs.github.io/r-online-2020/session_notes/part1.html) - you don't need the .Rmd file open today
 
 3pm Zoom session: Quiz, Review, and Office Hours
 
