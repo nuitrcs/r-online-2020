@@ -54,6 +54,13 @@ View the first few rows
 head(penguins)
 ```
 
+Or user the viewer:
+```{r, eval=FALSE}
+View(penguins)
+```
+
+Clicking on the name of the data frame in the environment tab will also open the viewer.
+
 Dimensions of the data frame
 ```{r}
 dim(penguins)
@@ -387,5 +394,15 @@ penguins[order(penguins$island,
 ```{r}
 
 ```
+
+
+# Coming Up
+
+Today you'll work more with data frames.  You'll also learn how to read a csv file into R into a data frame, and go over the parts of an R help page.
+
+There are exercises, but I's stronly encourage you to read in one of your own data files and start working with it.  If you don't have a data file, there are some examples linked in the exercises that you could try.
+
+
+
 
 

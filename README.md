@@ -164,24 +164,28 @@ File: `session_notes/part2.Rmd` or [HTML version](https://nuitrcs.github.io/r-on
 
 **Start here:** 
 
-* [Software Carpentry Programming in R](http://swcarpentry.github.io/r-novice-inflammation/11-supp-read-write-csv/index.html) Reading and Writing CSV Files
-* [Software Carpentry Programming in R](http://swcarpentry.github.io/r-novice-inflammation/10-supp-addressing-data/index.html) Addressing Data
-* Recoding and transforming variables: [Learning Statistics with R v1](https://learningstatisticswithr.com/book/datahandling.html#transform) 7.2 Transforming and recoding a variable
+* [Software Carpentry Programming in R](http://swcarpentry.github.io/r-novice-inflammation/11-supp-read-write-csv/index.html) Reading and Writing CSV Files: NOTE: Do not change your working directory with `setwd()`; the `cars-speeds.csv` and `car-speeds-cleaned.csv` files are already included in the `data/` directory in this repository, so you already have them downloaded.  The `data/car-speeds.csv` paths will work with your R Studio project for this workshop.
+* [Software Carpentry Programming in R](http://swcarpentry.github.io/r-novice-inflammation/10-supp-addressing-data/index.html) Addressing Data.  NOTE: Same note as above concerning the data file.
+* Recoding and transforming variables: [Learning Statistics with R v1](https://learningstatisticswithr.com/book/datahandling.html#transform) 7.2 Transforming and recoding a variable.  Reviews some material from yesterday, and then adds in data frames.  NOTE: you do not need to load a file called `likert.Rdata` (although it's available as part of the ["Data sets" link here](https://learningstatisticswithr.com/); instead, run the code below to create the `likert.raw` vector she works with in the section:
+```r
+likert.raw <- c(1, 7, 3, 4, 4, 4, 2, 6, 5, 5)
+```
+* [Learning Statistics with R v1](https://learningstatisticswithr.com/) [Section 4.12 Getting Help](https://learningstatisticswithr.com/book/mechanics.html#help)
 
 
 Alternative/extra material: 
+* YaRrr! The Pirate’s Guide to R [Matrices and Dataframes](https://bookdown.org/ndphillips/YaRrr/matricesdataframes.html)
 * [Data Carpentry Data Analysis and Visualization in R for Ecologists](https://datacarpentry.org/R-ecology-lesson/02-starting-with-data.html) Lesson 2 Starting with Data: covers data frames and factors (a Monday topic)
 * Interactive tutorial on data frames : [DataCamp 15 Easy Solutions To Your Data Frame Problems In R](https://www.datacamp.com/community/tutorials/15-easy-solutions-data-frame-problems-r)
 * Subset a data frame: [Learning Statistics with R v1](https://learningstatisticswithr.com/book/datahandling.html#subsetdataframe) 7.5 Extracting a subset of a data frame (7.3 on vectors is also useful)
 * Getting Help: 
   - [Cloud Based Data Science](https://leanpub.com/universities/set/jhu/cloud-based-data-science) Intro to R Course - Getting Help in R section
-  - [Learning Statistics with R v1](https://learningstatisticswithr.com/book/mechanics.html#help) Section 4.12 Getting Help
   - [R Cookbook](https://learning.oreilly.com/library/view/r-cookbook-2nd/9781492040675/ch01.html#recipe-id265) Starting Section 1.7
 * Reading in Data Files: [Cloud Based Data Science](https://leanpub.com/courses/jhu/cbds-getting-data/read/2#leanpub-auto-csv-excel-and-tsv-files) Getting Data Section 2 CSV, Excel, and TSV Files
   
 Notes:
 
-* If you see a reference to the stringsAsFactors option for read.csv(): it defaults to TRUE for R versions < 4 but FALSE for R 4.0.0 and later.  Most materials, including some above, have not yet been updated to reflect this change because R 4.0.0 is recent.
+* If you see a reference to the stringsAsFactors option for read.csv(): it defaults to TRUE for R versions < 4 but FALSE for R 4.0.0 and later.  Most materials have not yet been updated to reflect this change because R 4.0.0 is recent.
 
 ### Exercises
 
