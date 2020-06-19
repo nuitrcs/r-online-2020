@@ -1,5 +1,5 @@
 ---
-title: "Part 2"
+title: "Part 2: Data Frames"
 output:
   html_document:
     df_print: paged
@@ -71,7 +71,7 @@ What will the length of a data frame be?  # of columns
 length(penguins)
 ```
 
-This is because it's technically a list of vectors (lists are a different type).  Don't use this.  Use `ncol()` instead:
+This is because it's technically a list of vectors (lists are a different type).  Don't use length with a data frame; use `ncol()` instead:
 ```{r}
 ncol(penguins)
 ```
@@ -141,7 +141,7 @@ This gave us a tibble/data.frame back, but with `x`:
 x[,1]
 ```
 
-we get a vector back.
+we get a vector back.  This is one difference between tibbles and regular data frames.
 
 **EXERCISE** (using `x` created above): how would we select rows 2 through 5, and columns 1 through 3 from `x`?
 ```{r}
@@ -402,7 +402,13 @@ Today you'll work more with data frames.  You'll also learn how to read a csv fi
 
 There are exercises, but I's stronly encourage you to read in one of your own data files and start working with it.  If you don't have a data file, there are some examples linked in the exercises that you could try.
 
+One tip to start: if you get an error message that a file can't be found when you're trying to import it: 
 
+1) Check the spelling of the filename for typos
+
+2) Check your working directory (`getwd()`) and make sure the path to the file is correct and completely specified given what your working directory is.
+
+3) Make sure the file is actually in the folder you think it is.  I recommend copying or moving any downloaded files into the project/directory for this workshop so you know you really have the file.  I've seen some problems on Windows computers in particular before where a .zip file isn't really unzipped - it's just letting you see inside without actually expanding the contents and creating real files.
 
 
 

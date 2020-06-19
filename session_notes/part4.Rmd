@@ -1,0 +1,321 @@
+---
+title: "Part 4: Data Exploration and Statistics"
+output:
+  html_document:
+    df_print: paged
+editor_options: 
+  chunk_output_type: inline
+---
+
+# Setup
+
+```{r}
+library(ggplot2)
+```
+
+
+
+# Data
+
+We're going to use the same penguins data from previous days.  If you don't have it installed, you'll need to uncomment the lines below and do so.
+
+```{r, installpackages, eval=FALSE}
+#install.packages("remotes")
+#remotes::install_github("allisonhorst/palmerpenguins")
+```
+
+If you have it installed, just load it:
+
+```{r}
+library(palmerpenguins)
+```
+
+So far we've learned how to get our data into a data frame, work with that data frame, and visualize that data.  Now, how do we analyze it?  
+
+This isn't a statistics workshop, so we're going to focus on the code here.  You'll likely need to do more learning later about the specific models you use in your research.  We have some additional workshops later this summer that also may be helpful for learning about running specific types of models in R.
+
+# Summarize by Group
+
+We learned how to subset our data frame, so if we want to compute a measure by group in our data, we could do it on subsets.  But there are functions in R that will help us aggregate our data by categorical variables and compute summary measures.
+
+First, tapply, which applies a function to a vector grouped by a second vector.  
+
+```{r, eval=FALSE}
+tapply(vector to compute on, 
+       vector with groups, 
+       name of the function, 
+       optionally any arguments to the function besides the data vector)
+```
+
+```{r, eval=FALSE}
+tapply(penguins$culmen_length_mm,   # vector to compute on
+       penguins$species,  # vector with groups
+       mean,  # name of the function
+       na.rm = TRUE)  # optionally any arguments to the function besides the data vector
+```
+
+If we want to group by multiple variables, then `aggregate()` is similar to `tapply` (it can also work with a single grouping variable).
+
+```{r}
+aggregate(penguins$culmen_length_mm,  # data to compute on
+          list(penguins$species, penguins$island),  # groups: it expects a list here
+          mean,  # function
+          na.rm=TRUE)   # additional arguments to the function
+```
+
+We could also use the formula syntax we saw briefly while plotting, which happens to give us better names in the resulting data frame.  It wants `variable ~ group1` or `variable ~ group1 + group2`, with `data` specified:
+
+```{r}
+aggregate(culmen_length_mm ~ species + island,
+          data = penguins,
+          mean,
+          na.rm=TRUE)
+```
+
+
+**EXERCISE**: Compute group means of `body_mass_g` by `sex` with `tapply()` and `aggregate()`.
+
+First, though, we need to clean up `sex` to handle a bad value:
+
+```{r}
+table(penguins$sex)
+penguins$sex[penguins$sex == "."] <- NA
+```
+
+Use `tapply()`
+
+```{r}
+
+```
+
+Use `aggregate()`
+
+```{r}
+
+```
+
+
+
+
+## Correlation
+
+```{r}
+cor(penguins$culmen_depth_mm, penguins$culmen_length_mm)
+```
+
+Those missing values again!
+
+```{r}
+cor(penguins$culmen_depth_mm, penguins$culmen_length_mm,
+    use = "pairwise")
+```
+
+There are different methods.  Default (above) is pearson -- "normal" correlation for continuous variables.
+
+There are also rank (non-parametric) correlations:
+
+```{r}
+cor(penguins$culmen_depth_mm, penguins$culmen_length_mm,
+    use = "pairwise",
+    method = "kendall")
+```
+
+```{r}
+cor(penguins$culmen_depth_mm, penguins$culmen_length_mm,
+    use = "pairwise",
+    method = "spearman")
+```
+
+Is our correlation "significant"?
+
+```{r}
+cor.test(penguins$culmen_depth_mm, penguins$culmen_length_mm,
+    use = "pairwise")
+```
+
+This seems strange that there's a negative correlation between these measures.  Remember this plot from yesterday?
+
+```{r}
+ggplot(penguins, aes(x=culmen_length_mm,
+                     y=culmen_depth_mm,
+                     color=species)) + 
+  geom_point() + 
+  geom_smooth(method="lm", se=FALSE)
+```
+
+What's going on?  Simpson's Paradox.  The relationship in the groups is different within groups vs. overall.  
+
+We need to compute the correlation separately for each group.  Unfortunately, `tapply()` and `aggregate()` don't work, because `cor()` expects two vectors to compute a single correlation.
+
+There are multiple ways we could do this, including a [function](https://personality-project.org/r/html/statsBy.html) in the `psych` package (written by Northwestern's own Bill Revelle) that will let you compute correlation and other statistics by group.  
+
+Or we could do it manually here for practice subsetting data! 
+
+**EXERCISE**: Compute the correlation for each of the three species separately (remember to run code above to load libraries and data): 
+
+```{r, eval=FALSE}
+cor(___, ___, 
+    use = "pairwise")
+cor(___, ___, 
+    use = "pairwise")
+cor(___, ___, 
+    use = "pairwise")
+```
+
+
+We can also use `cor()` to compute a correlation matrix between multiple variables at once by supplying a data frame or matrix instead of two vectors.
+
+```{r}
+# Which are the numeric variables?
+head(penguins)
+```
+
+
+```{r}
+cor(penguins[,3:6],
+    use = "pairwise")
+```
+
+
+
+
+# T-Test
+
+A t-test lets us determine if the means of two groups are statistically different from each other.  If we have a variable that splits our data into two groups, we can use the formula syntax here `variable ~ groups`:
+
+```{r}
+t.test(body_mass_g ~ sex, data=penguins)
+```
+
+Or we can supply two separate vectors of values to compare:
+
+```{r}
+# same as above
+t.test(penguins$body_mass_g[penguins$sex == "MALE"],
+       penguins$body_mass_g[penguins$sex == "FEMALE"])
+```
+
+There are exercises for t-test in the exercise directory.
+
+
+# Regression
+
+We're going to use different data for regression, because the exercise uses the penguins data.
+
+```{r, eval=FALSE}
+install.packages("AmesHousing")
+```
+
+```{r}
+library(AmesHousing)
+names(ames_raw)
+```
+
+These variable names aren't easy to type because of spaces and special characters.  We wouldn't be able to use them easily with the `$` syntax.  I'm going to clean them up:
+
+```{r, eval=FALSE}
+install.packages("janitor")
+```
+
+I only need to use one function.  Instead of loading the package, I'm going to prefix the function name with the package name:
+
+```{r}
+ames <- janitor::clean_names(ames_raw)
+names(ames)
+```
+
+Harder to read but easier to use in R.  Normally, I'd do a lot of exploration of the data first.  We're just going to jump straight to modeling here.
+
+```{r}
+sort(names(ames))
+```
+
+Combine square footage measures first
+
+```{r}
+ames$sf <- ames$total_bsmt_sf + ames$x1st_flr_sf + ames$x2nd_flr_sf
+```
+
+
+To compute a linear regression, we use the `lm()` function (linear model).
+
+```{r}
+reg1 <- lm(sale_price ~ bedroom_abv_gr + full_bath + half_bath + tot_rms_abv_grd + sf,
+           data = ames)
+reg1
+```
+
+```{r}
+summary(reg1)
+```
+
+```{r}
+names(reg1)
+```
+
+
+```{r}
+names(summary(reg1))
+```
+
+```{r}
+summary(reg1)$r.squared
+```
+
+
+
+## Categorical Variables
+
+```{r}
+table(ames$house_style)
+```
+
+
+
+```{r}
+reg2 <- lm(sale_price ~ bedroom_abv_gr + full_bath + half_bath + 
+             tot_rms_abv_grd + sf + house_style,
+           data = ames)
+summary(reg2)
+```
+
+```{r}
+reg3 <- lm(sale_price ~ -1 + bedroom_abv_gr + full_bath + half_bath + 
+             tot_rms_abv_grd + sf + house_style,
+           data = ames)
+summary(reg3)
+```
+
+
+## Formula Syntax
+
+```
+Symbol   Example            Description 
+------------------------------------------------------------------------------------------------
+~        y ~ x1             Defines the formula (necessary to create a formula object) 
++        y ~ x1 + x2        Include the variable 
+-        y ~ -1 + x1        Delete a term, usually a 1 for the intercept 
+:        y ~ x1 + x1:x2     Interaction term  
+*        y ~ x1*x2          Interaction between the variables and each term individually;  
+                              same as y ~ x1 + x2 + x1:x2
+I()      y ~ I(log(x1))     Wrapper for transforming variables without creating a new variable
+poly()   y ~ poly(x1, 2)    Creates polynomial terms up to the degree specified 
+
+```
+
+
+```{r}
+reg4 <- lm(sale_price ~ -1 + bedroom_abv_gr + full_bath + half_bath + 
+             tot_rms_abv_grd*sf + house_style,
+           data = ames)
+summary(reg4)
+```
+
+
+# Coming Up
+
+The statistical methods and models people use varies considerably across fields.  The independent work resource for today comes from a book developed specifically for psychology students, so it may or may not contain the methods that you need for your work.  This workshop isn't about learning new statistical techniques, so please do skip any material that isn't relevant to you.  If you need help finding resources for your specific field or type of analysis, please ask on the discussion boards.  
+
+
+
+

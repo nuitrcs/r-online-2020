@@ -1,0 +1,204 @@
+---
+title: "Part 3: Visualization"
+output:
+  html_document:
+    df_print: paged
+editor_options: 
+  chunk_output_type: inline
+---
+
+# Setup
+
+```{r}
+library(ggplot2)  # if you installed tidyverse, you have it.  Otherwise install it
+```
+
+
+# Data
+
+We're going to use the same penguins data from yesterday.  If you didn't install it yesterday, you'll need to uncomment the lines and do so.
+
+```{r, installpackages, eval=FALSE}
+#install.packages("remotes")
+#remotes::install_github("allisonhorst/palmerpenguins")
+```
+
+If you have it installed, just load it:
+
+```{r}
+library(palmerpenguins)
+```
+
+We're also going to use average yearly temperatures in New Hampshire, a data set built into R.  But we need to put it in a data frame first to make it easier to use (it's in a special time series object):
+
+```{r}
+nh <- data.frame(temp=c(nhtemp), year=1912:1971)
+```
+
+
+
+# Base R Graphics
+
+The core plotting function in R is `plot()`.  It is used to make scatter plots and line plots.  
+
+```{r}
+plot(x = penguins$culmen_depth_mm, 
+     y = penguins$culmen_length_mm)
+```
+
+As with other functions, naming the arguments x and y is optional - but plot expects x first then y:
+
+```{r, eval=FALSE}
+plot(penguins$culmen_depth_mm, penguins$culmen_length_mm)
+```
+
+We can also use something called the formula syntax, which we'll talk about more tomorrow.  With the formula syntax, we specify the data set, the we can use the variable names without quotes in the form: `y ~ x`
+
+```{r}
+plot(culmen_length_mm ~ culmen_depth_mm, data=penguins)
+```
+
+Changes to the plot are made through other arguments (input options) to the `plot()` function, which are passed to the `par()` function.  See the help for the `par()` function to get a list of options beyond the labels (which are part of `plot()` directly).
+
+```{r}
+plot(culmen_length_mm ~ culmen_depth_mm, 
+     data = penguins,
+     main = "Penguin Culmen Measurements",
+     xlab = "Depth",
+     ylab = "Height",
+     pch = 17,  # which marker symbol to use
+     col = "red",
+     cex = 3,  # size
+     ylim = c(30,65))  
+```
+
+Colors can be specified with built in names (get a list with `colors()`) or hex values (web colors) or `rgb()` -- there are a few other options too.
+
+Plot markers: https://bookdown.org/ndphillips/YaRrr/YaRrr_files/figure-html/unnamed-chunk-280-1.png 
+
+One option is the plot type, which is how we go from a scatter plot (default) to a line plot:
+
+```{r}
+plot(temp ~ year, 
+     data=nh,
+     type='l')
+```
+
+There are other plotting functions built into R, but one I use frequently is `hist()`:
+
+```{r}
+hist(penguins$culmen_depth_mm)
+```
+
+```{r}
+hist(penguins$culmen_depth_mm, breaks=20)
+```
+
+
+**EXERCISE**: Run the code at least in the Setup and Data sections above first.  Then 
+
+1. Make a scatterplot using the penguins data of `body_mass_g` and `flipper_length_mm`.  
+
+```{r}
+
+```
+
+2. Make a histogram using the penguins data of `body_mass_g` but only for penguins with `sex` of `MALE`.  Hint: you'll need to subset the data when providing it to the `hist()` function.  You can do this as part of the function call, or make a new variable with your subset first, and send that to `hist()`.  
+
+```{r}
+
+```
+
+
+
+
+# ggplot2
+
+I sometimes use base R plotting functions for very quick plots.  And I have produced publication graphics with them before.  But now most of the time I use ggplot2, which is particularly useful for exploring different groups in your data.  
+
+Let's start first with reproducing the plots we made above.  Each plot with ggplot has the same template for the code:
+
+```{r}
+ggplot(penguins, aes(x = culmen_depth_mm, y = culmen_length_mm)) + 
+  geom_point()
+```
+
+
+The first line says what data and variables to use, and the second line says what type of plot to make.  We add the components of the plot together, which is a somewhat unique syntax.
+
+The cheatsheet is very useful when working with ggplot2: https://www.rstudio.org/links/data_visualization_cheat_sheet
+
+```{r}
+ggplot(nh, aes(x = year, y = temp)) + 
+  geom_line()
+```
+
+
+```{r}
+ggplot(penguins, aes(x = culmen_depth_mm)) + 
+  geom_histogram()
+```
+
+And a plot with all of the options changed like above:
+
+```{r}
+ggplot(penguins, aes(x=culmen_depth_mm, y=culmen_length_mm)) + 
+  geom_point(pch = 17, 
+             color = "red",
+             size = 3) +   # on a different scale than cex
+  labs(title = "Penguin Culmen Measurements",
+       x = "Depth",
+       y = "Height") + 
+  scale_y_continuous(limits = c(30, 65))
+```
+
+For styling parts of the plot that aren't the data (backgrounds, labels, axes, etc.), we can use themes.  There are a few built in, or the `theme()` function can be used to set any option.  Theme functions should get called at the end of your list of ggplot components.
+
+```{r}
+ggplot(penguins, aes(x = culmen_depth_mm)) + 
+  geom_histogram(bins = 25) + 
+  theme_minimal()
+```
+
+
+So far, we've made similar plots, just with different syntax.  Where ggplot excels though is with groups and mapping variables from your data to aesthetics of the plot other than just x and y positions:
+
+```{r}
+ggplot(penguins, aes(x=culmen_depth_mm, 
+                     y=culmen_length_mm, 
+                     color=species)) +   # we added this
+  geom_point()
+```
+
+```{r}
+ggplot(penguins, aes(x=culmen_depth_mm, 
+                     y=culmen_length_mm, 
+                     color=species)) +  
+  geom_point() + 
+  geom_smooth()   # we added this
+```
+
+```{r}
+ggplot(penguins, aes(x=culmen_depth_mm, 
+                     y=culmen_length_mm, 
+                     color=species)) +  
+  geom_point() + 
+  facet_grid(. ~ island)   # we added this
+```
+
+
+**EXERCISE**: Run the code at least in the Setup and Data sections above first.  Then make a boxplot using the penguins data of `culmen_length_mm` (y) by `species` (x).  Check the ggplot2 cheat sheet to find the right geom to use.  If you get done quickly, try labeling your plot.
+
+```{r}
+
+```
+
+
+
+# Coming Up
+
+Today you'll practice plotting.  I recommend picking one plotting system to focus on.  If you're in a lab or work with colleagues who use base R graphics, then go with that.  If not, I'd start with ggplot2 from the beginning.  It will likely take a little longer to get started as the basic syntax is a bit more complicated, but it will make it easier to make a wide range of plots after the initial learning period.  There are links to both types of resources on the main page.  
+
+There are a few exercises, but the best approach for practicing today is to try to plot some of your own data or at least some data that you're interested in.  Share the plots you make on the Canvas discussion boards.  There's a discussion topic for sharing visualizations -- even if they're basic, show them off and celebrate your success!
+
+

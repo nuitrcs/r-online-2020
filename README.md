@@ -166,7 +166,7 @@ File: `session_notes/part2.Rmd` or [HTML version](https://nuitrcs.github.io/r-on
 
 * [Software Carpentry Programming in R](http://swcarpentry.github.io/r-novice-inflammation/11-supp-read-write-csv/index.html) Reading and Writing CSV Files: NOTE: Do not change your working directory with `setwd()`; the `cars-speeds.csv` and `car-speeds-cleaned.csv` files are already included in the `data/` directory in this repository, so you already have them downloaded.  The `data/car-speeds.csv` paths will work with your R Studio project for this workshop.
 * [Software Carpentry Programming in R](http://swcarpentry.github.io/r-novice-inflammation/10-supp-addressing-data/index.html) Addressing Data.  NOTE: Same note as above concerning the data file.
-* Recoding and transforming variables: [Learning Statistics with R v1](https://learningstatisticswithr.com/book/datahandling.html#transform) 7.2 Transforming and recoding a variable.  Reviews some material from yesterday, and then adds in data frames.  NOTE: you do not need to load a file called `likert.Rdata` (although it's available as part of the ["Data sets" link here](https://learningstatisticswithr.com/); instead, run the code below to create the `likert.raw` vector she works with in the section:
+* [Learning Statistics with R v1](https://learningstatisticswithr.com/book/datahandling.html#transform) 7.2 Transforming and recoding a variable.  Reviews some material from yesterday, and then adds in data frames.  NOTE: you do not need to load a file called `likert.Rdata` (although it's available as part of the ["Data sets" link here](https://learningstatisticswithr.com/); instead, run the code below to create the `likert.raw` vector she works with in the section:
 ```r
 likert.raw <- c(1, 7, 3, 4, 4, 4, 2, 6, 5, 5)
 ```
@@ -202,6 +202,8 @@ Want more practice?  Read one of your own datasets into R and use the skills you
 
 
 10am Zoom session: Base R Plots, ggplot2 basics
+File: `session_notes/part3.Rmd` or [HTML version](https://nuitrcs.github.io/r-online-2020/session_notes/part3.html)
+
 
 3pm Zoom session: Quiz, Review, and Office Hours
 
@@ -214,7 +216,10 @@ Want more practice?  Read one of your own datasets into R and use the skills you
 
 ### Materials
 
-**Start here:**  [R for Data Science](https://r4ds.had.co.nz/data-visualisation.html) Chapter 3 Visualization (all ggplot2).  Or if you want to focus on base R graphics (perhaps that's what is used in your lab/department), try [Learning Statistics with R v1](https://learningstatisticswithr.com/book/graphics.html) Drawing Graphs.  
+**Start here:** (focus on just one)
+
+* ggplot2: [R for Data Science](https://r4ds.had.co.nz/data-visualisation.html) Chapter 3 Visualization - this is a lot of material to digest; you don't have to get through it all at once.  Focus on the basics, and then skim the rest so you know what features are available.  Come back to it as you need to learn more to do what you want with your plots.
+* Base R graphics: [Learning Statistics with R v1](https://learningstatisticswithr.com/book/graphics.html) Drawing Graphs
 
 Alternative/extra material: 
 * [R Cookbook](https://learning.oreilly.com/library/view/r-cookbook-2nd/9781492040675/ch10.html#Graphics) Graphics uses ggplot2
@@ -238,12 +243,14 @@ Want more practice?  Read one of your own datasets into R and start making some 
 
 
 10am Zoom session: Formula syntax, interpreting linear regression output
+File: `session_notes/part4.Rmd` or [HTML version](https://nuitrcs.github.io/r-online-2020/session_notes/part4.html)
 
 3pm Zoom session: Quiz, Review, and Office Hours
 
 ### Concepts
 
-* Compute basic statistics such as mean and standard deviation
+* Summarize by group (tapply, aggregate)
+* Correlation
 * Run a t-test
 * Formula syntax
 * Linear regression
@@ -254,10 +261,20 @@ Want more practice?  Read one of your own datasets into R and start making some 
 
 **Start here:** Learning Statistics with R [Ch. 5 Descriptive Statistics](https://learningstatisticswithr.com/book/descriptives.html) and [Part V Statistical Tools](https://learningstatisticswithr.com/book/part-v-statistical-tools.html): **choose the sections relevant to the methods and models for your field.**  Note: This book teaches statistics in addition to R, so there's theoretical material you may be able to skip.
 
+NOTE: Get the datasets from the "Data sets" link on the book's main page: https://learningstatisticswithr.com/.  Unzip the file, and it contains multiple `.RData` files that are named according to the data in them.  (`.RData` is a way to save data in an R format -- CSVs and other file types are better for replication and portability.)  Move the files you need to the `data/` folder in this project.  Load (open) a file with:
+
+```r
+load("data/parenthood.RData")
+```
+
+Then you'll see one (or more) new objects in your Environment tab that you can use.  
+
+
 Alternative/extra material: 
 
 * Descriptive and Exploratory Analysis: [Cloud Based Data Science](https://leanpub.com/courses/jhu/cbds-analysis/home) Data Analysis Course: focuses on concepts more than the R code
 * Statistics: [R Cookbook](https://learning.oreilly.com/library/view/r-cookbook-2nd/9781492040675) - has several useful sections if you already know what you want to do
+* UCLA Statistical Consulting [Data Analysis Examples](https://stats.idre.ucla.edu/other/dae/) - if you're familiar with Stata, SAS, SPSS, or MPlus, this site has examples worked for many types of different statistical models (mostly regression based) for these programs as well as R.  
 
 Want more?  See [Statistics and Machine Learning](https://github.com/nuitrcs/rworkshops#statistics-and-machine-learning) resource list, or our [online guide to learning linear regression in R](https://sites.northwestern.edu/researchcomputing/2020/05/09/online-learning-resources-linear-regression-in-r/).
 
