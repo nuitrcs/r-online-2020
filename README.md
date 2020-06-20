@@ -201,7 +201,7 @@ Want more practice?  Read one of your own datasets into R and use the skills you
 
 
 
-10am Zoom session: Base R Plots, ggplot2 basics
+10am Zoom session: Base R Plots, ggplot2 basics  
 File: `session_notes/part3.Rmd` or [HTML version](https://nuitrcs.github.io/r-online-2020/session_notes/part3.html)
 
 
@@ -242,7 +242,7 @@ Want more practice?  Read one of your own datasets into R and start making some 
 ## Thursday: Data Exploration and Statistics
 
 
-10am Zoom session: Formula syntax, interpreting linear regression output
+10am Zoom session: Formula syntax, interpreting linear regression output  
 File: `session_notes/part4.Rmd` or [HTML version](https://nuitrcs.github.io/r-online-2020/session_notes/part4.html)
 
 3pm Zoom session: Quiz, Review, and Office Hours
@@ -289,7 +289,7 @@ See the exercises in the [exercises/part4](exercises/part4) directory for t-test
 ## Friday: Programming (Option 1)
 
 
-10am Zoom session: Functions, for loops, if-else
+10am Zoom session: Functions, for loops, if-else  
 File: `session_notes/part5.Rmd` or [HTML version](https://nuitrcs.github.io/r-online-2020/session_notes/part5.html)
 
 3pm Zoom session: Quiz, Review, and Office Hours
