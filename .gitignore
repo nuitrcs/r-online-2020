@@ -48,4 +48,8 @@ intronotes.md
 
 *.nb.html
 
+data/combined_pdb.csv
+data/evanston_schools.txt
+data/il_statewide_2020_04_01.rds
+
 

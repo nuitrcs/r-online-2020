@@ -1,4 +1,4 @@
-# If/else Answers
+# If/else Exercise
 
 # Remember: use if-else statements when checking and returning single values;
 # use ifelse() to check all values in a vector and get a vector of the same length in return.

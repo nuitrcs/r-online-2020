@@ -1,0 +1,402 @@
+---
+title: "Part 5: Programming"
+output:
+  html_document:
+    df_print: paged
+editor_options: 
+  chunk_output_type: inline
+---
+
+# Setup
+
+```{r setup}
+# have our notebook use the project directory as the working directory;
+# defaults to the directory of the notebook if we don't have this
+knitr::opts_knit$set(root.dir = normalizePath("../")) 
+```
+
+
+```{r}
+library(dplyr)  # we'll use the bind_rows function
+```
+
+
+
+# Intro
+
+On previous days we covered things you'll likely do regularly in R.  Today, we're covering programming topics that you likely won't use as often.  However, the concepts today can help you make your scripts less repetitive, which will help reduce errors and make your life easier.
+
+One thing that is common about today is that we use `{}` (curly braces) to group multiple lines of R code together in a block.  Code that is in `{}` is a unit that is executed together.  
+
+RStudio will indent lines of code within `{}` for you, but this is just formatting -- it doesn't affect how the code executes.
+
+Unlike the previous days, I'm not going to break for exercises during the session today.  There are exercise files in the repository that you can work on after the session.
+
+# Functions
+
+When do I write functions in R?
+
+* I need to use the same or almost the same code multiple (usually 3+) times 
+* I want to use a function like `tapply()` or `aggregate()` that takes another function, but I need to do multiple steps to the data
+* I need to share code with others and I want to make it more clear what parts of the code are doing by combining steps into functions
+
+
+Functions can take inputs, and they can return values, but they don't have to do either:
+
+```{r}
+say_hello <- function() {
+  print("Hello!")
+}
+```
+
+```{r}
+say_hello()
+```
+
+
+Add input:
+
+```{r}
+say_hello <- function(name) {
+  paste("Hello", name) 
+}
+
+say_hello("Christina")
+```
+
+We can be explicit about what the return value (output) of a function is with `return()`, but in R, functions will by default return the value of the last command:
+
+```{r}
+x <- say_hello("Christina")
+
+x
+```
+
+Here's a more realistic example.  I want to make the same plot for multiple variables.  The only thing that changes is the labels and which variable I'm plotting.  I could copy and paste the same code over and over again (sometimes this makes sense).  But then if I change my mind about the styling, I have to change the code in multiple places.  So I can use a function:
+
+```{r}
+my_plot <- function(data, xlab) {
+    hist(data, 
+         col = "pink",
+         breaks = 20,
+         border = FALSE,  # no line around bars
+         main = "Cars Dataset", 
+         xlab = xlab)  # get the value from input
+}
+
+# use the built in mtcars data
+my_plot(mtcars$mpg, "MPG")
+my_plot(mtcars$disp, "Displacement")
+my_plot(mtcars$wt, "Weight")
+```
+
+
+There's much more to learn about functions, but you can practice on your own later today and ask questions on the discussion boards.  
+
+As you learn more about functions, you'll want to pay attention to the scope of variables: if you use `x` inside your function, where does R look for `x`?  And if you change the value of `x`, what happens?  You can also set default values for your inputs like many of the R functions you've already used have.
+
+
+
+# For loops
+
+A for loop lets us to the same thing with each element in a vector: *for* each element in the vector, do...
+
+```{r, eval=FALSE}
+for (variable in vector) {
+  # do stuff
+}
+```
+
+`variable` is any name you want to give your loop variable -- usually something short; `vector` is any vector.
+
+With a for loop, we often have some variable we define before the loop to hold our result, run the loop, and then use the result after.  But you could also use a loop to change some existing data in place. 
+
+There are a few different ways we might use a for loop.
+
+## Example 1
+
+You may want to use the values of a vector directly:
+
+```{r}
+letter_sample <- sample(letters, 50, replace=TRUE) # letters is a built-in vector
+letter_sample
+
+result <- ''
+for (letter in letter_sample) {  
+  print(letter)   # so we can see what's happening
+  if (letter %in% c('a', 'e', 'i', 'o', 'u')) {
+    result <- paste0(result, letter)  # concatenate the letter onto the end of the result 
+  }
+}
+result  
+```
+
+## Example 2
+
+You may want to use a counter variable in a for loop.  Here, we're not using the values in the vector or the variable -- it's just telling us how many times to repeat the loop.
+
+```{r}
+result <- 0
+for (i in 1:20) {
+  print(i)
+  if (runif(1) > .5) {  # random draw from a uniform distribution (0 to 1)
+    result <- result + 1  # keep track of how many times the value was > .5
+  }
+  print(paste0("Result: ", result))
+}
+result  # you'll get different results each time
+```
+
+## Example 3
+
+We could use the counter variable to fill each element of a result vector one at a time.  
+
+```{r}
+result <- rep(NA, 20)  # make the vector of the length we need ahead of time
+
+for (i in 1:length(result)) {
+  print(i)
+  result[i] <- i^2   # replace each value in result one by one as i increments
+  print(result)
+}
+
+result
+```
+
+Normally we'd do something more complicated than squaring a number -- it's just an example of the format.
+
+## Alternatives
+
+There are functions (e.g. the `apply()` family of functions and the `purrr` library) that will iterate over elements like a loop does.  And many functions will accept vectors directly, so you don't need to explicitly loop over the elements of a vector.  
+
+For example, with the simple for loop examples above, we don't really need to use a for loop:
+
+```{r, eval=FALSE}
+paste(letter_sample[letter_sample %in% c('a', 'e', 'i', 'o', 'u')], collapse="")
+
+sum(runif(20) > .5)
+
+(1:20)^2
+```
+
+But sometimes for loops can just be easier to wrap your head around or make your code clearer.
+
+
+## Process some files
+
+Here's a more realistic example.  
+
+The `data/pdb` directory has multiple data files.  Here's what one looks like:
+
+```
+COMPND      Ammonia
+AUTHOR      DAVE WOODCOCK  97 10 31
+ATOM      1  N           1       0.257  -0.363   0.000
+ATOM      2  H           1       0.257   0.727   0.000
+ATOM      3  H           1       0.771  -0.727   0.890
+ATOM      4  H           1       0.771  -0.727  -0.890
+TER       5              1
+END
+```
+
+We want to process each of these files.  We want the data from the lines that start with ATOM, and we need the molecule name from the first line.
+
+We need two loops:
+
+1. Loop through all of the files to process each one.
+2. Loop through the lines in each file.
+
+
+Let's start with the first loop.  There's a function that will list all of the files in a directory (optionally that match a pattern):
+
+```{r}
+list.files("data/pdb",   # where the files are
+           "*.pdb",   # the pattern to match filenames against (optional)
+           full.names=TRUE)  # return the path to the file, not just the name
+```
+
+This gives us a vector we can loop through:
+
+```{r}
+for (file in list.files("data/pdb/", "*.pdb", full.names=TRUE)) {
+  print(file)  # just print for now...
+}
+```
+
+With the name, we can open each file.  But these files don't have a standard format (like CSV) to read in, so we'll read in each line as text with `readLines()`.
+
+```{r}
+readLines("data/pdb/ammonia.pdb")
+```
+
+Now loop through lines within our loop to read the files (we call this nested loops -- one is nested inside the other):
+
+```{r}
+filelist <-  list.files("data/pdb", "*.pdb", full.names=TRUE)
+
+for (file in filelist[1:3]) {  # just loop through a few for now to keep the output small
+  
+  for (line in readLines(file)) {  # file comes from the loop above
+    print(line)   # just print the line for now -- we'll process them later
+  }
+  
+}
+```
+
+
+# If/else and ifelse()
+
+There are two ways to have the logic of if-then-else in R.  
+
+1) If-else statements evaluate conditional statements that produce a single TRUE or FALSE value -- not vectors.  This is like if-else statments you might have used in other programming languages.
+
+2) `ifelse()` takes a vector of TRUE and FALSE values and then returns a vector where you have a different value for TRUE than for FALSE. 
+
+When have I used an if-else statement (#1 above) in my R code?  
+
+* Webscraping when I want to check the status response code I get back after a request
+* Change the value of a variable (maybe a dimension or name) based on some characteristic of the data
+* Processing multiple or messy files where I have special cases
+* Checking for errors
+
+I use `ifelse()` regularly when recoding data.
+
+## ifelse()
+
+Let's talk about ifelse() first.  Format is:
+
+```{r, eval=FALSE}
+ifelse(vector of TRUE/FALSE, value to return if TRUE, value to return if FALSE)
+```
+
+
+```{r}
+ifelse(c(FALSE, TRUE), "a", "b")
+```
+
+```{r}
+my_measure <- 1:20
+
+my_measure %% 5 == 0
+
+ifelse(my_measure %% 5 == 0, my_measure, NA)
+```
+
+
+
+## if else
+
+Unlike `ifelse()`, if-else statements can only process a single TRUE or FALSE value.  You'll get a warning message if you try to use a vector (but not an error!)
+
+The basic syntax is:
+
+```{r, eval=FALSE}
+if (condition) {
+  # do something 
+}
+```
+
+and you can add on else:
+
+```{r, eval=FALSE}
+if (condition) {
+  # do something
+} else {
+  # do something else
+}
+```
+
+or another if:
+
+```{r, eval=FALSE}
+if (condition) {
+  # do something
+} else if (condition2) {
+  # do something else
+} else {
+  # do a third thing
+}
+```
+
+Let's use this to process the pdb data files.  
+
+If the line in the file starts with "COMPND", we want to get the molecule name.  If it starts with "ATOM" we want to add the data to our data set with the compound name.  Other lines we want to ignore.
+
+How can we detect these lines?
+
+```{r, eval=FALSE}
+line1 <- "COMPND      Ammonia"
+line2 <- "ATOM      1  N           1       0.257  -0.363   0.000"
+
+startsWith(line1, "COMPND")
+startsWith(line1, "ATOM")
+startsWith(line2, "ATOM")
+```
+
+
+```{r}
+output <- c()  # to hold data
+
+filelist <-  list.files("data/pdb", "*.pdb", full.names=TRUE)
+
+for (file in filelist[1:3]) {  # just loop through 3 for now to keep the output small
+  molecule_name <- NA  # to keep track of the name once we find it to add to each line
+  for (line in readLines(file)) { 
+    if (startsWith(line, "COMPND")) {
+      # Remove "COMPND" from the line and white spaces from beginning and end of what's left
+      molecule_name <- trimws(sub("COMPND", "", line))
+    } else if (startsWith(line, "ATOM")) {
+      # split line into components on the spaces
+      processed <- unlist(strsplit(line, " +"))  # " +" is a regular expression for 1 or more spaces in a row
+      
+      # some files have extra data at the end of the line, so just keep the values we want
+      processed <- processed[1:7]
+      
+      # replace "ATOM" with molecule name instead
+      processed[1] <- molecule_name  # was set via a previous iteration of the loop
+  
+      # add to output as a tab separated string (there are commas in some names) - 
+      # how we'd write it to file 
+      output <- c(output, paste(processed, collapse="\t"))
+    }
+  }
+}
+```
+
+```{r}
+head(output)
+
+# could write output to a CSV file, 
+# writeLines(output, "data/combined_pdb.tsv")
+
+# but we want to use it, 
+# so we'll "read" it in as if it were a file
+output <- paste0(output, collpase="\n") ## make it one long string like in a file
+output <- read.csv(text=output,  # read from output instead of a file
+                   col.names=c("molecule", "v1", "v2", "v3", "v4", "v5", "v6"),
+                   sep="\t",  # we used tabs instead of commas
+                   stringsAsFactors = FALSE)
+output
+```
+
+
+I didn't just sit down and write this script straight through.  I built it up piece by piece, ran it, found things that were wrong, and then fixed them.  And I kept doing this over and over.  
+
+I ran into issues:
+
+* I originally wrote this in a stand alone script, so the path to the data files was correct fine. But R notebooks assume that your working directory is the directory with the notebook file in it, so I had to change that at the top of the file so the paths would work correctly.  
+* How to store the rows after I processed them?  I couldn't make an empty data frame to fill in because I didn't know the number of rows I'd need.  I could bind rows together, but A) that turned out to be hard to do starting with a NULL data frame, B) I'm using R 3.6.3 so I ran into lots of stringsAsFactors issues, and C) it made the code more complicated to explain here.
+* I found inconsistencies in the data files like commas in some molecule names and extra columns of data.
+* I had never used `read.csv()` on text I already had within R -- I googled to see how to parse a string of CSV data into a data frame and found this solution.  
+
+
+# Coming Up
+
+As with other days, there are a few programming exercises in the repository for you to work on.  Unlike other days, these concepts can be hard to apply to your own data and code until a need for them arises.  If you get through the programming material, I recommend returning to one of your own data sets and continuing with your own work in R.  I'm happy to answer any R questions at all this afternoon.
+
+After today, next steps are for you to keep working and learning.  We're here to help you.  I'll monitor the discussion forum on Canvas for another week.  After that, reach out with a [consultation request](https://www.it.northwestern.edu/research/consultation/data-services.html) if we can be of help.  
+
+We have many more R workshops this summer.  I'll be teaching a series of 6 workshops on parts of the tidyverse packages.  Some of our student consultants will be teaching workshops on running various statistical and predictive models in R, and doing specialized tasks such as webscraping, network analysis, and building web applications with Shiny.  You can sign up on Eventbrite as you did for this workshop.  
+
+I'll send out follow-up links with everything via email.
+

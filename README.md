@@ -289,7 +289,8 @@ See the exercises in the [exercises/part4](exercises/part4) directory for t-test
 ## Friday: Programming (Option 1)
 
 
-10am Zoom session: Putting it all together in a script; if/else vs. ifelse()
+10am Zoom session: Functions, for loops, if-else
+File: `session_notes/part5.Rmd` or [HTML version](https://nuitrcs.github.io/r-online-2020/session_notes/part5.html)
 
 3pm Zoom session: Quiz, Review, and Office Hours
 
@@ -303,9 +304,12 @@ See the exercises in the [exercises/part4](exercises/part4) directory for t-test
 
 **Start here:**
 
+* Writing Functions: [Software Carpentry Programming in R](http://swcarpentry.github.io/r-novice-inflammation/02-func-R/index.html) Creating Functions
 * If/else: [Software Carpentry Programming in R](http://swcarpentry.github.io/r-novice-inflammation/04-cond/index.html) Making Choices
 * Loops: [Software Carpentry Programming in R](http://swcarpentry.github.io/r-novice-inflammation/15-supp-loops-in-depth/index.html) Loops
-* Writing Functions: [Software Carpentry Programming in R](http://swcarpentry.github.io/r-novice-inflammation/02-func-R/index.html) Creating Functions
+
+
+NOTE: Download the data from the [Setup Page](http://swcarpentry.github.io/r-novice-inflammation/setup.html) before starting the lessons.
 
 Alternative/extra material: 
 
@@ -320,6 +324,6 @@ See the exercises in the [exercises/part5](exercises/part5) directory.
 
 ## Friday: Data Project (Option 2)
 
-Instead of learning the programming concepts above, you can instead apply the skills you learned in the previous 4 days working on a small data project.  There will be no video lessons for the project, but you're welcome to ask questions and seek help as you work on it.  
+Instead of learning the programming concepts above, you can instead apply the skills you learned in the previous 4 days working on a small data project.  There will be no video lesson for the project, but you're welcome to ask questions on the discussion boards and in the afternoon office hours.  
 
 Details coming soon.  

@@ -1,4 +1,8 @@
-# Functions Answers
+# Functions Exercise
+
+# NOTE: If you've worked through the Software Carpentry material, 
+# you've already written a function like this.  Try the other function
+# exercise instead
 
 # Here's a custom function (remember to run this code):
 fahr_to_kelvin <- function(temp) {

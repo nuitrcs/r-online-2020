@@ -195,6 +195,7 @@ t.test(penguins$body_mass_g[penguins$sex == "MALE"],
        penguins$body_mass_g[penguins$sex == "FEMALE"])
 ```
 
+
 There are exercises for t-test in the exercise directory.
 
 
