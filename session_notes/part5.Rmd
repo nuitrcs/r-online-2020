@@ -16,11 +16,6 @@ knitr::opts_knit$set(root.dir = normalizePath("../"))
 ```
 
 
-```{r}
-library(dplyr)  # we'll use the bind_rows function
-```
-
-
 
 # Intro
 
@@ -74,7 +69,7 @@ x
 
 Here's a more realistic example.  I want to make the same plot for multiple variables.  The only thing that changes is the labels and which variable I'm plotting.  I could copy and paste the same code over and over again (sometimes this makes sense).  But then if I change my mind about the styling, I have to change the code in multiple places.  So I can use a function:
 
-```{r}
+```{r, eval=FALSE}
 my_plot <- function(data, xlab) {
     hist(data, 
          col = "pink",
