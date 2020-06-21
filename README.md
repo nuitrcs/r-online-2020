@@ -2,10 +2,6 @@
 
 June 22-26, 2020
 
-For: Northwestern researchers
-
-Note: *This is still being developed*
-
 Quick links to schedule:
 
 * [Monday: Introduction](#monday-introduction)
@@ -174,7 +170,8 @@ likert.raw <- c(1, 7, 3, 4, 4, 4, 2, 6, 5, 5)
 
 
 Alternative/extra material: 
-* YaRrr! The Pirate’s Guide to R [Matrices and Dataframes](https://bookdown.org/ndphillips/YaRrr/matricesdataframes.html)
+* YaRrr! The Pirate's Guide to R [Matrices and Dataframes](https://bookdown.org/ndphillips/YaRrr/matricesdataframes.html)
+* YaRrr! The Pirate's Guide to R [Advanced dataframe manipulation](https://bookdown.org/ndphillips/YaRrr/advanceddataframe.html) - includes a small part on dplyr, which we aren't covering this week
 * [Data Carpentry Data Analysis and Visualization in R for Ecologists](https://datacarpentry.org/R-ecology-lesson/02-starting-with-data.html) Lesson 2 Starting with Data: covers data frames and factors (a Monday topic)
 * Interactive tutorial on data frames : [DataCamp 15 Easy Solutions To Your Data Frame Problems In R](https://www.datacamp.com/community/tutorials/15-easy-solutions-data-frame-problems-r)
 * Subset a data frame: [Learning Statistics with R v1](https://learningstatisticswithr.com/book/datahandling.html#subsetdataframe) 7.5 Extracting a subset of a data frame (7.3 on vectors is also useful)
@@ -272,6 +269,8 @@ Then you'll see one (or more) new objects in your Environment tab that you can u
 
 Alternative/extra material: 
 
+* YaRrr! The Pirate's Guide to R [Hypothesis Tests](https://bookdown.org/ndphillips/YaRrr/htests.html)
+* YaRrr! The Pirate's Guide to R [Regression](https://bookdown.org/ndphillips/YaRrr/regression.html)
 * Descriptive and Exploratory Analysis: [Cloud Based Data Science](https://leanpub.com/courses/jhu/cbds-analysis/home) Data Analysis Course: focuses on concepts more than the R code
 * Statistics: [R Cookbook](https://learning.oreilly.com/library/view/r-cookbook-2nd/9781492040675) - has several useful sections if you already know what you want to do
 * UCLA Statistical Consulting [Data Analysis Examples](https://stats.idre.ucla.edu/other/dae/) - if you're familiar with Stata, SAS, SPSS, or MPlus, this site has examples worked for many types of different statistical models (mostly regression based) for these programs as well as R.  
@@ -304,6 +303,8 @@ File: `session_notes/part5.Rmd` or [HTML version](https://nuitrcs.github.io/r-on
 
 **Start here:**
 
+* YaRrr! The Pirate's Guide to R [Custom Functions](https://bookdown.org/ndphillips/YaRrr/functions.html)
+* YaRrr! The Pirate's Guide to R [Loops](https://bookdown.org/ndphillips/YaRrr/loops.html)
 * Writing Functions: [Software Carpentry Programming in R](http://swcarpentry.github.io/r-novice-inflammation/02-func-R/index.html) Creating Functions
 * If/else: [Software Carpentry Programming in R](http://swcarpentry.github.io/r-novice-inflammation/04-cond/index.html) Making Choices
 * Loops: [Software Carpentry Programming in R](http://swcarpentry.github.io/r-novice-inflammation/15-supp-loops-in-depth/index.html) Loops
