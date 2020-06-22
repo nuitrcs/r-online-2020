@@ -21,7 +21,6 @@ survey_responses <- factor(survey_responses,
                            levels=c("never", "sometimes", "often", "always"),
                            ordered=TRUE)
 
-
 # now make a table again.  What order are the categories in?
 table(survey_responses)
 

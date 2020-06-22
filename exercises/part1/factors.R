@@ -1,4 +1,4 @@
-# Factors
+# Factors answer
 
 # Remember:
 x <- c("lots", "none", "some", "none", "lots")
@@ -9,7 +9,7 @@ sum(x >= "some")
 
 
 # run this, then do the tasks below
-survey_responses <- sample(c("sometimes", "often", "always"), replace=TRUE, 40)
+survey_responses <- sample(c("never", "sometimes", "often", "always"), replace=TRUE, 40)
 
 table(survey_responses)
 
@@ -21,10 +21,15 @@ table(survey_responses)
 
 
 
+
 # now make a table again.  What order are the categories in?
 
 
 
+
 # How many survey responses are "often" or "always"
+
+
+
 
 
