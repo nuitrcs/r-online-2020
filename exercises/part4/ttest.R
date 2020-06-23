@@ -16,22 +16,22 @@ data("penguins")
 names(penguins)
 
 
-# We want to know: Do different types of penguin species have different average culmen lengths and depths?
+# We want to know: Do different types of penguin species have different average bill lengths and depths?
 
 
 # To start, what are the species of penguins?  Make a table of the species variable
 
 
 
-# Look at culmen length first.  Let's just look at Chinstrap and Gentoo penguins.  
-# What is the average culmen length for each of these two species?
+# Look at bill length first.  Let's just look at Chinstrap and Gentoo penguins.  
+# What is the average bill length for each of these two species?
 # Hint: there are missing values, so you need to include na.rm=TRUE
 ___(penguins$___[penguins$___ == "Chinstrap"], na.rm=TRUE)
 ___(penguins$___[penguins$___ == "Gentoo"], na.rm=TRUE)
 
 
 # We could also use the tapply function to compute the mean for each group:
-tapply(X=penguins$culmen_length_mm, 
+tapply(X=penguins$bill_length_mm, 
        INDEX=penguins$species, 
        FUN=mean, na.rm=TRUE)
 
@@ -42,7 +42,7 @@ t.test(penguins$___[penguins$___ == "Chinstrap"],
 # What do you conclude from the test?
 # Yes, the averages are different with a p-value of 0.0077
 
-# Now, what about the culmen depth?  Again, just look at Chinstrap and Gentoo.
+# Now, what about the bill depth?  Again, just look at Chinstrap and Gentoo.
 # Compute the means first
 
 

@@ -22,7 +22,7 @@ data("penguins")
 names(penguins)
 
 
-# Make a scatterplot of culmen length vs. depth
+# Make a scatterplot of bill length vs. depth
 ggplot(penguins, aes(x=___, y=___)) + 
   ___()
 
@@ -40,13 +40,13 @@ ggplot(penguins, aes(x=___, y=___, color=___)) +
        y=___)
 
 
-# Now, to help us compare differnces in culmen depth across species, make a 
-# boxplot of culmen_depth_mm by species.
+# Now, to help us compare differences in bill depth across species, make a 
+# boxplot of bill_depth_mm by species.
 
 
 
 
-# Do the same for culmen length
+# Do the same for bill length
 
 
 

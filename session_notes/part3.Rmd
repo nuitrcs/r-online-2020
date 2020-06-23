@@ -29,7 +29,7 @@ If you have it installed, just load it:
 library(palmerpenguins)
 ```
 
-We're also going to use average yearly temperatures in New Hampshire, a data set built into R.  But we need to put it in a data frame first to make it easier to use (it's in a special time series object):
+We're also going to use average yearly temperatures in New Hampshire, a data set built into R (`nhtemp`).  But we need to put it in a data frame first to make it easier to use (it's in a special time series object):
 
 ```{r}
 nh <- data.frame(temp=c(nhtemp), year=1912:1971)
@@ -42,28 +42,28 @@ nh <- data.frame(temp=c(nhtemp), year=1912:1971)
 The core plotting function in R is `plot()`.  It is used to make scatter plots and line plots.  
 
 ```{r}
-plot(x = penguins$culmen_depth_mm, 
-     y = penguins$culmen_length_mm)
+plot(x = penguins$bill_depth_mm, 
+     y = penguins$bill_length_mm)
 ```
 
 As with other functions, naming the arguments x and y is optional - but plot expects x first then y:
 
 ```{r, eval=FALSE}
-plot(penguins$culmen_depth_mm, penguins$culmen_length_mm)
+plot(penguins$bill_depth_mm, penguins$bill_length_mm)
 ```
 
 We can also use something called the formula syntax, which we'll talk about more tomorrow.  With the formula syntax, we specify the data set, the we can use the variable names without quotes in the form: `y ~ x`
 
 ```{r}
-plot(culmen_length_mm ~ culmen_depth_mm, data=penguins)
+plot(bill_length_mm ~ bill_depth_mm, data=penguins)
 ```
 
 Changes to the plot are made through other arguments (input options) to the `plot()` function, which are passed to the `par()` function.  See the help for the `par()` function to get a list of options beyond the labels (which are part of `plot()` directly).
 
 ```{r}
-plot(culmen_length_mm ~ culmen_depth_mm, 
+plot(bill_length_mm ~ bill_depth_mm, 
      data = penguins,
-     main = "Penguin Culmen Measurements",
+     main = "Penguin Bill Measurements",
      xlab = "Depth",
      ylab = "Height",
      pch = 17,  # which marker symbol to use
@@ -87,11 +87,11 @@ plot(temp ~ year,
 There are other plotting functions built into R, but one I use frequently is `hist()`:
 
 ```{r}
-hist(penguins$culmen_depth_mm)
+hist(penguins$bill_depth_mm)
 ```
 
 ```{r}
-hist(penguins$culmen_depth_mm, breaks=20)
+hist(penguins$bill_depth_mm, breaks=20)
 ```
 
 
@@ -119,7 +119,7 @@ I sometimes use base R plotting functions for very quick plots.  And I have prod
 Let's start first with reproducing the plots we made above.  Each plot with ggplot has the same template for the code:
 
 ```{r}
-ggplot(penguins, aes(x = culmen_depth_mm, y = culmen_length_mm)) + 
+ggplot(penguins, aes(x = bill_depth_mm, y = bill_length_mm)) + 
   geom_point()
 ```
 
@@ -135,18 +135,18 @@ ggplot(nh, aes(x = year, y = temp)) +
 
 
 ```{r}
-ggplot(penguins, aes(x = culmen_depth_mm)) + 
+ggplot(penguins, aes(x = bill_depth_mm)) + 
   geom_histogram()
 ```
 
 And a plot with all of the options changed like above:
 
 ```{r}
-ggplot(penguins, aes(x=culmen_depth_mm, y=culmen_length_mm)) + 
+ggplot(penguins, aes(x=bill_depth_mm, y=bill_length_mm)) + 
   geom_point(pch = 17, 
              color = "red",
              size = 3) +   # on a different scale than cex
-  labs(title = "Penguin Culmen Measurements",
+  labs(title = "Penguin bill Measurements",
        x = "Depth",
        y = "Height") + 
   scale_y_continuous(limits = c(30, 65))
@@ -155,7 +155,7 @@ ggplot(penguins, aes(x=culmen_depth_mm, y=culmen_length_mm)) +
 For styling parts of the plot that aren't the data (backgrounds, labels, axes, etc.), we can use themes.  There are a few built in, or the `theme()` function can be used to set any option.  Theme functions should get called at the end of your list of ggplot components.
 
 ```{r}
-ggplot(penguins, aes(x = culmen_depth_mm)) + 
+ggplot(penguins, aes(x = bill_depth_mm)) + 
   geom_histogram(bins = 25) + 
   theme_minimal()
 ```
@@ -164,30 +164,30 @@ ggplot(penguins, aes(x = culmen_depth_mm)) +
 So far, we've made similar plots, just with different syntax.  Where ggplot excels though is with groups and mapping variables from your data to aesthetics of the plot other than just x and y positions:
 
 ```{r}
-ggplot(penguins, aes(x=culmen_depth_mm, 
-                     y=culmen_length_mm, 
+ggplot(penguins, aes(x=bill_depth_mm, 
+                     y=bill_length_mm, 
                      color=species)) +   # we added this
   geom_point()
 ```
 
 ```{r}
-ggplot(penguins, aes(x=culmen_depth_mm, 
-                     y=culmen_length_mm, 
+ggplot(penguins, aes(x=bill_depth_mm, 
+                     y=bill_length_mm, 
                      color=species)) +  
   geom_point() + 
   geom_smooth()   # we added this
 ```
 
 ```{r}
-ggplot(penguins, aes(x=culmen_depth_mm, 
-                     y=culmen_length_mm, 
+ggplot(penguins, aes(x=bill_depth_mm, 
+                     y=bill_length_mm, 
                      color=species)) +  
   geom_point() + 
   facet_grid(. ~ island)   # we added this
 ```
 
 
-**EXERCISE**: Run the code at least in the Setup and Data sections above first.  Then make a boxplot using the penguins data of `culmen_length_mm` (y) by `species` (x).  Check the ggplot2 cheat sheet to find the right geom to use.  If you get done quickly, try labeling your plot.
+**EXERCISE**: Run the code at least in the Setup and Data sections above first.  Then make a boxplot using the penguins data of `bill_length_mm` (y) by `species` (x).  Check the ggplot2 cheat sheet to find the right geom to use.  If you get done quickly, try labeling your plot.
 
 ```{r}
 

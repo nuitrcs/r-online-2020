@@ -19,8 +19,8 @@ names(penguins)
 # We want to know: Can we predict/explain penguin body mass with the variables we have?
 
 # Run a linear regression with body_mass_g as the dependent variable and 
-# species, culmen_length_mm, culmen_depth_mm, flipper_length_mm, and sex as the independent variables
-reg1 <- lm(body_mass_g ~ species + culmen_length_mm + culmen_depth_mm + 
+# species, bill_length_mm, bill_depth_mm, flipper_length_mm, and sex as the independent variables
+reg1 <- lm(body_mass_g ~ species + bill_length_mm + bill_depth_mm + 
              flipper_length_mm + sex, data=penguins)
 
 # Look at the results of the regression with the summary function
@@ -37,7 +37,7 @@ plot(reg1)
 # and generated other indicator variables for the other species and gender.  
 # To make a separate intercept for each species instead, add a -1 to the 
 # formula you ran before; summarize the results again
-reg2 <- lm(body_mass_g ~ -1 + species + culmen_length_mm + culmen_depth_mm + 
+reg2 <- lm(body_mass_g ~ -1 + species + bill_length_mm + bill_depth_mm + 
              flipper_length_mm + sex, data=penguins)
 
 summary(reg2)
@@ -49,10 +49,12 @@ reg1$coefficients
 reg2$coefficients
 
 
-# Now, maybe the combination of culmen length and depth also matters for body mass.
-# So let's include an interaction term between the two culmen variables:
+# Now, maybe the combination of bill length and depth also matters for body mass.
+# So let's include an interaction term between the two bill variables.
+# Hint: multiple two variables together to include them indpendently in the model and 
+# have an interaction term automatically generated
 reg3 <- lm(body_mass_g ~ -1 + species + sex+ flipper_length_mm + 
-             culmen_length_mm*culmen_depth_mm, data=penguins)
+             bill_length_mm*bill_depth_mm, data=penguins)
 
 summary(reg3)
 
@@ -61,16 +63,18 @@ summary(reg3)
 # Let's use our model to predict the body mass for a new penguin.
 # To predict, we need a data frame with the same column names as our original data.
 newdata <- data.frame(species="Adelie",
-                      sex="FEMALE",
+                      sex="female",
                       # set other variables to mean for Adelie penguins
                       flipper_length_mm=mean(penguins$flipper_length_mm[
                         penguins$species=="Adelie"], na.rm=TRUE),
-                      culmen_length_mm=mean(penguins$culmen_length_mm[
+                      bill_length_mm=mean(penguins$bill_length_mm[
                         penguins$species=="Adelie"], na.rm=TRUE),
-                      culmen_depth_mm=mean(penguins$culmen_depth_mm[
+                      bill_depth_mm=mean(penguins$bill_depth_mm[
                         penguins$species=="Adelie"], na.rm=TRUE))
 
-# The prediction function will automatically make the indicator and interaction variables for us.
+# The predict function will automatically make the indicator and interaction variables for us.
+# Hint: look at the help for predict.lm (what gets called since we have an lm model)
+# to see the order of the arguments it expects
 predict(reg3, newdata)
 
 # Is the predicted body mass in the range we might expect for Adelie penguins?

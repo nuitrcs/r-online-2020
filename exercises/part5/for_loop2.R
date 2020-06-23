@@ -4,6 +4,8 @@
 # Rewrite the last lines of code with a loop instead.
 
 
+# From the previous exercise:
+
 # install.packages("rvest")
 library(rvest)
 

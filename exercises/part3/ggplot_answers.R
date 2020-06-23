@@ -22,32 +22,32 @@ data("penguins")
 names(penguins)
 
 
-# Make a scatterplot of culmen length vs. depth
-ggplot(penguins, aes(x=culmen_length_mm, y=culmen_depth_mm)) + 
+# Make a scatterplot of bill length vs. depth
+ggplot(penguins, aes(x=bill_length_mm, y=bill_depth_mm)) + 
   geom_point()
 
 
 # Color the points by species by setting the color in aes()
-ggplot(penguins, aes(x=culmen_length_mm, y=culmen_depth_mm, color=species)) + 
+ggplot(penguins, aes(x=bill_length_mm, y=bill_depth_mm, color=species)) + 
   geom_point()
 
 
 # Clean up the plot labels and add a title
-ggplot(penguins, aes(x=culmen_length_mm, y=culmen_depth_mm, color=species)) + 
+ggplot(penguins, aes(x=bill_length_mm, y=bill_depth_mm, color=species)) + 
   geom_point() + 
-  labs(title="Culmen Characteristics by Penguin Species",
+  labs(title="Bill Characteristics by Penguin Species",
        x="Length (mm)",
        y="Depth (mm)")
 
 
-# Now, to help us compare differnces in culmen depth across species, make a 
-# boxplot of culmen_depth_mm by species.
-ggplot(penguins, aes(x=species, y=culmen_depth_mm)) + 
+# Now, to help us compare differences in bill depth across species, make a 
+# boxplot of bill_depth_mm by species.
+ggplot(penguins, aes(x=species, y=bill_depth_mm)) + 
   geom_boxplot()
 
 
-# Do the same for culmen length
-ggplot(penguins, aes(x=species, y=culmen_length_mm)) + 
+# Do the same for bill length
+ggplot(penguins, aes(x=species, y=bill_length_mm)) + 
   geom_boxplot()
 
 

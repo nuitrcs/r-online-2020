@@ -48,7 +48,7 @@ tapply(vector to compute on,
 ```
 
 ```{r, eval=FALSE}
-tapply(penguins$culmen_length_mm,   # vector to compute on
+tapply(penguins$bill_length_mm,   # vector to compute on
        penguins$species,  # vector with groups
        mean,  # name of the function
        na.rm = TRUE)  # optionally any arguments to the function besides the data vector
@@ -57,7 +57,7 @@ tapply(penguins$culmen_length_mm,   # vector to compute on
 If we want to group by multiple variables, then `aggregate()` is similar to `tapply` (it can also work with a single grouping variable).
 
 ```{r}
-aggregate(penguins$culmen_length_mm,  # data to compute on
+aggregate(penguins$bill_length_mm,  # data to compute on
           list(penguins$species, penguins$island),  # groups: it expects a list here
           mean,  # function
           na.rm=TRUE)   # additional arguments to the function
@@ -66,7 +66,7 @@ aggregate(penguins$culmen_length_mm,  # data to compute on
 We could also use the formula syntax we saw briefly while plotting, which happens to give us better names in the resulting data frame.  It wants `variable ~ group1` or `variable ~ group1 + group2`, with `data` specified:
 
 ```{r}
-aggregate(culmen_length_mm ~ species + island,
+aggregate(bill_length_mm ~ species + island,
           data = penguins,
           mean,
           na.rm=TRUE)
@@ -74,13 +74,6 @@ aggregate(culmen_length_mm ~ species + island,
 
 
 **EXERCISE**: Compute group means of `body_mass_g` by `sex` with `tapply()` and `aggregate()`.
-
-First, though, we need to clean up `sex` to handle a bad value:
-
-```{r}
-table(penguins$sex)
-penguins$sex[penguins$sex == "."] <- NA
-```
 
 Use `tapply()`
 
@@ -100,13 +93,13 @@ Use `aggregate()`
 ## Correlation
 
 ```{r}
-cor(penguins$culmen_depth_mm, penguins$culmen_length_mm)
+cor(penguins$bill_depth_mm, penguins$bill_length_mm)
 ```
 
 Those missing values again!
 
 ```{r}
-cor(penguins$culmen_depth_mm, penguins$culmen_length_mm,
+cor(penguins$bill_depth_mm, penguins$bill_length_mm,
     use = "pairwise")
 ```
 
@@ -115,13 +108,13 @@ There are different methods.  Default (above) is pearson -- "normal" correlation
 There are also rank (non-parametric) correlations:
 
 ```{r}
-cor(penguins$culmen_depth_mm, penguins$culmen_length_mm,
+cor(penguins$bill_depth_mm, penguins$bill_length_mm,
     use = "pairwise",
     method = "kendall")
 ```
 
 ```{r}
-cor(penguins$culmen_depth_mm, penguins$culmen_length_mm,
+cor(penguins$bill_depth_mm, penguins$bill_length_mm,
     use = "pairwise",
     method = "spearman")
 ```
@@ -129,15 +122,15 @@ cor(penguins$culmen_depth_mm, penguins$culmen_length_mm,
 Is our correlation "significant"?
 
 ```{r}
-cor.test(penguins$culmen_depth_mm, penguins$culmen_length_mm,
+cor.test(penguins$bill_depth_mm, penguins$bill_length_mm,
     use = "pairwise")
 ```
 
 This seems strange that there's a negative correlation between these measures.  Remember this plot from yesterday?
 
 ```{r}
-ggplot(penguins, aes(x=culmen_length_mm,
-                     y=culmen_depth_mm,
+ggplot(penguins, aes(x=bill_length_mm,
+                     y=bill_depth_mm,
                      color=species)) + 
   geom_point() + 
   geom_smooth(method="lm", se=FALSE)
@@ -191,8 +184,8 @@ Or we can supply two separate vectors of values to compare:
 
 ```{r}
 # same as above
-t.test(penguins$body_mass_g[penguins$sex == "MALE"],
-       penguins$body_mass_g[penguins$sex == "FEMALE"])
+t.test(penguins$body_mass_g[penguins$sex == "male"],
+       penguins$body_mass_g[penguins$sex == "female"])
 ```
 
 
