@@ -11,7 +11,7 @@ editor_options:
 
 We're going to work with data on penguins from https://github.com/allisonhorst/palmerpenguins.  It's been packaged into an R package.  We're going to install the remotes package that allows us to install R packages from github repositories.  
 
-You'll likely be asked about updating packages during the installation.  You can skip the updates (just hit Return or enter the value for None).
+You may be asked about updating packages during the installation.  You can skip the updates (just hit Return or enter the value for None).
 
 ```{r, installpackages, eval=FALSE}
 install.packages("remotes")
@@ -38,6 +38,7 @@ x
 Use the penguin data
 ```{r, loaddata}
 data("penguins")
+penguins
 ```
 
 What is `penguins`?
@@ -54,7 +55,7 @@ View the first few rows
 head(penguins)
 ```
 
-Or user the viewer:
+Or use the viewer:
 ```{r, eval=FALSE}
 View(penguins)
 ```
@@ -103,10 +104,6 @@ Quick summary of every columns
 summary(penguins)
 ```
 
-Just look at the first few rows of data:
-```{r}
-head(penguins)
-```
 
 **EXERCISE** (Run the code above first that creates the `x` data frame): Using the `x` data frame we created above:
 * How many rows and columns?
@@ -143,10 +140,24 @@ x[,1]
 
 we get a vector back.  This is one difference between tibbles and regular data frames.
 
-**EXERCISE** (using `x` created above): how would we select rows 2 through 5, and columns 1 through 3 from `x`?
+We can select rows and columns at the same time:
+
+```{r}
+penguins[1:2, 4:5]
+```
+
+
+**EXERCISE** (using `x` created above): how would we select rows 2 through 5, and columns 1 through 2 from `x`?
 ```{r}
 
 ```
+
+If we want rows or columns that aren't next to each other, you can use a vector.
+
+```{r}
+x[c(1, 3), ]
+```
+
 
 Reference columns by name with `$` notation (no quotes on names)
 ```{r}
@@ -159,7 +170,7 @@ penguins$species
 Note that the `$` notation got us a vector back.
 
 ```{r}
-penguins$culmen_length_mm
+penguins$bill_length_mm
 ```
 
 Use names in `[]`: put them in quotes
@@ -169,13 +180,18 @@ penguins[,"species"]
 
 Since we used `[]`, we get a tibble/data.frame back this time
 ```{r}
-penguins[,"culmen_length_mm"]
+penguins[,"bill_length_mm"]
 ```
 
 Multiple columns by name, need to use a vector of names:
 ```{r}
 penguins[,c("island", "species")]
 ```
+
+```{r}
+penguins[10]
+```
+
 
 **EXERCISE**: Using the `x` data frame we created above:
 * Select the days column using `$` notation
@@ -191,28 +207,39 @@ penguins[,c("island", "species")]
 
 If we have a boolean vector (`TRUE` and `FALSE` values) that is the same length as the number of rows or columns, we can use it to select from the data frame as we did with vectors.
 ```{r}
-penguins[penguins$culmen_length_mm < 34,]
+penguins[penguins$bill_length_mm < 34,]
 ```
 
 Note the rows of `NA`.
 
+If we don't want the missing rows included:
+
+```{r}
+sum(is.na(penguins$bill_length_mm))  # how many missing?
+penguins[is.na(penguins$bill_length_mm), ]  # which rows have missing values
+
+# select rows where bill_length_mm is not missing and < 34
+penguins[!is.na(penguins$bill_length_mm) & penguins$bill_length_mm < 34,]
+```
+
+
 If I forget the `,` in the `[]`:
 ```{r, eval=FALSE}
-penguins[penguins$culmen_length_mm < 34]
+penguins[penguins$bill_length_mm < 34]
 ```
 
 It tries to index the columns instead, and our vector is too long.
 
 Multiple conditions
 ```{r}
-penguins[penguins$culmen_length_mm < 34 & penguins$culmen_depth_mm < 16,]
+penguins[penguins$bill_length_mm < 34 & penguins$bill_depth_mm < 16,]
 ```
 
 ```{r}
-penguins[penguins$culmen_length_mm < 34 | penguins$culmen_length_mm > 58,]
+penguins[penguins$bill_length_mm < 34 | penguins$bill_length_mm > 58,]
 ```
 
-**EXERCISE** Using `x` created above: select rows from `x` where the `month` has 31 days.  Remember: `==` for testing for equality.
+**EXERCISE** Using `x` created above: select rows from `x` with 31 days.  Remember: `==` for testing for equality.
 
 ```{r}
 
@@ -222,14 +249,21 @@ penguins[penguins$culmen_length_mm < 34 | penguins$culmen_length_mm > 58,]
 
 ## Renaming Columns
 
+Normally we don't need to do this first, but I want to keep the current names to use them later first
+
 ```{r}
 oldnames <- names(penguins)  # save so we can reset later
+```
+
+Then I can change the name of the first variable with:
+
+```{r}
 names(penguins)[1] <- "boo"  # change the name of the first column
 names(penguins)
 ```
 
 ```{r}
-names(penguins) <- c("a", "b", "c", "d", "e", "f", "g", "h")  # change all of the column names
+names(penguins) <- c("a", "b", "c", "d", "e", "f", "g")  # change all of the column names
 head(penguins)
 ```
 
@@ -243,27 +277,33 @@ head(penguins)
 ## Working with Variables
 
 ```{r}
-max(penguins$culmen_length_mm)
+max(penguins$bill_length_mm)
 ```
 
 ```{r}
-max(penguins$culmen_length_mm, na.rm=TRUE)
+max(penguins$bill_length_mm, na.rm=TRUE)
 ```
 
 Now to get the observations (rows) for the penguins with that max value:
 ```{r}
-penguins[penguins$culmen_length_mm == max(penguins$culmen_length_mm, na.rm=TRUE),]
+penguins[penguins$bill_length_mm == max(penguins$bill_length_mm, na.rm=TRUE),]
 ```
 
 Break it out into steps:
 ```{r}
-max_culmen_length <- max(penguins$culmen_length_mm, na.rm=TRUE)
-penguins[penguins$culmen_length_mm == max_culmen_length,]
+max_bill_length <- max(penguins$bill_length_mm, na.rm=TRUE)
+penguins[penguins$bill_length_mm == max_bill_length,]
 ```
 
 **EXERCISE** Using `x` created above: select the rows from `x` where `days` is at its minimum value.
 ```{r}
 
+```
+
+You can also use `which.min()` or `which.max()`  to get the index location of the first value with the minimum or maximum value respectively (if there's more than one you only get one):
+
+```{r}
+x[which.min(x$days), ]
 ```
 
 
@@ -272,14 +312,16 @@ penguins[penguins$culmen_length_mm == max_culmen_length,]
 
 We can add new variables to the data frame by naming them with the `$` notation:
 ```{r}
-penguins$culmen_length_cm <- penguins$culmen_length_mm / 100
-penguins[, c("culmen_length_cm", "culmen_length_mm")]
+penguins$bill_length_cm <- penguins$bill_length_mm / 10
+names(penguins)
+penguins[, c("bill_length_cm", "bill_length_mm")]
 ```
 
 
 **EXERCISE** Using `x` created above: make a new variable as part of `x`, called `weeks`, that is the number of days divided by 7
 
 ```{r}
+
 
 ```
 
@@ -321,9 +363,25 @@ penguins <- penguins[-1,]  # removes the first row of the data
 table(penguins$species)
 ```
 
+`species` is a factor; let's un-factor it first so we can change values:
+
+```{r}
+penguins$species <- as.character(penguins$species)
+```
+
+
 ```{r}
 penguins$species[penguins$species == "Gentoo"]  # which observations do we want to replace?
+
 penguins$species[penguins$species == "Gentoo"] <- "gentoo"  # set the value
+
+table(penguins$species)
+```
+
+We could re-factor it again if we wanted it to stay a factor:
+
+```{r}
+penguins$species <- factor(penguins$species)
 ```
 
 
@@ -341,6 +399,7 @@ We're going to talk about sorting and ordering with a vector first.
 
 ```{r}
 y <- c(30,60,20,30)
+y
 ```
 
 `sort()` puts the values in order (doesn't change the vector, returns a copy)
@@ -348,9 +407,21 @@ y <- c(30,60,20,30)
 sort(y)
 ```
 
+Remember, it didn't change y -- `sort()` returned a copy.
+
+```{r}
+y
+```
+
+
 ```{r}
 sort(y, decreasing=TRUE)
 ```
+
+```{r}
+y
+```
+
 
 `order()` tells you what order to put the elements in to sort them:
 ```{r}
@@ -371,23 +442,23 @@ Why do we care?  Because we need this if we want to sort a data frame.  `sort()`
 
 We can sort a single column by itself
 ```{r}
-sort(penguins$culmen_length_mm)
+sort(penguins$bill_length_mm)
 ```
 
-But if we want rows re-ordered by the value of culmen_length_mm, we need to get the order:
+But if we want rows re-ordered by the value of bill_length_mm, we need to get the order:
 ```{r}
-order(penguins$culmen_length_mm)
+order(penguins$bill_length_mm)
 ```
 
 and then use that to re-order the whole data frame
 ```{r}
-penguins[order(penguins$culmen_length_mm), ]
+penguins[order(penguins$bill_length_mm), ]
 ```
 
 `order()` will take multiple vectors (columns):
 ```{r}
 penguins[order(penguins$island,
-               penguins$culmen_length_mm), ]
+               penguins$bill_length_mm), ]
 ```
 
 **EXERCISE**: sort the `penguins` data frame by `flipper_length_mm` decreasing
@@ -400,7 +471,7 @@ penguins[order(penguins$island,
 
 Today you'll work more with data frames.  You'll also learn how to read a csv file into R into a data frame, and go over the parts of an R help page.
 
-There are exercises, but I's stronly encourage you to read in one of your own data files and start working with it.  If you don't have a data file, there are some examples linked in the exercises that you could try.
+There are exercises, but I strongly encourage you to read in one of your own data files and start working with it.  If you don't have a data file, there are some examples linked in the exercises that you could try.
 
 One tip to start: if you get an error message that a file can't be found when you're trying to import it: 
 
