@@ -188,10 +188,6 @@ Multiple columns by name, need to use a vector of names:
 penguins[,c("island", "species")]
 ```
 
-```{r}
-penguins[10]
-```
-
 
 **EXERCISE**: Using the `x` data frame we created above:
 * Select the days column using `$` notation
