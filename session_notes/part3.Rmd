@@ -10,7 +10,7 @@ editor_options:
 # Setup
 
 ```{r}
-library(ggplot2)  # if you installed tidyverse, you have it.  Otherwise install it
+library(ggplot2)  # if you installed tidyverse, you have it.  Otherwise install it first
 ```
 
 
@@ -33,6 +33,7 @@ We're also going to use average yearly temperatures in New Hampshire, a data set
 
 ```{r}
 nh <- data.frame(temp=c(nhtemp), year=1912:1971)
+nh
 ```
 
 
@@ -103,13 +104,12 @@ hist(penguins$bill_depth_mm, breaks=20)
 
 ```
 
-2. Make a histogram using the penguins data of `body_mass_g` but only for penguins with `sex` of `MALE`.  Hint: you'll need to subset the data when providing it to the `hist()` function.  You can do this as part of the function call, or make a new variable with your subset first, and send that to `hist()`.  
+2. Make a histogram using the penguins data of `body_mass_g` but only for penguins with `sex` of `male`.  Hint: you'll need to subset the data when providing it to the `hist()` function.  You can do this as part of the function call, or make a new variable with your subset first, and send that to `hist()`.  
 
 ```{r}
 
+
 ```
-
-
 
 
 # ggplot2
@@ -146,7 +146,7 @@ ggplot(penguins, aes(x=bill_depth_mm, y=bill_length_mm)) +
   geom_point(pch = 17, 
              color = "red",
              size = 3) +   # on a different scale than cex
-  labs(title = "Penguin bill Measurements",
+  labs(title = "Penguin Bill Measurements",
        x = "Depth",
        y = "Height") + 
   scale_y_continuous(limits = c(30, 65))
@@ -187,7 +187,7 @@ ggplot(penguins, aes(x=bill_depth_mm,
 ```
 
 
-**EXERCISE**: Run the code at least in the Setup and Data sections above first.  Then make a boxplot using the penguins data of `bill_length_mm` (y) by `species` (x).  Check the ggplot2 cheat sheet to find the right geom to use.  If you get done quickly, try labeling your plot.
+**EXERCISE**: Run the code at least in the Setup and Data sections above first.  Then make a boxplot using the penguins data of `bill_length_mm` (y) by `species` (x).  Check the ggplot2 [cheat sheet](https://www.rstudio.org/links/data_visualization_cheat_sheet) (RStudio Help Menu as well) to find the right geom to use.  If you get done quickly, try labeling your plot.
 
 ```{r}
 
