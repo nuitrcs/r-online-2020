@@ -54,4 +54,8 @@ data/il_statewide_2020_04_01.rds
 
 workingscripts/*
 
+data/penguins.csv
+
+exercises/dataproject/setup.R
+
 
