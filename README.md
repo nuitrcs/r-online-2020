@@ -304,16 +304,17 @@ File: `session_notes/part5.Rmd` or [HTML version](https://nuitrcs.github.io/r-on
 **Start here:**
 
 * YaRrr! The Pirate's Guide to R [Custom Functions](https://bookdown.org/ndphillips/YaRrr/functions.html)
-* YaRrr! The Pirate's Guide to R [Loops](https://bookdown.org/ndphillips/YaRrr/loops.html)
-* Writing Functions: [Software Carpentry Programming in R](http://swcarpentry.github.io/r-novice-inflammation/02-func-R/index.html) Creating Functions
+* YaRrr! The Pirate's Guide to R [Loops](https://bookdown.org/ndphillips/YaRrr/loops.html) - you may want to skip the section on loops and lists, since we didn't cover lists this week
 * If/else: [Software Carpentry Programming in R](http://swcarpentry.github.io/r-novice-inflammation/04-cond/index.html) Making Choices
-* Loops: [Software Carpentry Programming in R](http://swcarpentry.github.io/r-novice-inflammation/15-supp-loops-in-depth/index.html) Loops
 
 
-NOTE: Download the data from the [Setup Page](http://swcarpentry.github.io/r-novice-inflammation/setup.html) before starting the lessons.
+
+NOTE: Download the data for the Software Carpentry lession from the [Setup Page](http://swcarpentry.github.io/r-novice-inflammation/setup.html) before starting the lesson.
 
 Alternative/extra material: 
 
+* Writing Functions: [Software Carpentry Programming in R](http://swcarpentry.github.io/r-novice-inflammation/02-func-R/index.html) Creating Functions
+* Loops: [Software Carpentry Programming in R](http://swcarpentry.github.io/r-novice-inflammation/15-supp-loops-in-depth/index.html) Loops
 * [Learning Statistics with R v1](https://learningstatisticswithr.com/book/scripting.html) Chapter 8 Basic Programming
 * [R Cookbook](https://learning.oreilly.com/library/view/r-cookbook-2nd/9781492040675/ch15.html#SimpleProgramming) Simple Programming - gets less "simple" as the chapter progresses
 
@@ -325,6 +326,12 @@ See the exercises in the [exercises/part5](exercises/part5) directory.
 
 ## Friday: Data Project (Option 2)
 
-Instead of learning the programming concepts above, you can instead apply the skills you learned in the previous 4 days working on a small data project.  There will be no video lesson for the project, but you're welcome to ask questions on the discussion boards and in the afternoon office hours.  
+Instead of learning the programming concepts above, you can instead apply the skills you learned in the previous 4 days working on a small data project.  There will be no video lesson for the project, and there's no "answer key", but you're welcome to ask questions on the discussion boards and in the afternoon office hours.  
 
-Details coming soon.  
+See [this page](https://nuitrcs.github.io/r-online-2020/exercises/dataproject/instructions.html) for a description of a data set and some suggested questions to try to answer with the data.
+
+If posting a question on the discussion board, you can include your code file (.R or .Rmd file) if you need help with something specific.
+
+Share what you find with this project on the discussion boards as well: data visualizations, tables, statistical tests, etc.  
+
+

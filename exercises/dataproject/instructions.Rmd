@@ -1,0 +1,60 @@
+---
+title: "Data Project"
+date: "6/23/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Get the Data
+
+For this project, you'll explore data from the [Stanford Open Policing Project](https://openpolicing.stanford.edu/data/).  It is a subset of the Illinois data from 2017 for Evanston Police.  You can learn about the data and the variables in the [project README file](https://github.com/stanford-policylab/opp/blob/master/data_readme.md).  Each observation is a stop by the police.
+
+The subset is available in `data/ev_police.csv`.  The data may have been added after you downloaded the workshop materials from GitHub.  To read it directly from GitHub:
+
+```{r}
+police <- read.csv("https://github.com/nuitrcs/r-online-2020/raw/master/data/ev_police.csv",
+                   stringsAsFactors = FALSE,
+                   header=TRUE)
+```
+
+If you'd like to work with a larger set of data, you can download it from the [Stanford Open Policing Project](https://openpolicing.stanford.edu/data/).  Use the function `readRDS()` to open `.rds` files.  
+
+You can use your skills to explore this data however you'd like.  Some suggestions are below.
+
+You may want to reference [demographic information](https://datausa.io/profile/geo/evanston-il/#demographics) about Evanston for context for the data.
+
+# Explore the Data
+
+Get a list of the variable names in the data.
+
+View the data.
+
+How many rows are in the data?
+
+Do any of the variables have missing data?
+
+Which variables have useful data and which can you drop (because they have no variation or duplicate another column)?
+
+Can you turn the `location` column into a more useful form?  Hint: the values are zip codes.  The main zip codes for Evanston are 60201 and 60202.  
+
+# Possible Questions
+
+Does the rate of citation, warning, or search vary across different types of violations?  by `subject_race`?
+
+Are subjects of different races or sexes stopped at rates similar to the [demographics for Evanston](https://datausa.io/profile/geo/evanston-il/#demographics)?  
+
+Is the age or make of the car related to the outcome of the stop? or the reason for the stop?
+
+Are more citations given on certain days than others?  You may want to look at the lubridate package function `wday()` to help with this.
+
+
+# Exploring Further
+
+Interested in Evanston policing data beyond vehicle stops?  See https://data.cityofevanston.org/browse?category=Police.  
+
+
+
+
