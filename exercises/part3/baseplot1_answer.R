@@ -34,8 +34,8 @@ africadata$gdp_2017_bil <- africadata$gdp_2017 / 1e9
 # Now, change the limits on the plot x axis to go from 0 to 50
 # And we'll update the labels on the axes to indicate the units
 # Fill in the blanks (____) below
-plot(x=gdp_2017_bil, y=pop_2017_mil, 
-     data=africadata,
+plot(x=africadata$gdp_2017_bil, 
+     y=africadata$pop_2017_mil, 
      xlab="GDP 2017 (billion US$)", 
      ylab="Population 2017 (million people)",
      main="African Countries GDP and Population: 2017",
