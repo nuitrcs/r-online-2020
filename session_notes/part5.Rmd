@@ -9,6 +9,8 @@ editor_options:
 
 # Setup
 
+Run this cell today (we ignored it other days, but need to run it today):
+
 ```{r setup}
 # have our notebook use the project directory as the working directory;
 # defaults to the directory of the notebook if we don't have this
@@ -53,10 +55,10 @@ Add input:
 
 ```{r}
 say_hello <- function(name) {
-  paste("Hello", name) 
+  paste("Hello", name)
 }
 
-say_hello("Christina")
+say_hello("Henry")
 ```
 
 We can be explicit about what the return value (output) of a function is with `return()`, but in R, functions will by default return the value of the last command:
@@ -70,13 +72,13 @@ x
 Here's a more realistic example.  I want to make the same plot for multiple variables.  The only thing that changes is the labels and which variable I'm plotting.  I could copy and paste the same code over and over again (sometimes this makes sense).  But then if I change my mind about the styling, I have to change the code in multiple places.  So I can use a function:
 
 ```{r, eval=FALSE}
-my_plot <- function(data, xlab) {
+my_plot <- function(data, my_label) {
     hist(data, 
          col = "pink",
          breaks = 20,
          border = FALSE,  # no line around bars
          main = "Cars Dataset", 
-         xlab = xlab)  # get the value from input
+         xlab = my_label)  # get the value from input
 }
 
 # use the built in mtcars data
@@ -125,6 +127,7 @@ for (letter in letter_sample) {
 }
 result  
 ```
+
 
 ## Example 2
 
@@ -206,14 +209,14 @@ Let's start with the first loop.  There's a function that will list all of the f
 
 ```{r}
 list.files("data/pdb",   # where the files are
-           "*.pdb",   # the pattern to match filenames against (optional)
+           "\\.pdb$",   # optional pattern (regular expression) to match filenames against
            full.names=TRUE)  # return the path to the file, not just the name
 ```
 
 This gives us a vector we can loop through:
 
 ```{r}
-for (file in list.files("data/pdb/", "*.pdb", full.names=TRUE)) {
+for (file in list.files("data/pdb", "\\.pdb$", full.names=TRUE)) {
   print(file)  # just print for now...
 }
 ```
@@ -227,7 +230,7 @@ readLines("data/pdb/ammonia.pdb")
 Now loop through lines within our loop to read the files (we call this nested loops -- one is nested inside the other):
 
 ```{r}
-filelist <-  list.files("data/pdb", "*.pdb", full.names=TRUE)
+filelist <-  list.files("data/pdb", "\\.pdb$", full.names=TRUE)
 
 for (file in filelist[1:3]) {  # just loop through a few for now to keep the output small
   
@@ -295,9 +298,9 @@ and you can add on else:
 
 ```{r, eval=FALSE}
 if (condition) {
-  # do something
+  # do something if true
 } else {
-  # do something else
+  # do something else bc false
 }
 ```
 
@@ -332,7 +335,7 @@ startsWith(line2, "ATOM")
 ```{r}
 output <- c()  # to hold data
 
-filelist <-  list.files("data/pdb", "*.pdb", full.names=TRUE)
+filelist <-  list.files("data/pdb", "\\.pdb$", full.names=TRUE)
 
 for (file in filelist[1:3]) {  # just loop through 3 for now to keep the output small
   molecule_name <- NA  # to keep track of the name once we find it to add to each line
@@ -361,12 +364,11 @@ for (file in filelist[1:3]) {  # just loop through 3 for now to keep the output 
 ```{r}
 head(output)
 
-# could write output to a CSV file, 
+# could write output to a TSV file, 
 # writeLines(output, "data/combined_pdb.tsv")
 
 # but we want to use it, 
 # so we'll "read" it in as if it were a file
-output <- paste0(output, collpase="\n") ## make it one long string like in a file
 output <- read.csv(text=output,  # read from output instead of a file
                    col.names=c("molecule", "v1", "v2", "v3", "v4", "v5", "v6"),
                    sep="\t",  # we used tabs instead of commas
