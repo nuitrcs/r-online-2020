@@ -47,14 +47,23 @@ tapply(vector to compute on,
        optionally any arguments to the function besides the data vector)
 ```
 
-```{r, eval=FALSE}
+```{r}
 tapply(penguins$bill_length_mm,   # vector to compute on
        penguins$species,  # vector with groups
        mean,  # name of the function
        na.rm = TRUE)  # optionally any arguments to the function besides the data vector
 ```
 
-If we want to group by multiple variables, then `aggregate()` is similar to `tapply` (it can also work with a single grouping variable).
+We can group by two different grouping variables by combining them in a list:
+
+```{r}
+tapply(penguins$bill_length_mm,   # vector to compute on
+       list(penguins$species, penguins$island),  # vector with groups
+       mean,  # name of the function
+       na.rm = TRUE)  # optionally any arguments to the function besides the data vector
+```
+
+`aggregate()` is similar to `tapply` but produces output in a different format
 
 ```{r}
 aggregate(penguins$bill_length_mm,  # data to compute on
@@ -72,6 +81,10 @@ aggregate(bill_length_mm ~ species + island,
           na.rm=TRUE)
 ```
 
+```{r}
+str(penguins)
+```
+
 
 **EXERCISE**: Compute group means of `body_mass_g` by `sex` with `tapply()` and `aggregate()`.
 
@@ -79,11 +92,13 @@ Use `tapply()`
 
 ```{r}
 
+
 ```
 
 Use `aggregate()`
 
 ```{r}
+
 
 ```
 
@@ -147,11 +162,11 @@ Or we could do it manually here for practice subsetting data!
 **EXERCISE**: Compute the correlation for each of the three species separately (remember to run code above to load libraries and data): 
 
 ```{r, eval=FALSE}
-cor(___, ___, 
+cor(___, ___,
     use = "pairwise")
-cor(___, ___, 
+cor(___, ___,
     use = "pairwise")
-cor(___, ___, 
+cor(___, ___,
     use = "pairwise")
 ```
 
@@ -169,7 +184,10 @@ cor(penguins[,3:6],
     use = "pairwise")
 ```
 
-
+```{r}
+cor(penguins[penguins$species=="Chinstrap",3:6],
+    use = "pairwise")
+```
 
 
 # T-Test
@@ -253,7 +271,7 @@ names(summary(reg1))
 ```
 
 ```{r}
-summary(reg1)$r.squared
+summary(reg1)$coefficients
 ```
 
 

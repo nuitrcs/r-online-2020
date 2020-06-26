@@ -1675,7 +1675,18 @@ $(document).ready(function () {
        penguins$species,  # vector with groups
        mean,  # name of the function
        na.rm = TRUE)  # optionally any arguments to the function besides the data vector</code></pre>
-<p>If we want to group by multiple variables, then <code>aggregate()</code> is similar to <code>tapply</code> (it can also work with a single grouping variable).</p>
+<pre><code>##    Adelie Chinstrap    Gentoo 
+##  38.79139  48.83382  47.50488</code></pre>
+<p>We can group by two different grouping variables by combining them in a list:</p>
+<pre class="r"><code>tapply(penguins$bill_length_mm,   # vector to compute on
+       list(penguins$species, penguins$island),  # vector with groups
+       mean,  # name of the function
+       na.rm = TRUE)  # optionally any arguments to the function besides the data vector</code></pre>
+<pre><code>##             Biscoe    Dream Torgersen
+## Adelie    38.97500 38.50179  38.95098
+## Chinstrap       NA 48.83382        NA
+## Gentoo    47.50488       NA        NA</code></pre>
+<p><code>aggregate()</code> is similar to <code>tapply</code> but produces output in a different format</p>
 <pre class="r"><code>aggregate(penguins$bill_length_mm,  # data to compute on
           list(penguins$species, penguins$island),  # groups: it expects a list here
           mean,  # function
@@ -1695,6 +1706,15 @@ $(document).ready(function () {
 {"columns":[{"label":["species"],"name":[1],"type":["fctr"],"align":["left"]},{"label":["island"],"name":[2],"type":["fctr"],"align":["left"]},{"label":["bill_length_mm"],"name":[3],"type":["dbl"],"align":["right"]}],"data":[{"1":"Adelie","2":"Biscoe","3":"38.97500"},{"1":"Gentoo","2":"Biscoe","3":"47.50488"},{"1":"Adelie","2":"Dream","3":"38.50179"},{"1":"Chinstrap","2":"Dream","3":"48.83382"},{"1":"Adelie","2":"Torgersen","3":"38.95098"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
+<pre class="r"><code>str(penguins)</code></pre>
+<pre><code>## tibble [344 × 7] (S3: tbl_df/tbl/data.frame)
+##  $ species          : Factor w/ 3 levels &quot;Adelie&quot;,&quot;Chinstrap&quot;,..: 1 1 1 1 1 1 1 1 1 1 ...
+##  $ island           : Factor w/ 3 levels &quot;Biscoe&quot;,&quot;Dream&quot;,..: 3 3 3 3 3 3 3 3 3 3 ...
+##  $ bill_length_mm   : num [1:344] 39.1 39.5 40.3 NA 36.7 39.3 38.9 39.2 34.1 42 ...
+##  $ bill_depth_mm    : num [1:344] 18.7 17.4 18 NA 19.3 20.6 17.8 19.6 18.1 20.2 ...
+##  $ flipper_length_mm: int [1:344] 181 186 195 NA 193 190 181 195 193 190 ...
+##  $ body_mass_g      : int [1:344] 3750 3800 3250 NA 3450 3650 3625 4675 3475 4250 ...
+##  $ sex              : Factor w/ 2 levels &quot;female&quot;,&quot;male&quot;: 2 1 1 NA 1 2 1 2 NA NA ...</code></pre>
 <p><strong>EXERCISE</strong>: Compute group means of <code>body_mass_g</code> by <code>sex</code> with <code>tapply()</code> and <code>aggregate()</code>.</p>
 <p>Use <code>tapply()</code></p>
 <p>Use <code>aggregate()</code></p>
@@ -1745,11 +1765,11 @@ $(document).ready(function () {
 <p>There are multiple ways we could do this, including a <a href="https://personality-project.org/r/html/statsBy.html">function</a> in the <code>psych</code> package (written by Northwestern’s own Bill Revelle) that will let you compute correlation and other statistics by group.</p>
 <p>Or we could do it manually here for practice subsetting data!</p>
 <p><strong>EXERCISE</strong>: Compute the correlation for each of the three species separately (remember to run code above to load libraries and data):</p>
-<pre class="r"><code>cor(___, ___, 
+<pre class="r"><code>cor(___, ___,
     use = &quot;pairwise&quot;)
-cor(___, ___, 
+cor(___, ___,
     use = &quot;pairwise&quot;)
-cor(___, ___, 
+cor(___, ___,
     use = &quot;pairwise&quot;)</code></pre>
 <p>We can also use <code>cor()</code> to compute a correlation matrix between multiple variables at once by supplying a data frame or matrix instead of two vectors.</p>
 <pre class="r"><code># Which are the numeric variables?
@@ -1766,6 +1786,13 @@ head(penguins)</code></pre>
 ## bill_depth_mm         -0.2350529     1.0000000        -0.5838512  -0.4719156
 ## flipper_length_mm      0.6561813    -0.5838512         1.0000000   0.8712018
 ## body_mass_g            0.5951098    -0.4719156         0.8712018   1.0000000</code></pre>
+<pre class="r"><code>cor(penguins[penguins$species==&quot;Chinstrap&quot;,3:6],
+    use = &quot;pairwise&quot;)</code></pre>
+<pre><code>##                   bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
+## bill_length_mm         1.0000000     0.6535362         0.4716073   0.5136383
+## bill_depth_mm          0.6535362     1.0000000         0.5801429   0.6044983
+## flipper_length_mm      0.4716073     0.5801429         1.0000000   0.6415594
+## body_mass_g            0.5136383     0.6044983         0.6415594   1.0000000</code></pre>
 </div>
 </div>
 <div id="t-test" class="section level1">
@@ -1926,8 +1953,14 @@ reg1</code></pre>
 <pre><code>##  [1] &quot;call&quot;          &quot;terms&quot;         &quot;residuals&quot;     &quot;coefficients&quot; 
 ##  [5] &quot;aliased&quot;       &quot;sigma&quot;         &quot;df&quot;            &quot;r.squared&quot;    
 ##  [9] &quot;adj.r.squared&quot; &quot;fstatistic&quot;    &quot;cov.unscaled&quot;  &quot;na.action&quot;</code></pre>
-<pre class="r"><code>summary(reg1)$r.squared</code></pre>
-<pre><code>## [1] 0.6852644</code></pre>
+<pre class="r"><code>summary(reg1)$coefficients</code></pre>
+<pre><code>##                     Estimate  Std. Error    t value     Pr(&gt;|t|)
+## (Intercept)       1472.83102 3717.655576   0.396172 6.920071e-01
+## bedroom_abv_gr  -22299.79852 1375.608127 -16.210866 1.163269e-56
+## full_bath        25147.29459 1895.582967  13.266259 4.777531e-39
+## half_bath        19527.52055 1760.385608  11.092752 4.894246e-28
+## tot_rms_abv_grd   2523.48261  923.493859   2.732539 6.322635e-03
+## sf                  70.65248    1.486457  47.530796 0.000000e+00</code></pre>
 <div id="categorical-variables" class="section level2">
 <h2>Categorical Variables</h2>
 <pre class="r"><code>table(ames$house_style)</code></pre>

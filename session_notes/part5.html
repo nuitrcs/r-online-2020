@@ -1651,6 +1651,7 @@ $(document).ready(function () {
 
 <div id="setup" class="section level1">
 <h1>Setup</h1>
+<p>Run this cell today (we ignored it other days, but need to run it today):</p>
 <pre class="r"><code># have our notebook use the project directory as the working directory;
 # defaults to the directory of the notebook if we don't have this
 knitr::opts_knit$set(root.dir = normalizePath(&quot;../&quot;)) </code></pre>
@@ -1678,24 +1679,24 @@ knitr::opts_knit$set(root.dir = normalizePath(&quot;../&quot;)) </code></pre>
 <pre><code>## [1] &quot;Hello!&quot;</code></pre>
 <p>Add input:</p>
 <pre class="r"><code>say_hello &lt;- function(name) {
-  paste(&quot;Hello&quot;, name) 
+  paste(&quot;Hello&quot;, name)
 }
 
-say_hello(&quot;Christina&quot;)</code></pre>
-<pre><code>## [1] &quot;Hello Christina&quot;</code></pre>
+say_hello(&quot;Henry&quot;)</code></pre>
+<pre><code>## [1] &quot;Hello Henry&quot;</code></pre>
 <p>We can be explicit about what the return value (output) of a function is with <code>return()</code>, but in R, functions will by default return the value of the last command:</p>
 <pre class="r"><code>x &lt;- say_hello(&quot;Christina&quot;)
 
 x</code></pre>
 <pre><code>## [1] &quot;Hello Christina&quot;</code></pre>
 <p>Here’s a more realistic example. I want to make the same plot for multiple variables. The only thing that changes is the labels and which variable I’m plotting. I could copy and paste the same code over and over again (sometimes this makes sense). But then if I change my mind about the styling, I have to change the code in multiple places. So I can use a function:</p>
-<pre class="r"><code>my_plot &lt;- function(data, xlab) {
+<pre class="r"><code>my_plot &lt;- function(data, my_label) {
     hist(data, 
          col = &quot;pink&quot;,
          breaks = 20,
          border = FALSE,  # no line around bars
          main = &quot;Cars Dataset&quot;, 
-         xlab = xlab)  # get the value from input
+         xlab = my_label)  # get the value from input
 }
 
 # use the built in mtcars data
@@ -1719,9 +1720,9 @@ my_plot(mtcars$wt, &quot;Weight&quot;)</code></pre>
 <p>You may want to use the values of a vector directly:</p>
 <pre class="r"><code>letter_sample &lt;- sample(letters, 50, replace=TRUE) # letters is a built-in vector
 letter_sample</code></pre>
-<pre><code>##  [1] &quot;b&quot; &quot;j&quot; &quot;k&quot; &quot;i&quot; &quot;n&quot; &quot;c&quot; &quot;s&quot; &quot;s&quot; &quot;z&quot; &quot;r&quot; &quot;r&quot; &quot;x&quot; &quot;y&quot; &quot;j&quot; &quot;u&quot; &quot;t&quot; &quot;g&quot; &quot;o&quot; &quot;h&quot;
-## [20] &quot;e&quot; &quot;h&quot; &quot;b&quot; &quot;i&quot; &quot;q&quot; &quot;b&quot; &quot;x&quot; &quot;y&quot; &quot;i&quot; &quot;q&quot; &quot;g&quot; &quot;n&quot; &quot;t&quot; &quot;w&quot; &quot;y&quot; &quot;m&quot; &quot;w&quot; &quot;b&quot; &quot;d&quot;
-## [39] &quot;x&quot; &quot;a&quot; &quot;i&quot; &quot;u&quot; &quot;g&quot; &quot;w&quot; &quot;i&quot; &quot;l&quot; &quot;w&quot; &quot;m&quot; &quot;p&quot; &quot;k&quot;</code></pre>
+<pre><code>##  [1] &quot;x&quot; &quot;w&quot; &quot;i&quot; &quot;g&quot; &quot;h&quot; &quot;t&quot; &quot;l&quot; &quot;p&quot; &quot;h&quot; &quot;h&quot; &quot;h&quot; &quot;s&quot; &quot;a&quot; &quot;q&quot; &quot;o&quot; &quot;a&quot; &quot;a&quot; &quot;d&quot; &quot;y&quot;
+## [20] &quot;h&quot; &quot;o&quot; &quot;l&quot; &quot;o&quot; &quot;s&quot; &quot;u&quot; &quot;z&quot; &quot;u&quot; &quot;u&quot; &quot;z&quot; &quot;r&quot; &quot;z&quot; &quot;l&quot; &quot;t&quot; &quot;t&quot; &quot;v&quot; &quot;m&quot; &quot;e&quot; &quot;o&quot;
+## [39] &quot;j&quot; &quot;x&quot; &quot;f&quot; &quot;w&quot; &quot;q&quot; &quot;z&quot; &quot;a&quot; &quot;d&quot; &quot;g&quot; &quot;r&quot; &quot;w&quot; &quot;y&quot;</code></pre>
 <pre class="r"><code>result &lt;- ''
 for (letter in letter_sample) {  
   print(letter)   # so we can see what's happening
@@ -1729,58 +1730,58 @@ for (letter in letter_sample) {
     result &lt;- paste0(result, letter)  # concatenate the letter onto the end of the result 
   }
 }</code></pre>
-<pre><code>## [1] &quot;b&quot;
-## [1] &quot;j&quot;
-## [1] &quot;k&quot;
+<pre><code>## [1] &quot;x&quot;
+## [1] &quot;w&quot;
 ## [1] &quot;i&quot;
-## [1] &quot;n&quot;
-## [1] &quot;c&quot;
+## [1] &quot;g&quot;
+## [1] &quot;h&quot;
+## [1] &quot;t&quot;
+## [1] &quot;l&quot;
+## [1] &quot;p&quot;
+## [1] &quot;h&quot;
+## [1] &quot;h&quot;
+## [1] &quot;h&quot;
 ## [1] &quot;s&quot;
+## [1] &quot;a&quot;
+## [1] &quot;q&quot;
+## [1] &quot;o&quot;
+## [1] &quot;a&quot;
+## [1] &quot;a&quot;
+## [1] &quot;d&quot;
+## [1] &quot;y&quot;
+## [1] &quot;h&quot;
+## [1] &quot;o&quot;
+## [1] &quot;l&quot;
+## [1] &quot;o&quot;
 ## [1] &quot;s&quot;
+## [1] &quot;u&quot;
+## [1] &quot;z&quot;
+## [1] &quot;u&quot;
+## [1] &quot;u&quot;
 ## [1] &quot;z&quot;
 ## [1] &quot;r&quot;
-## [1] &quot;r&quot;
-## [1] &quot;x&quot;
-## [1] &quot;y&quot;
-## [1] &quot;j&quot;
-## [1] &quot;u&quot;
-## [1] &quot;t&quot;
-## [1] &quot;g&quot;
-## [1] &quot;o&quot;
-## [1] &quot;h&quot;
-## [1] &quot;e&quot;
-## [1] &quot;h&quot;
-## [1] &quot;b&quot;
-## [1] &quot;i&quot;
-## [1] &quot;q&quot;
-## [1] &quot;b&quot;
-## [1] &quot;x&quot;
-## [1] &quot;y&quot;
-## [1] &quot;i&quot;
-## [1] &quot;q&quot;
-## [1] &quot;g&quot;
-## [1] &quot;n&quot;
-## [1] &quot;t&quot;
-## [1] &quot;w&quot;
-## [1] &quot;y&quot;
-## [1] &quot;m&quot;
-## [1] &quot;w&quot;
-## [1] &quot;b&quot;
-## [1] &quot;d&quot;
-## [1] &quot;x&quot;
-## [1] &quot;a&quot;
-## [1] &quot;i&quot;
-## [1] &quot;u&quot;
-## [1] &quot;g&quot;
-## [1] &quot;w&quot;
-## [1] &quot;i&quot;
+## [1] &quot;z&quot;
 ## [1] &quot;l&quot;
-## [1] &quot;w&quot;
+## [1] &quot;t&quot;
+## [1] &quot;t&quot;
+## [1] &quot;v&quot;
 ## [1] &quot;m&quot;
-## [1] &quot;p&quot;
-## [1] &quot;k&quot;</code></pre>
+## [1] &quot;e&quot;
+## [1] &quot;o&quot;
+## [1] &quot;j&quot;
+## [1] &quot;x&quot;
+## [1] &quot;f&quot;
+## [1] &quot;w&quot;
+## [1] &quot;q&quot;
+## [1] &quot;z&quot;
+## [1] &quot;a&quot;
+## [1] &quot;d&quot;
+## [1] &quot;g&quot;
+## [1] &quot;r&quot;
+## [1] &quot;w&quot;
+## [1] &quot;y&quot;</code></pre>
 <pre class="r"><code>result  </code></pre>
-<pre><code>## [1] &quot;iuoeiiaiui&quot;</code></pre>
+<pre><code>## [1] &quot;iaoaaoouuueoa&quot;</code></pre>
 </div>
 <div id="example-2" class="section level2">
 <h2>Example 2</h2>
@@ -1796,45 +1797,45 @@ for (i in 1:20) {
 <pre><code>## [1] 1
 ## [1] &quot;Result: 0&quot;
 ## [1] 2
-## [1] &quot;Result: 1&quot;
+## [1] &quot;Result: 0&quot;
 ## [1] 3
-## [1] &quot;Result: 1&quot;
+## [1] &quot;Result: 0&quot;
 ## [1] 4
-## [1] &quot;Result: 2&quot;
+## [1] &quot;Result: 0&quot;
 ## [1] 5
-## [1] &quot;Result: 3&quot;
+## [1] &quot;Result: 1&quot;
 ## [1] 6
-## [1] &quot;Result: 4&quot;
+## [1] &quot;Result: 2&quot;
 ## [1] 7
-## [1] &quot;Result: 5&quot;
+## [1] &quot;Result: 3&quot;
 ## [1] 8
-## [1] &quot;Result: 5&quot;
+## [1] &quot;Result: 4&quot;
 ## [1] 9
-## [1] &quot;Result: 6&quot;
+## [1] &quot;Result: 4&quot;
 ## [1] 10
-## [1] &quot;Result: 7&quot;
+## [1] &quot;Result: 4&quot;
 ## [1] 11
-## [1] &quot;Result: 7&quot;
+## [1] &quot;Result: 4&quot;
 ## [1] 12
-## [1] &quot;Result: 8&quot;
+## [1] &quot;Result: 4&quot;
 ## [1] 13
-## [1] &quot;Result: 9&quot;
+## [1] &quot;Result: 4&quot;
 ## [1] 14
-## [1] &quot;Result: 10&quot;
+## [1] &quot;Result: 5&quot;
 ## [1] 15
-## [1] &quot;Result: 11&quot;
+## [1] &quot;Result: 5&quot;
 ## [1] 16
-## [1] &quot;Result: 12&quot;
+## [1] &quot;Result: 6&quot;
 ## [1] 17
-## [1] &quot;Result: 12&quot;
+## [1] &quot;Result: 6&quot;
 ## [1] 18
-## [1] &quot;Result: 12&quot;
+## [1] &quot;Result: 7&quot;
 ## [1] 19
-## [1] &quot;Result: 12&quot;
+## [1] &quot;Result: 8&quot;
 ## [1] 20
-## [1] &quot;Result: 12&quot;</code></pre>
+## [1] &quot;Result: 9&quot;</code></pre>
 <pre class="r"><code>result  # you'll get different results each time</code></pre>
-<pre><code>## [1] 12</code></pre>
+<pre><code>## [1] 9</code></pre>
 </div>
 <div id="example-3" class="section level2">
 <h2>Example 3</h2>
@@ -1933,80 +1934,78 @@ END</code></pre>
 </ol>
 <p>Let’s start with the first loop. There’s a function that will list all of the files in a directory (optionally that match a pattern):</p>
 <pre class="r"><code>list.files(&quot;data/pdb&quot;,   # where the files are
-           &quot;*.pdb&quot;,   # the pattern to match filenames against (optional)
+           &quot;\\.pdb$&quot;,   # optional pattern (regular expression) to match filenames against
            full.names=TRUE)  # return the path to the file, not just the name</code></pre>
 <pre><code>##  [1] &quot;data/pdb/aldrin.pdb&quot;         &quot;data/pdb/ammonia.pdb&quot;       
 ##  [3] &quot;data/pdb/ascorbic-acid.pdb&quot;  &quot;data/pdb/benzaldehyde.pdb&quot;  
 ##  [5] &quot;data/pdb/camphene.pdb&quot;       &quot;data/pdb/cholesterol.pdb&quot;   
 ##  [7] &quot;data/pdb/cinnamaldehyde.pdb&quot; &quot;data/pdb/citronellal.pdb&quot;   
-##  [9] &quot;data/pdb/codeine.pdb&quot;        &quot;data/pdb/combined_pdb.csv&quot;  
-## [11] &quot;data/pdb/cubane.pdb&quot;         &quot;data/pdb/cyclobutane.pdb&quot;   
-## [13] &quot;data/pdb/cyclohexanol.pdb&quot;   &quot;data/pdb/cyclopropane.pdb&quot;  
-## [15] &quot;data/pdb/ethane.pdb&quot;         &quot;data/pdb/ethanol.pdb&quot;       
-## [17] &quot;data/pdb/glycol.pdb&quot;         &quot;data/pdb/heme.pdb&quot;          
-## [19] &quot;data/pdb/lactose.pdb&quot;        &quot;data/pdb/lsd.pdb&quot;           
-## [21] &quot;data/pdb/maltose.pdb&quot;        &quot;data/pdb/menthol.pdb&quot;       
-## [23] &quot;data/pdb/methane.pdb&quot;        &quot;data/pdb/methanol.pdb&quot;      
-## [25] &quot;data/pdb/mint.pdb&quot;           &quot;data/pdb/morphine.pdb&quot;      
-## [27] &quot;data/pdb/mustard.pdb&quot;        &quot;data/pdb/nerol.pdb&quot;         
-## [29] &quot;data/pdb/norethindrone.pdb&quot;  &quot;data/pdb/octane.pdb&quot;        
-## [31] &quot;data/pdb/pentane.pdb&quot;        &quot;data/pdb/piperine.pdb&quot;      
-## [33] &quot;data/pdb/propane.pdb&quot;        &quot;data/pdb/pyridoxal.pdb&quot;     
-## [35] &quot;data/pdb/quinine.pdb&quot;        &quot;data/pdb/strychnine.pdb&quot;    
-## [37] &quot;data/pdb/styrene.pdb&quot;        &quot;data/pdb/sucrose.pdb&quot;       
-## [39] &quot;data/pdb/testosterone.pdb&quot;   &quot;data/pdb/thiamine.pdb&quot;      
-## [41] &quot;data/pdb/tnt.pdb&quot;            &quot;data/pdb/tyrian-purple.pdb&quot; 
-## [43] &quot;data/pdb/vanillin.pdb&quot;       &quot;data/pdb/vinyl-chloride.pdb&quot;
-## [45] &quot;data/pdb/vitamin-a.pdb&quot;</code></pre>
+##  [9] &quot;data/pdb/codeine.pdb&quot;        &quot;data/pdb/cubane.pdb&quot;        
+## [11] &quot;data/pdb/cyclobutane.pdb&quot;    &quot;data/pdb/cyclohexanol.pdb&quot;  
+## [13] &quot;data/pdb/cyclopropane.pdb&quot;   &quot;data/pdb/ethane.pdb&quot;        
+## [15] &quot;data/pdb/ethanol.pdb&quot;        &quot;data/pdb/glycol.pdb&quot;        
+## [17] &quot;data/pdb/heme.pdb&quot;           &quot;data/pdb/lactose.pdb&quot;       
+## [19] &quot;data/pdb/lsd.pdb&quot;            &quot;data/pdb/maltose.pdb&quot;       
+## [21] &quot;data/pdb/menthol.pdb&quot;        &quot;data/pdb/methane.pdb&quot;       
+## [23] &quot;data/pdb/methanol.pdb&quot;       &quot;data/pdb/mint.pdb&quot;          
+## [25] &quot;data/pdb/morphine.pdb&quot;       &quot;data/pdb/mustard.pdb&quot;       
+## [27] &quot;data/pdb/nerol.pdb&quot;          &quot;data/pdb/norethindrone.pdb&quot; 
+## [29] &quot;data/pdb/octane.pdb&quot;         &quot;data/pdb/pentane.pdb&quot;       
+## [31] &quot;data/pdb/piperine.pdb&quot;       &quot;data/pdb/propane.pdb&quot;       
+## [33] &quot;data/pdb/pyridoxal.pdb&quot;      &quot;data/pdb/quinine.pdb&quot;       
+## [35] &quot;data/pdb/strychnine.pdb&quot;     &quot;data/pdb/styrene.pdb&quot;       
+## [37] &quot;data/pdb/sucrose.pdb&quot;        &quot;data/pdb/testosterone.pdb&quot;  
+## [39] &quot;data/pdb/thiamine.pdb&quot;       &quot;data/pdb/tnt.pdb&quot;           
+## [41] &quot;data/pdb/tyrian-purple.pdb&quot;  &quot;data/pdb/vanillin.pdb&quot;      
+## [43] &quot;data/pdb/vinyl-chloride.pdb&quot; &quot;data/pdb/vitamin-a.pdb&quot;</code></pre>
 <p>This gives us a vector we can loop through:</p>
-<pre class="r"><code>for (file in list.files(&quot;data/pdb/&quot;, &quot;*.pdb&quot;, full.names=TRUE)) {
+<pre class="r"><code>for (file in list.files(&quot;data/pdb&quot;, &quot;\\.pdb$&quot;, full.names=TRUE)) {
   print(file)  # just print for now...
 }</code></pre>
-<pre><code>## [1] &quot;data/pdb//aldrin.pdb&quot;
-## [1] &quot;data/pdb//ammonia.pdb&quot;
-## [1] &quot;data/pdb//ascorbic-acid.pdb&quot;
-## [1] &quot;data/pdb//benzaldehyde.pdb&quot;
-## [1] &quot;data/pdb//camphene.pdb&quot;
-## [1] &quot;data/pdb//cholesterol.pdb&quot;
-## [1] &quot;data/pdb//cinnamaldehyde.pdb&quot;
-## [1] &quot;data/pdb//citronellal.pdb&quot;
-## [1] &quot;data/pdb//codeine.pdb&quot;
-## [1] &quot;data/pdb//combined_pdb.csv&quot;
-## [1] &quot;data/pdb//cubane.pdb&quot;
-## [1] &quot;data/pdb//cyclobutane.pdb&quot;
-## [1] &quot;data/pdb//cyclohexanol.pdb&quot;
-## [1] &quot;data/pdb//cyclopropane.pdb&quot;
-## [1] &quot;data/pdb//ethane.pdb&quot;
-## [1] &quot;data/pdb//ethanol.pdb&quot;
-## [1] &quot;data/pdb//glycol.pdb&quot;
-## [1] &quot;data/pdb//heme.pdb&quot;
-## [1] &quot;data/pdb//lactose.pdb&quot;
-## [1] &quot;data/pdb//lsd.pdb&quot;
-## [1] &quot;data/pdb//maltose.pdb&quot;
-## [1] &quot;data/pdb//menthol.pdb&quot;
-## [1] &quot;data/pdb//methane.pdb&quot;
-## [1] &quot;data/pdb//methanol.pdb&quot;
-## [1] &quot;data/pdb//mint.pdb&quot;
-## [1] &quot;data/pdb//morphine.pdb&quot;
-## [1] &quot;data/pdb//mustard.pdb&quot;
-## [1] &quot;data/pdb//nerol.pdb&quot;
-## [1] &quot;data/pdb//norethindrone.pdb&quot;
-## [1] &quot;data/pdb//octane.pdb&quot;
-## [1] &quot;data/pdb//pentane.pdb&quot;
-## [1] &quot;data/pdb//piperine.pdb&quot;
-## [1] &quot;data/pdb//propane.pdb&quot;
-## [1] &quot;data/pdb//pyridoxal.pdb&quot;
-## [1] &quot;data/pdb//quinine.pdb&quot;
-## [1] &quot;data/pdb//strychnine.pdb&quot;
-## [1] &quot;data/pdb//styrene.pdb&quot;
-## [1] &quot;data/pdb//sucrose.pdb&quot;
-## [1] &quot;data/pdb//testosterone.pdb&quot;
-## [1] &quot;data/pdb//thiamine.pdb&quot;
-## [1] &quot;data/pdb//tnt.pdb&quot;
-## [1] &quot;data/pdb//tyrian-purple.pdb&quot;
-## [1] &quot;data/pdb//vanillin.pdb&quot;
-## [1] &quot;data/pdb//vinyl-chloride.pdb&quot;
-## [1] &quot;data/pdb//vitamin-a.pdb&quot;</code></pre>
+<pre><code>## [1] &quot;data/pdb/aldrin.pdb&quot;
+## [1] &quot;data/pdb/ammonia.pdb&quot;
+## [1] &quot;data/pdb/ascorbic-acid.pdb&quot;
+## [1] &quot;data/pdb/benzaldehyde.pdb&quot;
+## [1] &quot;data/pdb/camphene.pdb&quot;
+## [1] &quot;data/pdb/cholesterol.pdb&quot;
+## [1] &quot;data/pdb/cinnamaldehyde.pdb&quot;
+## [1] &quot;data/pdb/citronellal.pdb&quot;
+## [1] &quot;data/pdb/codeine.pdb&quot;
+## [1] &quot;data/pdb/cubane.pdb&quot;
+## [1] &quot;data/pdb/cyclobutane.pdb&quot;
+## [1] &quot;data/pdb/cyclohexanol.pdb&quot;
+## [1] &quot;data/pdb/cyclopropane.pdb&quot;
+## [1] &quot;data/pdb/ethane.pdb&quot;
+## [1] &quot;data/pdb/ethanol.pdb&quot;
+## [1] &quot;data/pdb/glycol.pdb&quot;
+## [1] &quot;data/pdb/heme.pdb&quot;
+## [1] &quot;data/pdb/lactose.pdb&quot;
+## [1] &quot;data/pdb/lsd.pdb&quot;
+## [1] &quot;data/pdb/maltose.pdb&quot;
+## [1] &quot;data/pdb/menthol.pdb&quot;
+## [1] &quot;data/pdb/methane.pdb&quot;
+## [1] &quot;data/pdb/methanol.pdb&quot;
+## [1] &quot;data/pdb/mint.pdb&quot;
+## [1] &quot;data/pdb/morphine.pdb&quot;
+## [1] &quot;data/pdb/mustard.pdb&quot;
+## [1] &quot;data/pdb/nerol.pdb&quot;
+## [1] &quot;data/pdb/norethindrone.pdb&quot;
+## [1] &quot;data/pdb/octane.pdb&quot;
+## [1] &quot;data/pdb/pentane.pdb&quot;
+## [1] &quot;data/pdb/piperine.pdb&quot;
+## [1] &quot;data/pdb/propane.pdb&quot;
+## [1] &quot;data/pdb/pyridoxal.pdb&quot;
+## [1] &quot;data/pdb/quinine.pdb&quot;
+## [1] &quot;data/pdb/strychnine.pdb&quot;
+## [1] &quot;data/pdb/styrene.pdb&quot;
+## [1] &quot;data/pdb/sucrose.pdb&quot;
+## [1] &quot;data/pdb/testosterone.pdb&quot;
+## [1] &quot;data/pdb/thiamine.pdb&quot;
+## [1] &quot;data/pdb/tnt.pdb&quot;
+## [1] &quot;data/pdb/tyrian-purple.pdb&quot;
+## [1] &quot;data/pdb/vanillin.pdb&quot;
+## [1] &quot;data/pdb/vinyl-chloride.pdb&quot;
+## [1] &quot;data/pdb/vitamin-a.pdb&quot;</code></pre>
 <p>With the name, we can open each file. But these files don’t have a standard format (like CSV) to read in, so we’ll read in each line as text with <code>readLines()</code>.</p>
 <pre class="r"><code>readLines(&quot;data/pdb/ammonia.pdb&quot;)</code></pre>
 <pre><code>## [1] &quot;COMPND      Ammonia&quot;                                   
@@ -2018,7 +2017,7 @@ END</code></pre>
 ## [7] &quot;TER       5              1&quot;                            
 ## [8] &quot;END&quot;</code></pre>
 <p>Now loop through lines within our loop to read the files (we call this nested loops – one is nested inside the other):</p>
-<pre class="r"><code>filelist &lt;-  list.files(&quot;data/pdb&quot;, &quot;*.pdb&quot;, full.names=TRUE)
+<pre class="r"><code>filelist &lt;-  list.files(&quot;data/pdb&quot;, &quot;\\.pdb$&quot;, full.names=TRUE)
 
 for (file in filelist[1:3]) {  # just loop through a few for now to keep the output small
   
@@ -2129,9 +2128,9 @@ my_measure %% 5 == 0</code></pre>
 }</code></pre>
 <p>and you can add on else:</p>
 <pre class="r"><code>if (condition) {
-  # do something
+  # do something if true
 } else {
-  # do something else
+  # do something else bc false
 }</code></pre>
 <p>or another if:</p>
 <pre class="r"><code>if (condition) {
@@ -2152,7 +2151,7 @@ startsWith(line1, &quot;ATOM&quot;)
 startsWith(line2, &quot;ATOM&quot;)</code></pre>
 <pre class="r"><code>output &lt;- c()  # to hold data
 
-filelist &lt;-  list.files(&quot;data/pdb&quot;, &quot;*.pdb&quot;, full.names=TRUE)
+filelist &lt;-  list.files(&quot;data/pdb&quot;, &quot;\\.pdb$&quot;, full.names=TRUE)
 
 for (file in filelist[1:3]) {  # just loop through 3 for now to keep the output small
   molecule_name &lt;- NA  # to keep track of the name once we find it to add to each line
@@ -2183,12 +2182,11 @@ for (file in filelist[1:3]) {  # just loop through 3 for now to keep the output 
 ## [4] &quot;ALDRIN\t4\tC\t1\t0.786\t-0.400\t0.372&quot;  
 ## [5] &quot;ALDRIN\t5\tC\t1\t-0.640\t0.143\t0.522&quot;  
 ## [6] &quot;ALDRIN\t6\tC\t1\t-1.451\t-0.124\t-0.733&quot;</code></pre>
-<pre class="r"><code># could write output to a CSV file, 
+<pre class="r"><code># could write output to a TSV file, 
 # writeLines(output, &quot;data/combined_pdb.tsv&quot;)
 
 # but we want to use it, 
 # so we'll &quot;read&quot; it in as if it were a file
-output &lt;- paste0(output, collpase=&quot;\n&quot;) ## make it one long string like in a file
 output &lt;- read.csv(text=output,  # read from output instead of a file
                    col.names=c(&quot;molecule&quot;, &quot;v1&quot;, &quot;v2&quot;, &quot;v3&quot;, &quot;v4&quot;, &quot;v5&quot;, &quot;v6&quot;),
                    sep=&quot;\t&quot;,  # we used tabs instead of commas
