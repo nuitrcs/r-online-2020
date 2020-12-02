@@ -54,7 +54,7 @@ results
 # Use
 list.files(".", recursive=TRUE)
 # to generate a vector of all file names.
-# The endswith() function will likely be helpful here too.
+# The endsWith() function will likely be helpful here too.
 for (f in list.files(".", recursive=TRUE)) {
   if (!endsWith(f, ".R")) {
     print(f)
