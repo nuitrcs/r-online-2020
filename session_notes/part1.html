@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
 
 <head>
 
 <meta charset="utf-8" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
 
@@ -1539,7 +1539,6 @@ code {
 }
 img {
   max-width:100%;
-  height: auto;
 }
 .tabbed-pane {
   padding-top: 12px;
@@ -1601,6 +1600,7 @@ summary {
   border: none;
   display: inline-block;
   border-radius: 4px;
+  background-color: transparent;
 }
 
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li {
@@ -1612,18 +1612,6 @@ summary {
   display: none;
 }
 </style>
-
-<script>
-$(document).ready(function () {
-  window.buildTabsets("TOC");
-});
-
-$(document).ready(function () {
-  $('.tabset-dropdown > .nav-tabs > li').click(function () {
-    $(this).parent().toggleClass('nav-tabs-open')
-  });
-});
-</script>
 
 <!-- code folding -->
 
@@ -1718,6 +1706,7 @@ $(document).ready(function () {
 <li><code>log(16)</code>, <code>round(2.1)</code>, <code>round(pi, 3)</code> - pi is built in value</li>
 <li>Can nest function calls: <code>round(log(16))</code>, <code>round(log(16), 2)</code></li>
 </ul></li>
+<li>R is a programming language</li>
 <li>assign a value: <code>x &lt;- 3</code> &gt;&gt; shows up in environment
 <ul>
 <li>right hand side evaluated first: <code>x &lt;- x + 1</code></li>
@@ -1786,7 +1775,7 @@ x</code></pre>
 <pre><code>## x
 ## 1 2 3 4 6 
 ## 1 1 2 3 1</code></pre>
-<p>With a table, the top line is the values, and the bottom line is the counts of each value.</p>
+<p>With a table, the top line is the unique values, and the bottom line is the counts of each value.</p>
 <p>We can use vectors in comparsions</p>
 <pre class="r"><code>x &gt; 3</code></pre>
 <pre><code>## [1] FALSE  TRUE  TRUE FALSE  TRUE FALSE FALSE  TRUE</code></pre>
@@ -1794,7 +1783,7 @@ x</code></pre>
 <pre class="r"><code>x[x &gt; 3]</code></pre>
 <pre><code>## [1] 4 6 4 4</code></pre>
 <p>You’ll learn more about vectors in your independent work and exercises.</p>
-<p><strong>EXERCISE</strong>: In the console or an open R Script file, make a vector called fav_numbers and put 5 numbers in it. Then write an expression to select just the 4th value from that vector.</p>
+<p><strong>EXERCISE</strong>: In the console or an open R Script file, make a vector called fav_numbers and put 5 numbers in it. Then write an expression to select just the 4th value from that vector. Hint: remember the <code>c()</code> function.</p>
 </div>
 <div id="missing-values" class="section level1">
 <h1>Missing Values</h1>
@@ -1833,6 +1822,23 @@ $(document).ready(function () {
 
 
 </script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>

@@ -381,8 +381,8 @@ I didn't just sit down and write this script straight through.  I built it up pi
 
 I ran into issues:
 
-* I originally wrote this in a stand alone script, so the path to the data files was correct fine. But R notebooks assume that your working directory is the directory with the notebook file in it, so I had to change that at the top of the file so the paths would work correctly.  
-* How to store the rows after I processed them?  I couldn't make an empty data frame to fill in because I didn't know the number of rows I'd need.  I could bind rows together, but A) that turned out to be hard to do starting with a NULL data frame, B) I'm using R 3.6.3 so I ran into lots of stringsAsFactors issues, and C) it made the code more complicated to explain here.
+* I originally wrote this in a stand alone script, so the path to the data files was correct. But R notebooks (this type of file) assume that your working directory is the directory with the notebook file in it, so I had to change that at the top of the file so the paths would work correctly.  
+* How to store the rows after I processed them?  I couldn't make an empty data frame to fill in because I didn't know the number of rows I'd need.  I could bind rows together, but that requires starting with a NULL data frame, which made the code more complicated to explain here.
 * I found inconsistencies in the data files like commas in some molecule names and extra columns of data.
 * I had never used `read.csv()` on text I already had within R -- I googled to see how to parse a string of CSV data into a data frame and found this solution.  
 
@@ -393,7 +393,7 @@ As with other days, there are a few programming exercises in the repository for 
 
 After today, next steps are for you to keep working and learning.  We're here to help you.  I'll monitor the discussion forum on Canvas for another week.  After that, reach out with a [consultation request](https://www.it.northwestern.edu/research/consultation/data-services.html) if we can be of help.  
 
-We have many more R workshops this summer.  I'll be teaching a series of 6 workshops on parts of the tidyverse packages.  Some of our student consultants will be teaching workshops on running various statistical and predictive models in R, and doing specialized tasks such as webscraping, network analysis, and building web applications with Shiny.  You can sign up on Eventbrite as you did for this workshop.  
+We teach other R workshops throughout the year - keep a look out for them.
 
 I'll send out follow-up links with everything via email.
 

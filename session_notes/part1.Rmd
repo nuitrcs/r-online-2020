@@ -55,6 +55,7 @@ This file has notes for the morning session of Day 1 of the workshop.
       * They optionally return a value (or more complicated object) or do something
       * `log(16)`, `round(2.1)`, `round(pi, 3)` - pi is built in value
       * Can nest function calls: `round(log(16))`, `round(log(16), 2)`
+    * R is a programming language
     * assign a value: `x <- 3` >> shows up in environment
       * right hand side evaluated first: `x <- x + 1`
     * case sensitive
@@ -121,21 +122,23 @@ sum(x)
 table(x)
 ```
 
-With a table, the top line is the values, and the bottom line is the counts of each value.
+With a table, the top line is the unique values, and the bottom line is the counts of each value.
 
 We can use vectors in comparsions
+
 ```{r}
 x > 3
 ```
 
 TRUE and FALSE are important, because we can use them to select values from vectors
+
 ```{r}
 x[x > 3]
 ```
 
 You'll learn more about vectors in your independent work and exercises.
 
-**EXERCISE**: In the console or an open R Script file, make a vector called fav_numbers and put 5 numbers in it.  Then write an expression to select just the 4th value from that vector.
+**EXERCISE**: In the console or an open R Script file, make a vector called fav_numbers and put 5 numbers in it.  Then write an expression to select just the 4th value from that vector.  Hint: remember the `c()` function.
 
 ```{r}
 

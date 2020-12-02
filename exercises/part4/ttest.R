@@ -1,15 +1,13 @@
 # t-test Exercise
 
-# If you don't have the penguins data package installed from day 2, 
-# uncomment the lines below and run them before proceeding
+# If you don't have the penguins data package installed from previous exercises,
+# uncomment the line below and run it to install
 
-#install.packages("remotes")
-#remotes::install_github("allisonhorst/palmerpenguins")
+#install.packages("palmerpenguins")
 
 # load the data
 library(palmerpenguins) 
 
-data("penguins")
 
 # Remember the variable names by printing the names
 # Information on the variables: https://github.com/allisonhorst/palmerpenguins

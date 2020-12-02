@@ -36,20 +36,20 @@ state_gdp
 # get rid of the row for the entire US
 
 
-# remove commas from numbers and convert to numeric type
-# hint: gsub(thing to replace, replace it with, text)
+# remove footnotes from data columns(things in [])
+# hint: gsub(thing/pattern to replace, replace it with, text)
 # Example: gsub("a", "!", "cat")
 # hint: "" is an empty string -- useful for removing things from text
+# hint: "\\[.{1,2}\\]" is a pattern to replace one or two characters inside []
+# hint: do a similar thing for each of the 3 columns that has footnotes
+state_gdp$___ <- gsub("\\[.{1,2}\\]", "", state_gdp$___)
+
+
+# remove commas from numbers and convert to numeric type
+# hint: gsub like above to remove commas
 # hint: as.integer()
-
-
-
-
-# remove footnotes from columns (things in [])
-# hint: as.numeric()
-# hint: "\\[.\\]" is a pattern that matches any single character inside []
-
-
+state_gdp$pop <- as.integer(gsub(",", "", state_gdp$pop))
+state_gdp$gdp_per_capita <- as.integer(gsub(",", "", state_gdp$gdp_per_capita))
 
 
 
@@ -61,6 +61,15 @@ state_gdp
 # The above averages across states, treating each state equally.
 # Compute a mean weighted by population percent column (% of nation) instead with weighted.mean()
 # Hint: you can't use tapply or aggregate here, so compute for each region manually
+
+
+
+
+# optional: recode the "region" for the territories to a different value, and 
+# recompute the mean per capital GDP for each region with the new definition
+# hint: 
+territories <- c("Puerto Rico", "Guam", "U.S. Virgin Islands", "Northern Mariana Islands", "American Samoa")
+
 
 
 

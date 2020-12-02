@@ -5,8 +5,7 @@
 
 # read in the safi data, then do the tasks below
 safi <- read.csv("data/SAFI_clean.csv", 
-                 na = c("", "NULL", "NA"),
-                 stringsAsFactors = FALSE)   # for R version >= 4.0, stringsAsFactors = FALSE is the default
+                 na = c("", "NULL", "NA"))
 
 
 # What are the names of the variables in the data (the columns)

@@ -23,8 +23,7 @@ mtcars[order(mtcars$mpg, decreasing = TRUE), ]
 
 # read in SAFI data 
 safi <- read.csv("data/SAFI_clean.csv", 
-                 na = c("", "NULL", "NA"),
-                 stringsAsFactors = FALSE)
+                 na = c("", "NULL", "NA"))
 
 # Sort safi by interview_date in reverse (newest first); save back to safi
 safi <- safi[order(safi$interview_date, decreasing=TRUE),]

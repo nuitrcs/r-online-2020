@@ -9,13 +9,10 @@ editor_options:
 
 # Data Frames
 
-We're going to work with data on penguins from https://github.com/allisonhorst/palmerpenguins.  It's been packaged into an R package.  We're going to install the remotes package that allows us to install R packages from github repositories.  
-
-You may be asked about updating packages during the installation.  You can skip the updates (just hit Return or enter the value for None).
+We're going to work with data on penguins from https://github.com/allisonhorst/palmerpenguins.  It's been packaged into an R package.  
 
 ```{r, installpackages, eval=FALSE}
-install.packages("remotes")
-remotes::install_github("allisonhorst/palmerpenguins")
+install.packages("palmerpenguins")
 ```
 
 ```{r}
@@ -37,7 +34,6 @@ x
 
 Use the penguin data
 ```{r, loaddata}
-data("penguins")
 penguins
 ```
 
@@ -67,12 +63,12 @@ Dimensions of the data frame
 dim(penguins)
 ```
 
-What will the length of a data frame be?  # of columns
+What will the length of a data frame be?  
 ```{r}
 length(penguins)
 ```
 
-This is because it's technically a list of vectors (lists are a different type).  Don't use length with a data frame; use `ncol()` instead:
+\# of columns.  This is because it's technically a list of vectors (lists are a different type).  Don't use length with a data frame; use `ncol()` instead:
 ```{r}
 ncol(penguins)
 ```
@@ -105,7 +101,7 @@ summary(penguins)
 ```
 
 
-**EXERCISE** (Run the code above first that creates the `x` data frame): Using the `x` data frame we created above:
+**EXERCISE** (Run the code above first that creates the `x` data frame - it's near line 30): Using the `x` data frame we created above:
 * How many rows and columns?
 * Names of the variables?
 
@@ -259,7 +255,7 @@ names(penguins)
 ```
 
 ```{r}
-names(penguins) <- c("a", "b", "c", "d", "e", "f", "g")  # change all of the column names
+names(penguins) <- c("a", "b", "c", "d", "e", "f", "g", "h")  # change all of the column names
 head(penguins)
 ```
 
@@ -394,7 +390,7 @@ penguins$species <- factor(penguins$species)
 We're going to talk about sorting and ordering with a vector first.
 
 ```{r}
-y <- c(30,60,20,30)
+y <- c(30, 60, 20, 30)
 y
 ```
 
@@ -462,6 +458,7 @@ penguins[order(penguins$island,
 
 ```
 
+Note: there's an easier way to sort using the package `dplyr` - the `arrange()` function.  We aren't covering the `dplyr` package this week, but we have additional workshops on the Tidyverse (which includes `dplyr`).  
 
 # Coming Up
 

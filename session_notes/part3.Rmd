@@ -16,11 +16,10 @@ library(ggplot2)  # if you installed tidyverse, you have it.  Otherwise install 
 
 # Data
 
-We're going to use the same penguins data from yesterday.  If you didn't install it yesterday, you'll need to uncomment the lines and do so.
+We're going to use the same penguins data from yesterday.  If you didn't install it yesterday, do so now.
 
 ```{r, installpackages, eval=FALSE}
-#install.packages("remotes")
-#remotes::install_github("allisonhorst/palmerpenguins")
+#install.packages("palmerpenguins")
 ```
 
 If you have it installed, just load it:

@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
 
 <head>
 
 <meta charset="utf-8" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
 
@@ -1539,7 +1539,6 @@ code {
 }
 img {
   max-width:100%;
-  height: auto;
 }
 .tabbed-pane {
   padding-top: 12px;
@@ -1601,6 +1600,7 @@ summary {
   border: none;
   display: inline-block;
   border-radius: 4px;
+  background-color: transparent;
 }
 
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li {
@@ -1612,18 +1612,6 @@ summary {
   display: none;
 }
 </style>
-
-<script>
-$(document).ready(function () {
-  window.buildTabsets("TOC");
-});
-
-$(document).ready(function () {
-  $('.tabset-dropdown > .nav-tabs > li').click(function () {
-    $(this).parent().toggleClass('nav-tabs-open')
-  });
-});
-</script>
 
 <!-- code folding -->
 
@@ -1720,9 +1708,9 @@ my_plot(mtcars$wt, &quot;Weight&quot;)</code></pre>
 <p>You may want to use the values of a vector directly:</p>
 <pre class="r"><code>letter_sample &lt;- sample(letters, 50, replace=TRUE) # letters is a built-in vector
 letter_sample</code></pre>
-<pre><code>##  [1] &quot;x&quot; &quot;w&quot; &quot;i&quot; &quot;g&quot; &quot;h&quot; &quot;t&quot; &quot;l&quot; &quot;p&quot; &quot;h&quot; &quot;h&quot; &quot;h&quot; &quot;s&quot; &quot;a&quot; &quot;q&quot; &quot;o&quot; &quot;a&quot; &quot;a&quot; &quot;d&quot; &quot;y&quot;
-## [20] &quot;h&quot; &quot;o&quot; &quot;l&quot; &quot;o&quot; &quot;s&quot; &quot;u&quot; &quot;z&quot; &quot;u&quot; &quot;u&quot; &quot;z&quot; &quot;r&quot; &quot;z&quot; &quot;l&quot; &quot;t&quot; &quot;t&quot; &quot;v&quot; &quot;m&quot; &quot;e&quot; &quot;o&quot;
-## [39] &quot;j&quot; &quot;x&quot; &quot;f&quot; &quot;w&quot; &quot;q&quot; &quot;z&quot; &quot;a&quot; &quot;d&quot; &quot;g&quot; &quot;r&quot; &quot;w&quot; &quot;y&quot;</code></pre>
+<pre><code>##  [1] &quot;g&quot; &quot;e&quot; &quot;f&quot; &quot;o&quot; &quot;s&quot; &quot;f&quot; &quot;h&quot; &quot;u&quot; &quot;m&quot; &quot;g&quot; &quot;b&quot; &quot;u&quot; &quot;b&quot; &quot;q&quot; &quot;m&quot; &quot;m&quot; &quot;h&quot; &quot;r&quot; &quot;f&quot;
+## [20] &quot;s&quot; &quot;x&quot; &quot;w&quot; &quot;x&quot; &quot;m&quot; &quot;b&quot; &quot;g&quot; &quot;z&quot; &quot;r&quot; &quot;p&quot; &quot;g&quot; &quot;b&quot; &quot;a&quot; &quot;i&quot; &quot;r&quot; &quot;y&quot; &quot;k&quot; &quot;f&quot; &quot;q&quot;
+## [39] &quot;j&quot; &quot;s&quot; &quot;v&quot; &quot;v&quot; &quot;k&quot; &quot;p&quot; &quot;b&quot; &quot;s&quot; &quot;m&quot; &quot;w&quot; &quot;q&quot; &quot;m&quot;</code></pre>
 <pre class="r"><code>result &lt;- ''
 for (letter in letter_sample) {  
   print(letter)   # so we can see what's happening
@@ -1730,58 +1718,58 @@ for (letter in letter_sample) {
     result &lt;- paste0(result, letter)  # concatenate the letter onto the end of the result 
   }
 }</code></pre>
-<pre><code>## [1] &quot;x&quot;
-## [1] &quot;w&quot;
-## [1] &quot;i&quot;
-## [1] &quot;g&quot;
-## [1] &quot;h&quot;
-## [1] &quot;t&quot;
-## [1] &quot;l&quot;
-## [1] &quot;p&quot;
-## [1] &quot;h&quot;
-## [1] &quot;h&quot;
-## [1] &quot;h&quot;
-## [1] &quot;s&quot;
-## [1] &quot;a&quot;
-## [1] &quot;q&quot;
-## [1] &quot;o&quot;
-## [1] &quot;a&quot;
-## [1] &quot;a&quot;
-## [1] &quot;d&quot;
-## [1] &quot;y&quot;
-## [1] &quot;h&quot;
-## [1] &quot;o&quot;
-## [1] &quot;l&quot;
-## [1] &quot;o&quot;
-## [1] &quot;s&quot;
-## [1] &quot;u&quot;
-## [1] &quot;z&quot;
-## [1] &quot;u&quot;
-## [1] &quot;u&quot;
-## [1] &quot;z&quot;
-## [1] &quot;r&quot;
-## [1] &quot;z&quot;
-## [1] &quot;l&quot;
-## [1] &quot;t&quot;
-## [1] &quot;t&quot;
-## [1] &quot;v&quot;
-## [1] &quot;m&quot;
+<pre><code>## [1] &quot;g&quot;
 ## [1] &quot;e&quot;
-## [1] &quot;o&quot;
-## [1] &quot;j&quot;
-## [1] &quot;x&quot;
 ## [1] &quot;f&quot;
+## [1] &quot;o&quot;
+## [1] &quot;s&quot;
+## [1] &quot;f&quot;
+## [1] &quot;h&quot;
+## [1] &quot;u&quot;
+## [1] &quot;m&quot;
+## [1] &quot;g&quot;
+## [1] &quot;b&quot;
+## [1] &quot;u&quot;
+## [1] &quot;b&quot;
+## [1] &quot;q&quot;
+## [1] &quot;m&quot;
+## [1] &quot;m&quot;
+## [1] &quot;h&quot;
+## [1] &quot;r&quot;
+## [1] &quot;f&quot;
+## [1] &quot;s&quot;
+## [1] &quot;x&quot;
+## [1] &quot;w&quot;
+## [1] &quot;x&quot;
+## [1] &quot;m&quot;
+## [1] &quot;b&quot;
+## [1] &quot;g&quot;
+## [1] &quot;z&quot;
+## [1] &quot;r&quot;
+## [1] &quot;p&quot;
+## [1] &quot;g&quot;
+## [1] &quot;b&quot;
+## [1] &quot;a&quot;
+## [1] &quot;i&quot;
+## [1] &quot;r&quot;
+## [1] &quot;y&quot;
+## [1] &quot;k&quot;
+## [1] &quot;f&quot;
+## [1] &quot;q&quot;
+## [1] &quot;j&quot;
+## [1] &quot;s&quot;
+## [1] &quot;v&quot;
+## [1] &quot;v&quot;
+## [1] &quot;k&quot;
+## [1] &quot;p&quot;
+## [1] &quot;b&quot;
+## [1] &quot;s&quot;
+## [1] &quot;m&quot;
 ## [1] &quot;w&quot;
 ## [1] &quot;q&quot;
-## [1] &quot;z&quot;
-## [1] &quot;a&quot;
-## [1] &quot;d&quot;
-## [1] &quot;g&quot;
-## [1] &quot;r&quot;
-## [1] &quot;w&quot;
-## [1] &quot;y&quot;</code></pre>
+## [1] &quot;m&quot;</code></pre>
 <pre class="r"><code>result  </code></pre>
-<pre><code>## [1] &quot;iaoaaoouuueoa&quot;</code></pre>
+<pre><code>## [1] &quot;eouuai&quot;</code></pre>
 </div>
 <div id="example-2" class="section level2">
 <h2>Example 2</h2>
@@ -1795,47 +1783,47 @@ for (i in 1:20) {
   print(paste0(&quot;Result: &quot;, result))
 }</code></pre>
 <pre><code>## [1] 1
-## [1] &quot;Result: 0&quot;
-## [1] 2
-## [1] &quot;Result: 0&quot;
-## [1] 3
-## [1] &quot;Result: 0&quot;
-## [1] 4
-## [1] &quot;Result: 0&quot;
-## [1] 5
 ## [1] &quot;Result: 1&quot;
-## [1] 6
+## [1] 2
 ## [1] &quot;Result: 2&quot;
-## [1] 7
+## [1] 3
+## [1] &quot;Result: 2&quot;
+## [1] 4
+## [1] &quot;Result: 2&quot;
+## [1] 5
 ## [1] &quot;Result: 3&quot;
+## [1] 6
+## [1] &quot;Result: 4&quot;
+## [1] 7
+## [1] &quot;Result: 5&quot;
 ## [1] 8
-## [1] &quot;Result: 4&quot;
+## [1] &quot;Result: 6&quot;
 ## [1] 9
-## [1] &quot;Result: 4&quot;
-## [1] 10
-## [1] &quot;Result: 4&quot;
-## [1] 11
-## [1] &quot;Result: 4&quot;
-## [1] 12
-## [1] &quot;Result: 4&quot;
-## [1] 13
-## [1] &quot;Result: 4&quot;
-## [1] 14
-## [1] &quot;Result: 5&quot;
-## [1] 15
-## [1] &quot;Result: 5&quot;
-## [1] 16
-## [1] &quot;Result: 6&quot;
-## [1] 17
-## [1] &quot;Result: 6&quot;
-## [1] 18
 ## [1] &quot;Result: 7&quot;
-## [1] 19
+## [1] 10
 ## [1] &quot;Result: 8&quot;
+## [1] 11
+## [1] &quot;Result: 8&quot;
+## [1] 12
+## [1] &quot;Result: 8&quot;
+## [1] 13
+## [1] &quot;Result: 9&quot;
+## [1] 14
+## [1] &quot;Result: 9&quot;
+## [1] 15
+## [1] &quot;Result: 9&quot;
+## [1] 16
+## [1] &quot;Result: 10&quot;
+## [1] 17
+## [1] &quot;Result: 11&quot;
+## [1] 18
+## [1] &quot;Result: 11&quot;
+## [1] 19
+## [1] &quot;Result: 11&quot;
 ## [1] 20
-## [1] &quot;Result: 9&quot;</code></pre>
+## [1] &quot;Result: 11&quot;</code></pre>
 <pre class="r"><code>result  # you'll get different results each time</code></pre>
-<pre><code>## [1] 9</code></pre>
+<pre><code>## [1] 11</code></pre>
 </div>
 <div id="example-3" class="section level2">
 <h2>Example 3</h2>
@@ -2200,9 +2188,9 @@ output</code></pre>
 <p>I didn’t just sit down and write this script straight through. I built it up piece by piece, ran it, found things that were wrong, and then fixed them. And I kept doing this over and over.</p>
 <p>I ran into issues:</p>
 <ul>
-<li>I originally wrote this in a stand alone script, so the path to the data files was correct fine. But R notebooks assume that your working directory is the directory with the notebook file in it, so I had to change that at the top of the file so the paths would work correctly.<br />
+<li>I originally wrote this in a stand alone script, so the path to the data files was correct. But R notebooks (this type of file) assume that your working directory is the directory with the notebook file in it, so I had to change that at the top of the file so the paths would work correctly.<br />
 </li>
-<li>How to store the rows after I processed them? I couldn’t make an empty data frame to fill in because I didn’t know the number of rows I’d need. I could bind rows together, but A) that turned out to be hard to do starting with a NULL data frame, B) I’m using R 3.6.3 so I ran into lots of stringsAsFactors issues, and C) it made the code more complicated to explain here.</li>
+<li>How to store the rows after I processed them? I couldn’t make an empty data frame to fill in because I didn’t know the number of rows I’d need. I could bind rows together, but that requires starting with a NULL data frame, which made the code more complicated to explain here.</li>
 <li>I found inconsistencies in the data files like commas in some molecule names and extra columns of data.</li>
 <li>I had never used <code>read.csv()</code> on text I already had within R – I googled to see how to parse a string of CSV data into a data frame and found this solution.</li>
 </ul>
@@ -2212,7 +2200,7 @@ output</code></pre>
 <h1>Coming Up</h1>
 <p>As with other days, there are a few programming exercises in the repository for you to work on. Unlike other days, these concepts can be hard to apply to your own data and code until a need for them arises. If you get through the programming material, I recommend returning to one of your own data sets and continuing with your own work in R. I’m happy to answer any R questions at all this afternoon.</p>
 <p>After today, next steps are for you to keep working and learning. We’re here to help you. I’ll monitor the discussion forum on Canvas for another week. After that, reach out with a <a href="https://www.it.northwestern.edu/research/consultation/data-services.html">consultation request</a> if we can be of help.</p>
-<p>We have many more R workshops this summer. I’ll be teaching a series of 6 workshops on parts of the tidyverse packages. Some of our student consultants will be teaching workshops on running various statistical and predictive models in R, and doing specialized tasks such as webscraping, network analysis, and building web applications with Shiny. You can sign up on Eventbrite as you did for this workshop.</p>
+<p>We teach other R workshops throughout the year - keep a look out for them.</p>
 <p>I’ll send out follow-up links with everything via email.</p>
 </div>
 
@@ -2233,6 +2221,23 @@ $(document).ready(function () {
 
 
 </script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>

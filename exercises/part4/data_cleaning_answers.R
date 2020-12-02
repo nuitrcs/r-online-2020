@@ -36,19 +36,21 @@ names(state_gdp) <- c("rank", "state", "pop", "pop_percent", "gdp_per_capita", "
 # get rid of row for entire US
 state_gdp <- state_gdp[-1, ]
 
-# remove commas from numbers and convert to numeric type
-# hint: gsub(thing to replace, replace it with, text)
+# remove footnotes from data columns(things in [])
+# hint: gsub(thing/pattern to replace, replace it with, text)
 # Example: gsub("a", "!", "cat")
 # hint: "" is an empty string -- useful for removing things from text
+# hint: "\\[.{1,2}\\]" is a pattern to replace one or two characters inside []
+# hint: do a similar thing for each of the 3 columns that has footnotes
+state_gdp$pop_percent <- gsub("\\[.{1,2}\\]", "", state_gdp$pop_percent)
+state_gdp$gdp_per_capita <- gsub("\\[.{1,2}\\]", "", state_gdp$gdp_per_capita)
+state_gdp$region <- gsub("\\[.{1,2}\\]", "", state_gdp$region)
+
+# remove commas from numbers and convert to numeric type
+# hint: gsub like above
 # hint: as.integer()
 state_gdp$pop <- as.integer(gsub(",", "", state_gdp$pop))
 state_gdp$gdp_per_capita <- as.integer(gsub(",", "", state_gdp$gdp_per_capita))
-
-# remove footnotes from columns (things in [])
-# hint: as.numeric()
-# hint: "\\[.\\]" is a pattern to replace any single character inside []
-state_gdp$pop_percent <- as.numeric(gsub("\\[.\\]", "", state_gdp$pop_percent))
-state_gdp$region <- gsub("\\[.\\]", "", state_gdp$region)
 
 
 # Now compute the mean per capita GDP for each region
@@ -67,3 +69,11 @@ weighted.mean(state_gdp$gdp_per_capita[state_gdp$region == "South"],
 weighted.mean(state_gdp$gdp_per_capita[state_gdp$region == "West"], 
               state_gdp$pop_percent[state_gdp$region == "West"])
 
+
+# optional: recode the "region" for the territories to a different value, and 
+# recompute the mean per capital GDP for each region with the new definition
+# hint: 
+territories <- c("Puerto Rico", "Guam", "U.S. Virgin Islands", "Northern Mariana Islands", "American Samoa")
+
+state_gdp$region <- ifelse(state_gdp$state %in% territories, "territory", state_gdp$region)
+tapply(state_gdp$gdp_per_capita, state_gdp$region, mean)

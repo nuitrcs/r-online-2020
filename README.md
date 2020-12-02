@@ -1,6 +1,6 @@
 # R Fundamentals Bootcamp
 
-Next session will be in December 2020.  More information: https://www.it.northwestern.edu/research/training.html
+Next session for Northwestern affiliates will be in December 2020.  More information: https://www.it.northwestern.edu/research/training.html
 
 Quick links to schedule:
 
@@ -52,7 +52,7 @@ Try changing the code to see what happens - you won't break anything.
 
 # Schedule and Materials
 
-*All times are Central Daylight Time*
+*All times are Central Time*
 
 ## Before the Workshop
 
@@ -66,14 +66,14 @@ Also, install the tidyverse package.  Instructions are at the bottom of the [ins
 
 ### Get Materials
 
-[Download this repository](https://sites.northwestern.edu/researchcomputing/resources/downloading-from-github/) (but wait until late Sunday or early Monday, as I'll be updating materials until then)
+[Download this repository](https://sites.northwestern.edu/researchcomputing/resources/downloading-from-github/) (but wait until a few days before the workshop starts to make sure you get the most up-to-date materials)
 
 Then you will have the datasets and exercises downloaded to your computer to work on.  Open the `r-online-2020.Rproj` file in the project directory to make sure your working directory is set correctly for the scripts.
 
 
 ### Handouts
 
-During in-person workshops, these are the handouts we usually provide.  You may find them useful.  
+During in-person workshops, these are the handouts we usually provide.  You may find them useful to have available as you work.  
 
 [RStudio Cheat Sheets](https://www.rstudio.com/resources/cheatsheets/) are short pdfs that summarize key R functions on specific topics. Many people print them out for reference while working in R.  The `ggplot2` cheat sheet, in particular, is indispensable when working with that package.  
 

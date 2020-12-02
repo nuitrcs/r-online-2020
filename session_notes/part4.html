@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
 
 <head>
 
 <meta charset="utf-8" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
 
@@ -1539,7 +1539,6 @@ code {
 }
 img {
   max-width:100%;
-  height: auto;
 }
 .tabbed-pane {
   padding-top: 12px;
@@ -1601,6 +1600,7 @@ summary {
   border: none;
   display: inline-block;
   border-radius: 4px;
+  background-color: transparent;
 }
 
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li {
@@ -1612,18 +1612,6 @@ summary {
   display: none;
 }
 </style>
-
-<script>
-$(document).ready(function () {
-  window.buildTabsets("TOC");
-});
-
-$(document).ready(function () {
-  $('.tabset-dropdown > .nav-tabs > li').click(function () {
-    $(this).parent().toggleClass('nav-tabs-open')
-  });
-});
-</script>
 
 <!-- code folding -->
 
@@ -1652,12 +1640,13 @@ $(document).ready(function () {
 <div id="setup" class="section level1">
 <h1>Setup</h1>
 <pre class="r"><code>library(ggplot2)</code></pre>
+<pre><code>## Warning: replacing previous import 'vctrs::data_frame' by 'tibble::data_frame'
+## when loading 'dplyr'</code></pre>
 </div>
 <div id="data" class="section level1">
 <h1>Data</h1>
-<p>We’re going to use the same penguins data from previous days. If you don’t have it installed, you’ll need to uncomment the lines below and do so.</p>
-<pre class="r"><code>#install.packages(&quot;remotes&quot;)
-#remotes::install_github(&quot;allisonhorst/palmerpenguins&quot;)</code></pre>
+<p>We’re going to use the same penguins data from previous days. If you don’t have it installed, you’ll need to uncomment the line below and do so.</p>
+<pre class="r"><code>#install.packages(&quot;palmerpenguins&quot;)</code></pre>
 <p>If you have it installed, just load it:</p>
 <pre class="r"><code>library(palmerpenguins)</code></pre>
 <p>So far we’ve learned how to get our data into a data frame, work with that data frame, and visualize that data. Now, how do we analyze it?</p>
@@ -1707,14 +1696,15 @@ $(document).ready(function () {
   </script>
 </div>
 <pre class="r"><code>str(penguins)</code></pre>
-<pre><code>## tibble [344 × 7] (S3: tbl_df/tbl/data.frame)
+<pre><code>## tibble [344 × 8] (S3: tbl_df/tbl/data.frame)
 ##  $ species          : Factor w/ 3 levels &quot;Adelie&quot;,&quot;Chinstrap&quot;,..: 1 1 1 1 1 1 1 1 1 1 ...
 ##  $ island           : Factor w/ 3 levels &quot;Biscoe&quot;,&quot;Dream&quot;,..: 3 3 3 3 3 3 3 3 3 3 ...
 ##  $ bill_length_mm   : num [1:344] 39.1 39.5 40.3 NA 36.7 39.3 38.9 39.2 34.1 42 ...
 ##  $ bill_depth_mm    : num [1:344] 18.7 17.4 18 NA 19.3 20.6 17.8 19.6 18.1 20.2 ...
 ##  $ flipper_length_mm: int [1:344] 181 186 195 NA 193 190 181 195 193 190 ...
 ##  $ body_mass_g      : int [1:344] 3750 3800 3250 NA 3450 3650 3625 4675 3475 4250 ...
-##  $ sex              : Factor w/ 2 levels &quot;female&quot;,&quot;male&quot;: 2 1 1 NA 1 2 1 2 NA NA ...</code></pre>
+##  $ sex              : Factor w/ 2 levels &quot;female&quot;,&quot;male&quot;: 2 1 1 NA 1 2 1 2 NA NA ...
+##  $ year             : int [1:344] 2007 2007 2007 2007 2007 2007 2007 2007 2007 2007 ...</code></pre>
 <p><strong>EXERCISE</strong>: Compute group means of <code>body_mass_g</code> by <code>sex</code> with <code>tapply()</code> and <code>aggregate()</code>.</p>
 <p>Use <code>tapply()</code></p>
 <p>Use <code>aggregate()</code></p>
@@ -1776,7 +1766,7 @@ cor(___, ___,
 head(penguins)</code></pre>
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
-{"columns":[{"label":["species"],"name":[1],"type":["fctr"],"align":["left"]},{"label":["island"],"name":[2],"type":["fctr"],"align":["left"]},{"label":["bill_length_mm"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["bill_depth_mm"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["flipper_length_mm"],"name":[5],"type":["int"],"align":["right"]},{"label":["body_mass_g"],"name":[6],"type":["int"],"align":["right"]},{"label":["sex"],"name":[7],"type":["fctr"],"align":["left"]}],"data":[{"1":"Adelie","2":"Torgersen","3":"39.1","4":"18.7","5":"181","6":"3750","7":"male"},{"1":"Adelie","2":"Torgersen","3":"39.5","4":"17.4","5":"186","6":"3800","7":"female"},{"1":"Adelie","2":"Torgersen","3":"40.3","4":"18.0","5":"195","6":"3250","7":"female"},{"1":"Adelie","2":"Torgersen","3":"NA","4":"NA","5":"NA","6":"NA","7":"NA"},{"1":"Adelie","2":"Torgersen","3":"36.7","4":"19.3","5":"193","6":"3450","7":"female"},{"1":"Adelie","2":"Torgersen","3":"39.3","4":"20.6","5":"190","6":"3650","7":"male"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":["species"],"name":[1],"type":["fctr"],"align":["left"]},{"label":["island"],"name":[2],"type":["fctr"],"align":["left"]},{"label":["bill_length_mm"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["bill_depth_mm"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["flipper_length_mm"],"name":[5],"type":["int"],"align":["right"]},{"label":["body_mass_g"],"name":[6],"type":["int"],"align":["right"]},{"label":["sex"],"name":[7],"type":["fctr"],"align":["left"]},{"label":["year"],"name":[8],"type":["int"],"align":["right"]}],"data":[{"1":"Adelie","2":"Torgersen","3":"39.1","4":"18.7","5":"181","6":"3750","7":"male","8":"2007"},{"1":"Adelie","2":"Torgersen","3":"39.5","4":"17.4","5":"186","6":"3800","7":"female","8":"2007"},{"1":"Adelie","2":"Torgersen","3":"40.3","4":"18.0","5":"195","6":"3250","7":"female","8":"2007"},{"1":"Adelie","2":"Torgersen","3":"NA","4":"NA","5":"NA","6":"NA","7":"NA","8":"2007"},{"1":"Adelie","2":"Torgersen","3":"36.7","4":"19.3","5":"193","6":"3450","7":"female","8":"2007"},{"1":"Adelie","2":"Torgersen","3":"39.3","4":"20.6","5":"190","6":"3650","7":"male","8":"2007"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 <pre class="r"><code>cor(penguins[,3:6],
@@ -1967,6 +1957,7 @@ reg1</code></pre>
 <pre><code>## 
 ## 1.5Fin 1.5Unf 1Story 2.5Fin 2.5Unf 2Story SFoyer   SLvl 
 ##    314     19   1481      8     24    873     83    128</code></pre>
+<p>What if we put <code>house_style</code> into our regression?</p>
 <pre class="r"><code>reg2 &lt;- lm(sale_price ~ bedroom_abv_gr + full_bath + half_bath + 
              tot_rms_abv_grd + sf + house_style,
            data = ames)
@@ -2002,6 +1993,8 @@ summary(reg2)</code></pre>
 ##   (1 observation deleted due to missingness)
 ## Multiple R-squared:  0.6921, Adjusted R-squared:  0.6909 
 ## F-statistic: 546.3 on 12 and 2916 DF,  p-value: &lt; 2.2e-16</code></pre>
+<p>But look closely at the variables in the summary above – the values for <code>house_style</code>. What’s going on?</p>
+<p>To address this:</p>
 <pre class="r"><code>reg3 &lt;- lm(sale_price ~ -1 + bedroom_abv_gr + full_bath + half_bath + 
              tot_rms_abv_grd + sf + house_style,
            data = ames)
@@ -2051,6 +2044,7 @@ summary(reg3)</code></pre>
 I()      y ~ I(log(x1))     Wrapper for transforming variables without creating a new variable
 poly()   y ~ poly(x1, 2)    Creates polynomial terms up to the degree specified 
 </code></pre>
+<p>Let’s add an interaction term:</p>
 <pre class="r"><code>reg4 &lt;- lm(sale_price ~ -1 + bedroom_abv_gr + full_bath + half_bath + 
              tot_rms_abv_grd*sf + house_style,
            data = ames)
@@ -2111,6 +2105,23 @@ $(document).ready(function () {
 
 
 </script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>

@@ -1,8 +1,7 @@
 # Base R Plot Answers
 
 # setup code
-africadata <- read.csv("data/africadata.csv", header = TRUE,
-                       stringsAsFactors = FALSE)
+africadata <- read.csv("data/africadata.csv")
 
 # Make a scatterplot of gdp_2017 vs. pop_2017
 plot(pop_2017 ~ gdp_2017, data=africadata)

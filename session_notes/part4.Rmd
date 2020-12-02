@@ -17,11 +17,10 @@ library(ggplot2)
 
 # Data
 
-We're going to use the same penguins data from previous days.  If you don't have it installed, you'll need to uncomment the lines below and do so.
+We're going to use the same penguins data from previous days.  If you don't have it installed, you'll need to uncomment the line below and do so.
 
 ```{r, installpackages, eval=FALSE}
-#install.packages("remotes")
-#remotes::install_github("allisonhorst/palmerpenguins")
+#install.packages("palmerpenguins")
 ```
 
 If you have it installed, just load it:
@@ -282,7 +281,7 @@ summary(reg1)$coefficients
 table(ames$house_style)
 ```
 
-
+What if we put `house_style` into our regression?
 
 ```{r}
 reg2 <- lm(sale_price ~ bedroom_abv_gr + full_bath + half_bath + 
@@ -290,6 +289,10 @@ reg2 <- lm(sale_price ~ bedroom_abv_gr + full_bath + half_bath +
            data = ames)
 summary(reg2)
 ```
+
+But look closely at the variables in the summary above -- the values for `house_style`.  What's going on?
+
+To address this: 
 
 ```{r}
 reg3 <- lm(sale_price ~ -1 + bedroom_abv_gr + full_bath + half_bath + 
@@ -315,6 +318,7 @@ poly()   y ~ poly(x1, 2)    Creates polynomial terms up to the degree specified
 
 ```
 
+Let's add an interaction term:
 
 ```{r}
 reg4 <- lm(sale_price ~ -1 + bedroom_abv_gr + full_bath + half_bath + 

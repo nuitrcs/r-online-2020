@@ -7,15 +7,13 @@ library(ggplot2)
 # In RStudio: Help menu > Cheatsheets > Data Visualization with ggplot2 will download the pdf cheatsheet
 
 # If you don't have the penguins data package installed from day 2, 
-# uncomment the lines below and run them before proceeding
+# install it now
 
-#install.packages("remotes")
-#remotes::install_github("allisonhorst/palmerpenguins")
+#install.packages("palmerpenguins")
 
 # load the data
 library(palmerpenguins) 
 
-data("penguins")
 
 # Remember the variable names by printing the names
 # Information on the variables: https://github.com/allisonhorst/palmerpenguins
