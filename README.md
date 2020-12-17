@@ -85,7 +85,7 @@ There are links to many free online resources below.  A few resources require re
 
 [R Cookbook](https://learning.oreilly.com/library/view/r-cookbook-2nd/9781492040675/) - create an account with O'Reilly online [through the library](https://search.library.northwestern.edu/permalink/f/1h5vb9e/01NWU_ALMA61730998600002441) first.
 
-[Cloud Based Data Science](https://leanpub.com/universities/set/jhu/cloud-based-data-science) - an online set of courses from Johns Hopkins University faculty.  Not required for the workshop, but links to relevant material from those courses is included below under extra materials.  Pricing is flexible (including free).
+[Cloud Based Data Science](https://www.clouddatascience.org/) - an online set of courses from Johns Hopkins University faculty.  Not required for the workshop, but links to relevant material from those courses is included below under extra materials.  Pricing is flexible (including free).
 
 
 -----
@@ -122,7 +122,7 @@ Session File: [`session_notes/part1.Rmd`](session_notes/part1.Rmd) or [HTML vers
 Alternative/extra material:   
 * Additional sections of [YaRrr! The Pirate’s Guide to R](https://bookdown.org/ndphillips/YaRrr/) may be helpful -- the index is fairly clear for finding relevant material, chapters 4-7 roughly correspond to today's material
 * Covers many of the same concepts, except factors: [Data Carpentry Data Analysis and Visualization in R for Ecologists](https://datacarpentry.org/R-ecology-lesson/01-intro-to-r.html): Introduction to R Lesson -- not specific to ecologists!
-* Covers many of the same concepts, except factors: [Cloud Based Data Science](https://leanpub.com/universities/set/jhu/cloud-based-data-science) Intro to R Course - first 6 sections (through Working with Logicals) 
+* Covers many of the same concepts, except factors: [Cloud Based Data Science](https://www.clouddatascience.org/) Intro to R Course - first 6 sections (through Working with Logicals) 
 * Data types and vectors: [Software Carpentry Programming in R](http://swcarpentry.github.io/r-novice-inflammation/13-supp-data-structures/index.html) Data Structures.  At the end this introduces data frames, which are the topic for Tuesday.
 * Similar material to above, from the same author: [Learning Statistics with R v1](https://learningstatisticswithr.com/book/introR.html): Chapter 3 Getting Started with R; Chapter 4 Additional R Concepts Sections 4.1 through 4.7
 * Factors: [Software Carpentry Programming with R](http://swcarpentry.github.io/r-novice-inflammation/12-supp-factors/index.html): Understanding Factors.  Get the data set used in the lesson from [the course setup page](http://swcarpentry.github.io/r-novice-inflammation/setup.html).  Ask if you need help loading the data file.
@@ -176,9 +176,9 @@ Alternative/extra material:
 * Interactive tutorial on data frames : [DataCamp 15 Easy Solutions To Your Data Frame Problems In R](https://www.datacamp.com/community/tutorials/15-easy-solutions-data-frame-problems-r)
 * Subset a data frame: [Learning Statistics with R v1](https://learningstatisticswithr.com/book/datahandling.html#subsetdataframe) 7.5 Extracting a subset of a data frame (7.3 on vectors is also useful)
 * Getting Help: 
-  - [Cloud Based Data Science](https://leanpub.com/universities/set/jhu/cloud-based-data-science) Intro to R Course - Getting Help in R section
+  - [Cloud Based Data Science](https://www.clouddatascience.org/) Intro to R Course - Getting Help in R section
   - [R Cookbook](https://learning.oreilly.com/library/view/r-cookbook-2nd/9781492040675/ch01.html#recipe-id265) Starting Section 1.7
-* Reading in Data Files: [Cloud Based Data Science](https://leanpub.com/courses/jhu/cbds-getting-data/read/2#leanpub-auto-csv-excel-and-tsv-files) Getting Data Section 2 CSV, Excel, and TSV Files
+* Reading in Data Files: [Cloud Based Data Science](https://www.clouddatascience.org/) Getting Data Section 2 CSV, Excel, and TSV Files
   
 Notes:
 
@@ -220,7 +220,7 @@ File: `session_notes/part3.Rmd` or [HTML version](https://nuitrcs.github.io/r-on
 
 Alternative/extra material: 
 * [R Cookbook](https://learning.oreilly.com/library/view/r-cookbook-2nd/9781492040675/ch10.html#Graphics) Graphics uses ggplot2
-* [Cloud Based Data Science](https://leanpub.com/courses/jhu/cbds-visualization) Data Visualization
+* [Cloud Based Data Science](https://www.clouddatascience.org/) Data Visualization
 * [Data Carpentry Data Analysis and Visualization in R for Ecologists](https://datacarpentry.org/R-ecology-lesson/04-visualization-ggplot2.html) Data visualization with ggplot2
 * [Learning Statistics with R v2](https://tidylsr.djnavarro.net/datavis.html) Pretty Pictures - this chapter uses the `%>%` operator prevalent in the tidyverse; see [an explanation here](https://cfss.uchicago.edu/notes/pipes/).  
 
@@ -271,7 +271,7 @@ Alternative/extra material:
 
 * YaRrr! The Pirate's Guide to R [Hypothesis Tests](https://bookdown.org/ndphillips/YaRrr/htests.html)
 * YaRrr! The Pirate's Guide to R [Regression](https://bookdown.org/ndphillips/YaRrr/regression.html)
-* Descriptive and Exploratory Analysis: [Cloud Based Data Science](https://leanpub.com/courses/jhu/cbds-analysis/home) Data Analysis Course: focuses on concepts more than the R code
+* Descriptive and Exploratory Analysis: [Cloud Based Data Science](https://www.clouddatascience.org/) Data Analysis Course: focuses on concepts more than the R code
 * Statistics: [R Cookbook](https://learning.oreilly.com/library/view/r-cookbook-2nd/9781492040675) - has several useful sections if you already know what you want to do
 * UCLA Statistical Consulting [Data Analysis Examples](https://stats.idre.ucla.edu/other/dae/) - if you're familiar with Stata, SAS, SPSS, or MPlus, this site has examples worked for many types of different statistical models (mostly regression based) for these programs as well as R.  
 
