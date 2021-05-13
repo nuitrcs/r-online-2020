@@ -1,6 +1,6 @@
 # R Fundamentals Bootcamp
 
-Next session for Northwestern affiliates will be in December 2020.  More information: https://www.it.northwestern.edu/research/training.html
+Next session for Northwestern affiliates will be in June 21-25, 2021.  More information: https://www.it.northwestern.edu/research/training.html
 
 Quick links to schedule:
 
@@ -28,11 +28,11 @@ Morning Zoom sessions will be recorded and available in Canvas for a limited tim
 
 ## Daily Schedule
 
-**Morning Zoom Session**: 60-90 minutes live session teaching new skills at 10am each day.  These sessions will be demonstration plus a few exercises, but you will NOT need to watch the video and code in R at the same time.  We'll pause when you need to switch to doing something yourself in R.  Questions welcome via the chat; no need to share your video for this session.
+**Morning Zoom Session**: ~90 minutes live session teaching new skills at 10am each day.  These sessions will be demonstration plus a few exercises, but you will NOT need to watch the video and code in R at the same time.  We'll pause when you need to switch to doing something yourself in R.  Questions welcome via the chat; no need to share your video for this session.
 
 **Mid-day Work Session**: Each day has online materials for you to work through on your own.  The materials include explanations of new concepts as well as exercises.  Start with the **Start here** materials; check out the other resources if you need more information or want more practice.  Then do the exercises.  As questions arise, ask them on the Canvas discussion board - we'll actively monitor it during the day.  Or bring your questions to the afternoon office hours.  
 
-**Afternoon Zoom Session**: 60-90 minutes live session at 3pm daily reviewing material, with the opportunity to ask questions.  Think of this session as group office hours.  We'll have a quiz to review key concepts, but otherwise, the content will be driven by your questions and the quiz results.  Share your video if you can, since this session will be more interactive.  
+**Afternoon Zoom Session**: 30-60 minutes live session at 3pm daily reviewing material, with the opportunity to ask questions.  Think of this session as group office hours.  We'll have a quiz to review key concepts, but otherwise, the content will be driven by your questions and the quiz results.  Share your video if you can, since this session will be more interactive.  
 
 **Other Times**: Everyone's schedule is different, so work on exercises earlier or later in the day as needed.  Post questions on the discussion board on Canvas, and we'll answer them as soon as we can.  
 
@@ -182,7 +182,7 @@ Alternative/extra material:
   
 Notes:
 
-* If you see a reference to the stringsAsFactors option for read.csv(): it defaults to TRUE for R versions < 4 but FALSE for R 4.0.0 and later.  Most materials have not yet been updated to reflect this change because R 4.0.0 is recent.
+* If you see a reference to the stringsAsFactors option for read.csv(): it defaults to TRUE for R versions < 4 but FALSE for R 4.0.0 and later.  Some materials have not yet been updated to reflect this change.
 
 ### Exercises
 
