@@ -1,6 +1,7 @@
 # R Fundamentals Bootcamp
 
-Next session for Northwestern affiliates will be in December 2020. More information: <https://www.it.northwestern.edu/research/training.html>
+
+Next session for Northwestern affiliates will be in June 21-25, 2021.  More information: https://www.it.northwestern.edu/research/training.html
 
 Quick links to schedule:
 
@@ -28,11 +29,14 @@ Morning Zoom sessions will be recorded and available in Canvas for a limited tim
 
 ## Daily Schedule
 
-**Morning Zoom Session**: 60-90 minutes live session teaching new skills at 10am each day. These sessions will be demonstration plus a few exercises, but you will NOT need to watch the video and code in R at the same time. We'll pause when you need to switch to doing something yourself in R. Questions welcome via the chat; no need to share your video for this session.
+
+**Morning Zoom Session**: ~90 minutes live session teaching new skills at 10am each day.  These sessions will be demonstration plus a few exercises, but you will NOT need to watch the video and code in R at the same time.  We'll pause when you need to switch to doing something yourself in R.  Questions welcome via the chat; no need to share your video for this session.
 
 **Mid-day Work Session**: Each day has online materials for you to work through on your own. The materials include explanations of new concepts as well as exercises. Start with the **Start here** materials; check out the other resources if you need more information or want more practice. Then do the exercises. As questions arise, ask them on the Canvas discussion board - we'll actively monitor it during the day. Or bring your questions to the afternoon office hours.
 
-**Afternoon Zoom Session**: 60-90 minutes live session at 3pm daily reviewing material, with the opportunity to ask questions. Think of this session as group office hours. We'll have a quiz to review key concepts, but otherwise, the content will be driven by your questions and the quiz results. Share your video if you can, since this session will be more interactive.
+
+**Afternoon Zoom Session**: 30-60 minutes live session at 3pm daily reviewing material, with the opportunity to ask questions.  Think of this session as group office hours.  We'll have a quiz to review key concepts, but otherwise, the content will be driven by your questions and the quiz results.  Share your video if you can, since this session will be more interactive.  
+
 
 **Other Times**: Everyone's schedule is different, so work on exercises earlier or later in the day as needed. Post questions on the discussion board on Canvas, and we'll answer them as soon as we can.
 
@@ -82,7 +86,9 @@ There are links to many free online resources below. A few resources require reg
 
 [R Cookbook](https://learning.oreilly.com/library/view/r-cookbook-2nd/9781492040675/) - create an account with O'Reilly online [through the library](https://search.library.northwestern.edu/permalink/f/1h5vb9e/01NWU_ALMA61730998600002441) first.
 
-[Cloud Based Data Science](https://leanpub.com/universities/set/jhu/cloud-based-data-science) - an online set of courses from Johns Hopkins University faculty. Not required for the workshop, but links to relevant material from those courses is included below under extra materials. Pricing is flexible (including free).
+
+[Cloud Based Data Science](https://www.clouddatascience.org/) - an online set of courses from Johns Hopkins University faculty.  Not required for the workshop, but links to relevant material from those courses is included below under extra materials.  Pricing is flexible (including free).
+
 
 ------------------------------------------------------------------------
 
@@ -113,6 +119,7 @@ Session File: [`session_notes/part1.Rmd`](session_notes/part1.Rmd) or [HTML vers
 
 -   [Learning Statistics with R v2](https://tidylsr.djnavarro.net/index.html): [Chapter 2 Getting Started in R](https://tidylsr.djnavarro.net/r-start.html#arithmetic-operations); Appendices [A1 Vectors](https://tidylsr.djnavarro.net/data-types.html#vectors) and [A2 Factors](https://tidylsr.djnavarro.net/data-types.html#factors)
 -   [Logical Indexing](https://bookdown.org/ndphillips/YaRrr/logical-indexing.html) and [Changing values of a vector](https://bookdown.org/ndphillips/YaRrr/changing-values-of-a-vector.html) from [YaRrr! The Pirate's Guide to R](https://bookdown.org/ndphillips/YaRrr/)
+
 
 Alternative/extra material:
 
@@ -163,6 +170,7 @@ likert.raw <- c(1, 7, 3, 4, 4, 4, 2, 6, 5, 5)
 ```
 
 -   [Learning Statistics with R v1](https://learningstatisticswithr.com/) [Section 4.12 Getting Help](https://learningstatisticswithr.com/book/mechanics.html#help)
+
 
 Alternative/extra material:
 
@@ -217,12 +225,14 @@ Note: the ggplot2 part of today is the same material in the [Tidyverse workshop 
 -   ggplot2: [R for Data Science](https://r4ds.had.co.nz/data-visualisation.html) Chapter 3 Visualization - this is a lot of material to digest; you don't have to get through it all at once. Focus on the basics, and then skim the rest so you know what features are available. Come back to it as you need to learn more to do what you want with your plots.
 -   Base R graphics: [Learning Statistics with R v1](https://learningstatisticswithr.com/book/graphics.html) Drawing Graphs
 
-Alternative/extra material:
 
--   [R Cookbook](https://learning.oreilly.com/library/view/r-cookbook-2nd/9781492040675/ch10.html#Graphics) Graphics uses ggplot2
--   [Cloud Based Data Science](https://leanpub.com/courses/jhu/cbds-visualization) Data Visualization
--   [Data Carpentry Data Analysis and Visualization in R for Ecologists](https://datacarpentry.org/R-ecology-lesson/04-visualization-ggplot2.html) Data visualization with ggplot2
--   [Learning Statistics with R v2](https://tidylsr.djnavarro.net/datavis.html) Pretty Pictures - this chapter uses the `%>%` operator prevalent in the tidyverse; see [an explanation here](https://cfss.uchicago.edu/notes/pipes/).
+Alternative/extra material: 
+
+* [R Cookbook](https://learning.oreilly.com/library/view/r-cookbook-2nd/9781492040675/ch10.html#Graphics) Graphics uses ggplot2
+* [Cloud Based Data Science](https://www.clouddatascience.org/) Data Visualization
+* [Data Carpentry Data Analysis and Visualization in R for Ecologists](https://datacarpentry.org/R-ecology-lesson/04-visualization-ggplot2.html) Data visualization with ggplot2
+* [Learning Statistics with R v2](https://tidylsr.djnavarro.net/datavis.html) Pretty Pictures - this chapter uses the `%>%` operator prevalent in the tidyverse; see [an explanation here](https://cfss.uchicago.edu/notes/pipes/).  
+
 
 Want more? See our [online guide to learning ggplot2](https://sites.northwestern.edu/researchcomputing/2020/04/13/online-learning-resources-r-ggplot2/) - most of these will take you longer than a few hours.
 
@@ -264,13 +274,14 @@ Then you'll see one (or more) new objects in your Environment tab that you can u
 
 Alternative/extra material:
 
--   YaRrr! The Pirate's Guide to R [Hypothesis Tests](https://bookdown.org/ndphillips/YaRrr/htests.html)
--   YaRrr! The Pirate's Guide to R [Regression](https://bookdown.org/ndphillips/YaRrr/regression.html)
--   Descriptive and Exploratory Analysis: [Cloud Based Data Science](https://leanpub.com/courses/jhu/cbds-analysis/home) Data Analysis Course: focuses on concepts more than the R code
--   Statistics: [R Cookbook](https://learning.oreilly.com/library/view/r-cookbook-2nd/9781492040675) - has several useful sections if you already know what you want to do
--   UCLA Statistical Consulting [Data Analysis Examples](https://stats.idre.ucla.edu/other/dae/) - if you're familiar with Stata, SAS, SPSS, or MPlus, this site has examples worked for many types of different statistical models (mostly regression based) for these programs as well as R.
+* YaRrr! The Pirate's Guide to R [Hypothesis Tests](https://bookdown.org/ndphillips/YaRrr/htests.html)
+* YaRrr! The Pirate's Guide to R [Regression](https://bookdown.org/ndphillips/YaRrr/regression.html)
+* Descriptive and Exploratory Analysis: [Cloud Based Data Science](https://www.clouddatascience.org/) Data Analysis Course: focuses on concepts more than the R code
+* Statistics: [R Cookbook](https://learning.oreilly.com/library/view/r-cookbook-2nd/9781492040675) - has several useful sections if you already know what you want to do
+* UCLA Statistical Consulting [Data Analysis Examples](https://stats.idre.ucla.edu/other/dae/) - if you're familiar with Stata, SAS, SPSS, or MPlus, this site has examples worked for many types of different statistical models (mostly regression based) for these programs as well as R.  
 
-Want more? See [Statistics and Machine Learning](https://github.com/nuitrcs/rworkshops#statistics-and-machine-learning) resource list, or our [online guide to learning linear regression in R](https://sites.northwestern.edu/researchcomputing/2020/05/09/online-learning-resources-linear-regression-in-r/).
+Want more?  See [Statistics and Machine Learning](https://github.com/nuitrcs/rworkshops#statistics-and-machine-learning) resource list, or our [online guide to learning linear regression in R](https://sites.northwestern.edu/researchcomputing/2020/05/09/online-learning-resources-linear-regression-in-r/).
+
 
 ### Exercises
 

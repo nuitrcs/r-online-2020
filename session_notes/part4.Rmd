@@ -213,9 +213,10 @@ There are multiple ways we could do this, including a [function](https://persona
 
 Or we could do it manually here for practice subsetting data! 
 
+
 ### EXERCISE
 
-Compute the correlation for each of the three species separately (remember to run code above to load libraries and data): 
+Compute the correlation between `bill_length_mm` and `bill_depth_mm` for each of the three species ("Adelie", "Chinstrap", "Gentoo") separately (remember to run code above to load libraries and data): 
 
 ```{r, eval=FALSE}
 cor(___, ___,
