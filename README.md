@@ -175,25 +175,18 @@ likert.raw <- c(1, 7, 3, 4, 4, 4, 2, 6, 5, 5)
 Alternative/extra material:
 
 -   YaRrr! The Pirate's Guide to R [Matrices and Dataframes](https://bookdown.org/ndphillips/YaRrr/matricesdataframes.html)
-
 -   YaRrr! The Pirate's Guide to R [Advanced dataframe manipulation](https://bookdown.org/ndphillips/YaRrr/advanceddataframe.html) - includes a small part on dplyr, which we aren't covering this week
-
 -   [Data Carpentry Data Analysis and Visualization in R for Ecologists](https://datacarpentry.org/R-ecology-lesson/02-starting-with-data.html) Lesson 2 Starting with Data: covers data frames and factors (a Monday topic)
-
 -   Interactive tutorial on data frames : [DataCamp 15 Easy Solutions To Your Data Frame Problems In R](https://www.datacamp.com/community/tutorials/15-easy-solutions-data-frame-problems-r)
-
 -   Subset a data frame: [Learning Statistics with R v1](https://learningstatisticswithr.com/book/datahandling.html#subsetdataframe) 7.5 Extracting a subset of a data frame (7.3 on vectors is also useful)
-
 -   Getting Help:
-
     -   [Cloud Based Data Science](https://leanpub.com/universities/set/jhu/cloud-based-data-science) Intro to R Course - Getting Help in R section
     -   [R Cookbook](https://learning.oreilly.com/library/view/r-cookbook-2nd/9781492040675/ch01.html#recipe-id265) Starting Section 1.7
-
 -   Reading in Data Files: [Cloud Based Data Science](https://leanpub.com/courses/jhu/cbds-getting-data/read/2#leanpub-auto-csv-excel-and-tsv-files) Getting Data Section 2 CSV, Excel, and TSV Files
 
 Notes:
 
--   If you see a reference to the stringsAsFactors option for read.csv(): it defaults to TRUE for R versions \< 4 but FALSE for R 4.0.0 and later. Most materials have not yet been updated to reflect this change because R 4.0.0 is recent.
+-   If you see a reference to the stringsAsFactors option for read.csv(): it defaults to TRUE for R versions \< 4 but FALSE for R 4.0.0 and later. Some materials have not yet been updated to reflect this change.
 
 ### Exercises
 
