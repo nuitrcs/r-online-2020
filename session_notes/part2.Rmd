@@ -101,7 +101,12 @@ summary(penguins)
 ```
 
 
-**EXERCISE** (Run the code above first that creates the `x` data frame - it's near line 30): Using the `x` data frame we created above:
+### EXERCISE
+
+Run the code above first that creates the `x` data frame - it's near line 30.
+
+Using the `x` data frame we created above:
+
 * How many rows and columns?
 * Names of the variables?
 
@@ -143,10 +148,14 @@ penguins[1:2, 4:5]
 ```
 
 
-**EXERCISE** (using `x` created above): how would we select rows 2 through 5, and columns 1 through 2 from `x`?
+### EXERCISE
+
+Using `x` created above: select rows 2 through 5, and columns 1 through 2 from `x`
 ```{r}
 
 ```
+
+## More Indexing
 
 If we want rows or columns that aren't next to each other, you can use a vector.
 
@@ -185,7 +194,10 @@ penguins[,c("island", "species")]
 ```
 
 
-**EXERCISE**: Using the `x` data frame we created above:
+### EXERCISE
+
+Using the `x` data frame we created above:
+
 * Select the days column using `$` notation
 * Select the month and days columns by name using `[]`
 
@@ -231,7 +243,9 @@ penguins[penguins$bill_length_mm < 34 & penguins$bill_depth_mm < 16,]
 penguins[penguins$bill_length_mm < 34 | penguins$bill_length_mm > 58,]
 ```
 
-**EXERCISE** Using `x` created above: select rows from `x` with 31 days.  Remember: `==` for testing for equality.
+### EXERCISE
+
+Using `x` created above: select rows from `x` with 31 days.  Remember: `==` for testing for equality.
 
 ```{r}
 
@@ -287,7 +301,11 @@ max_bill_length <- max(penguins$bill_length_mm, na.rm=TRUE)
 penguins[penguins$bill_length_mm == max_bill_length,]
 ```
 
-**EXERCISE** Using `x` created above: select the rows from `x` where `days` is at its minimum value.
+### EXERCISE
+
+Using `x` created above: select the rows from `x` where `days` is at its minimum value.
+
+
 ```{r}
 
 ```
@@ -304,13 +322,15 @@ x[which.min(x$days), ]
 
 We can add new variables to the data frame by naming them with the `$` notation:
 ```{r}
-penguins$bill_length_cm <- penguins$bill_length_mm / 10
-names(penguins)
-penguins[, c("bill_length_cm", "bill_length_mm")]
+penguins$bill_length_cm <- penguins$bill_length_mm / 10  # make new variable
+names(penguins)  # check to see that it was added
+penguins[, c("bill_length_cm", "bill_length_mm")]  # select the two vars to view them
 ```
 
 
-**EXERCISE** Using `x` created above: make a new variable as part of `x`, called `weeks`, that is the number of days divided by 7
+### EXERCISE
+
+Using `x` created above: make a new variable as part of `x`, called `weeks`, that is the number of days divided by 7
 
 ```{r}
 
@@ -343,7 +363,9 @@ Remove by index instead:
 penguins <- penguins[-1,]  # removes the first row of the data
 ```
 
-**EXERCISE** Using `x` created above: remove the 2nd row of `x`:
+### EXERCISE
+
+Using `x` created above: remove the 2nd row of `x`:
 ```{r}
 
 ```
@@ -355,12 +377,13 @@ penguins <- penguins[-1,]  # removes the first row of the data
 table(penguins$species)
 ```
 
-`species` is a factor; let's un-factor it first so we can change values:
+`species` is a factor; let's un-factor it first so we can change values -- this is an extra step related to it being a factor
 
 ```{r}
 penguins$species <- as.character(penguins$species)
 ```
 
+Here are the general steps we'd do if we didn't have a factor
 
 ```{r}
 penguins$species[penguins$species == "Gentoo"]  # which observations do we want to replace?
@@ -377,7 +400,9 @@ penguins$species <- factor(penguins$species)
 ```
 
 
-**EXERCISE** Using `x` created above: replace the `month` value "December" with the value "Dec" instead
+### EXERCISE
+
+Using `x` created above: replace the `month` value "December" with the value "Dec" instead
 
 ```{r}
 
@@ -416,6 +441,7 @@ y
 
 
 `order()` tells you what order to put the elements in to sort them:
+
 ```{r}
 order(y)
 ```
@@ -430,7 +456,11 @@ y[order(y)]
 y[order(y, decreasing=TRUE)]
 ```
 
-Why do we care?  Because we need this if we want to sort a data frame.  `sort()` only take a vector -- one column of a data frame.  If we want to sort by one or more columns, we need to use `order()` to figure out what to put the rows in -- because we'd want entire rows re-ordered together.
+Why do we care?  Because we need this if we want to sort a **data frame** not just a vector.  `sort()` only takes a vector -- one column of a data frame.  If we want to sort by one or more columns, we need to use `order()` to figure out what to put the rows in -- because we'd want entire rows re-ordered together.
+
+<a name="order"></a>
+![](order.png)
+
 
 We can sort a single column by itself
 ```{r}
@@ -453,12 +483,14 @@ penguins[order(penguins$island,
                penguins$bill_length_mm), ]
 ```
 
-**EXERCISE**: sort the `penguins` data frame by `flipper_length_mm` decreasing
+### EXERCISE
+
+Sort the `penguins` data frame by `flipper_length_mm` decreasing
 ```{r}
 
 ```
 
-Note: there's an easier way to sort using the package `dplyr` - the `arrange()` function.  We aren't covering the `dplyr` package this week, but we have additional workshops on the Tidyverse (which includes `dplyr`).  
+Note: there's an easier way to sort using the package `dplyr` - the [`arrange()`](https://dplyr.tidyverse.org/reference/arrange.html) function.  We aren't covering the `dplyr` package this week, but we have additional workshops on the Tidyverse (which includes `dplyr`).  
 
 # Coming Up
 

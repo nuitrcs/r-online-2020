@@ -95,7 +95,9 @@ hist(penguins$bill_depth_mm, breaks=20)
 ```
 
 
-**EXERCISE**: Run the code at least in the Setup and Data sections above first.  Then 
+### EXERCISE
+
+Run the code at least in the Setup and Data sections above first.  Then 
 
 1. Make a scatterplot using the penguins data of `body_mass_g` and `flipper_length_mm`.  
 
@@ -115,83 +117,7 @@ hist(penguins$bill_depth_mm, breaks=20)
 
 I sometimes use base R plotting functions for very quick plots.  And I have produced publication graphics with them before.  But now most of the time I use ggplot2, which is particularly useful for exploring different groups in your data.  
 
-Let's start first with reproducing the plots we made above.  Each plot with ggplot has the same template for the code:
-
-```{r}
-ggplot(penguins, aes(x = bill_depth_mm, y = bill_length_mm)) + 
-  geom_point()
-```
-
-
-The first line says what data and variables to use, and the second line says what type of plot to make.  We add the components of the plot together, which is a somewhat unique syntax.
-
-The cheatsheet is very useful when working with ggplot2: https://www.rstudio.org/links/data_visualization_cheat_sheet
-
-```{r}
-ggplot(nh, aes(x = year, y = temp)) + 
-  geom_line()
-```
-
-
-```{r}
-ggplot(penguins, aes(x = bill_depth_mm)) + 
-  geom_histogram()
-```
-
-And a plot with all of the options changed like above:
-
-```{r}
-ggplot(penguins, aes(x=bill_depth_mm, y=bill_length_mm)) + 
-  geom_point(pch = 17, 
-             color = "red",
-             size = 3) +   # on a different scale than cex
-  labs(title = "Penguin Bill Measurements",
-       x = "Depth",
-       y = "Height") + 
-  scale_y_continuous(limits = c(30, 65))
-```
-
-For styling parts of the plot that aren't the data (backgrounds, labels, axes, etc.), we can use themes.  There are a few built in, or the `theme()` function can be used to set any option.  Theme functions should get called at the end of your list of ggplot components.
-
-```{r}
-ggplot(penguins, aes(x = bill_depth_mm)) + 
-  geom_histogram(bins = 25) + 
-  theme_minimal()
-```
-
-
-So far, we've made similar plots, just with different syntax.  Where ggplot excels though is with groups and mapping variables from your data to aesthetics of the plot other than just x and y positions:
-
-```{r}
-ggplot(penguins, aes(x=bill_depth_mm, 
-                     y=bill_length_mm, 
-                     color=species)) +   # we added this
-  geom_point()
-```
-
-```{r}
-ggplot(penguins, aes(x=bill_depth_mm, 
-                     y=bill_length_mm, 
-                     color=species)) +  
-  geom_point() + 
-  geom_smooth()   # we added this
-```
-
-```{r}
-ggplot(penguins, aes(x=bill_depth_mm, 
-                     y=bill_length_mm, 
-                     color=species)) +  
-  geom_point() + 
-  facet_grid(. ~ island)   # we added this
-```
-
-
-**EXERCISE**: Run the code at least in the Setup and Data sections above first.  Then make a boxplot using the penguins data of `bill_length_mm` (y) by `species` (x).  Check the ggplot2 [cheat sheet](https://www.rstudio.org/links/data_visualization_cheat_sheet) (RStudio Help Menu as well) to find the right geom to use.  If you get done quickly, try labeling your plot.
-
-```{r}
-
-```
-
+Open the [ggplot2.Rmd tutorial file](ggplot2.html) to continue.  This is the same ggplot2 tutorial from the [tidyverse workshop series](https://github.com/nuitrcs/r-tidyverse).
 
 
 # Coming Up

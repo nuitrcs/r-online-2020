@@ -88,6 +88,17 @@ my_plot(mtcars$wt, "Weight")
 ```
 
 
+### EXERCISE
+
+Write a function that returns (gives as output) the sum of two input values.  Call it to test it.
+
+```{r}
+
+```
+
+Challenge: make one of the input values optional by [setting a default value](https://www.javatpoint.com/r-function-default-arguments) for it.  We didn't talk about this above.  For a hint, take a look at the help page for `read.csv` and see how the arguments with default values are specified.
+
+
 There's much more to learn about functions, but you can practice on your own later today and ask questions on the discussion boards.  
 
 As you learn more about functions, you'll want to pay attention to the scope of variables: if you use `x` inside your function, where does R look for `x`?  And if you change the value of `x`, what happens?  You can also set default values for your inputs like many of the R functions you've already used have.
@@ -162,6 +173,22 @@ result
 ```
 
 Normally we'd do something more complicated than squaring a number -- it's just an example of the format.
+
+
+### EXERCISE
+
+Using the built in `mtcars` dataset, use a for loop to print each car's name and the `mpg`.  As a starting point, to do this for the car in the 3rd row, you could do: `paste0(rownames(mtcars)[3], ": ", mtcars$mpg[3])`.  Inside a loop, you'll need to use `print` as well to see the results: `print(paste0(rownames(mtcars)[3], ": ", mtcars$mpg[3]))`
+
+Hint: you can get the number of rows in the data with `nrow(mtcars)`.  
+
+```{r}
+
+```
+
+Challenge: instead of printing output for each iteration of your loop, save your pasted strings in a vector, and then print the vector when you're done.
+
+Challenge 2: do the same thing without a loop.  No trick here, just a reminder that many functions are vectorized.
+
 
 ## Alternatives
 
@@ -246,7 +273,7 @@ for (file in filelist[1:3]) {  # just loop through a few for now to keep the out
 
 There are two ways to have the logic of if-then-else in R.  
 
-1) If-else statements evaluate conditional statements that produce a single TRUE or FALSE value -- not vectors.  This is like if-else statments you might have used in other programming languages.
+1) If-else statements evaluate conditional statements that produce a single TRUE or FALSE value -- not vectors.  This is like if-else statements you might have used in other programming languages.
 
 2) `ifelse()` takes a vector of TRUE and FALSE values and then returns a vector where you have a different value for TRUE than for FALSE. 
 
@@ -278,6 +305,35 @@ my_measure <- 1:20
 my_measure %% 5 == 0
 
 ifelse(my_measure %% 5 == 0, my_measure, NA)
+```
+
+If I wanted to change my_measure, I could do
+
+```{r}
+my_measure <- ifelse(my_measure %% 5 == 0, my_measure, NA)
+```
+
+instead of using `ifelse`, I could have written the last line above as:
+
+```{r}
+my_measure[my_measure %% 5 != 0] <- NA
+```
+
+But I prefer `ifelse` - I find it easier to read and follow, but that's personal preference.  One advantage `ifelse` has though is that I can use the expression without changing my data.  With the second option above (without `ifelse`), I'm having to save the result because I'm only changing a subset -- `ifelse` preserves the full vector.
+
+
+### EXERCISE
+
+Use `ifelse` to recode values of the bird vector that aren't birds to `NA`.  
+
+Hint: you'll need to remember how to use some type of logical condition -- some combination of `|`, `!` `==` `%in%` or similar operators.  
+
+```{r, eval=FALSE}
+birds <- c("duck", "penguin", "bear", "cow")
+
+ifelse(_____,  # test condition
+       _____,  # value if TRUE
+       _____)  # value if FALSE
 ```
 
 
@@ -316,7 +372,38 @@ if (condition) {
 }
 ```
 
-Let's use this to process the pdb data files.  
+
+Example
+
+```{r}
+car_index <- 5
+
+if (mtcars$mpg[car_index] > 25) {
+  print("It's efficient")
+} else if (mtcars$mpg[car_index] > 20) {
+  print("It's OK")
+} else {
+  print("mpg could be better")
+}
+```
+
+
+
+### EXERCISE
+
+Write an if else statement that will tell you whether a number (stored in the variable `my_num`) is positive, negative, or zero 0.  
+
+```{r}
+my_num <- 15
+
+
+
+```
+
+
+## Process Files with if else
+
+Let's use if else to process the pdb data files.  
 
 If the line in the file starts with "COMPND", we want to get the molecule name.  If it starts with "ATOM" we want to add the data to our data set with the compound name.  Other lines we want to ignore.
 
@@ -363,19 +450,25 @@ for (file in filelist[1:3]) {  # just loop through 3 for now to keep the output 
 
 ```{r}
 head(output)
+```
 
-# could write output to a TSV file, 
-# writeLines(output, "data/combined_pdb.tsv")
+This is a vector of character data.  How do we get it into a data frame?  This is a bit tricky.  We could write the data to file, and then read it back in:
 
-# but we want to use it, 
-# so we'll "read" it in as if it were a file
+```{r, eval=FALSE}
+writeLines(output, "data/combined_pdb.tsv")  # writeLines because we just have a vector of character data
+output <- read.csv("data/combined_pdb.tsv", sep="\t")
+```
+
+But it turns out we don't have to write it to file first if we don't want to (this is the tricky bit):
+
+```{r}
 output <- read.csv(text=output,  # read from output instead of a file
                    col.names=c("molecule", "v1", "v2", "v3", "v4", "v5", "v6"),
-                   sep="\t",  # we used tabs instead of commas
-                   stringsAsFactors = FALSE)
+                   sep="\t")  # we used tabs instead of commas
 output
 ```
 
+## Note
 
 I didn't just sit down and write this script straight through.  I built it up piece by piece, ran it, found things that were wrong, and then fixed them.  And I kept doing this over and over.  
 
