@@ -117,6 +117,9 @@ Session File: [`session_notes/part1.Rmd`](session_notes/part1.Rmd) or [HTML vers
 
 **Start here:**
 
+- Are you completely new to R and/or RStudio?  Start with a few videos
+  - [R Programming 101 - How to Use RStudio](https://www.youtube.com/watch?v=orjLGFmx6l4&list=PLtL57Fdbwb_Chn-dNR0qBjH3esKS2MXY3&index=2)
+  - [R Programming 101 - Part3](https://www.youtube.com/watch?v=e8B9YU_M5FM&list=PLtL57Fdbwb_Chn-dNR0qBjH3esKS2MXY3&index=3) - covers importing a CSV file and installing a package; the end of the video shows a few commands using the tidyverse packages, which the other materials below don't use (but [this workshop](https://github.com/nuitrcs/r-tidyverse) does) 
 -   [Learning Statistics with R v2](https://tidylsr.djnavarro.net/index.html): [Chapter 2 Getting Started in R](https://tidylsr.djnavarro.net/r-start.html#arithmetic-operations); Appendices [A1 Vectors](https://tidylsr.djnavarro.net/data-types.html#vectors) and [A2 Factors](https://tidylsr.djnavarro.net/data-types.html#factors)
 -   [Logical Indexing](https://bookdown.org/ndphillips/YaRrr/logical-indexing.html) and [Changing values of a vector](https://bookdown.org/ndphillips/YaRrr/changing-values-of-a-vector.html) from [YaRrr! The Pirate's Guide to R](https://bookdown.org/ndphillips/YaRrr/)
 
