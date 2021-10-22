@@ -285,7 +285,7 @@ See the exercises in the [exercises/part4](exercises/part4) directory for t-test
 
 ------------------------------------------------------------------------
 
-## Friday: Programming (Option 1)
+## Friday: Programming 
 
 10am Zoom session: Functions, for loops, if-else  
 File: `session_notes/part5.Rmd` or [HTML version](https://nuitrcs.github.io/r-online-2020/session_notes/part5.html)
@@ -307,7 +307,7 @@ File: `session_notes/part5.Rmd` or [HTML version](https://nuitrcs.github.io/r-on
 -   YaRrr! The Pirate's Guide to R [Loops](https://bookdown.org/ndphillips/YaRrr/loops.html) - you may want to skip the section on loops and lists, since we didn't cover lists this week
 -   If/else: [Software Carpentry Programming in R](http://swcarpentry.github.io/r-novice-inflammation/04-cond/index.html) Making Choices
 
-NOTE: Download the data for the Software Carpentry lession from the [Setup Page](http://swcarpentry.github.io/r-novice-inflammation/setup.html) before starting the lesson.
+NOTE: Download the data for the Software Carpentry lesson from the [Setup Page](http://swcarpentry.github.io/r-novice-inflammation/setup.html) before starting the lesson.
 
 Alternative/extra material:
 
@@ -320,14 +320,4 @@ Alternative/extra material:
 
 See the exercises in the [exercises/part5](exercises/part5) directory.
 
-------------------------------------------------------------------------
 
-## Friday: Data Project (Option 2)
-
-Instead of learning the programming concepts above, you can instead apply the skills you learned in the previous 4 days working on a small data project. There will be no video lesson for the project, and there's no "answer key", but you're welcome to ask questions on the discussion boards and in the afternoon office hours.
-
-See [this page](https://nuitrcs.github.io/r-online-2020/exercises/dataproject/instructions.html) for a description of a data set and some suggested questions to try to answer with the data.
-
-If posting a question on the discussion board, you can include your code file (.R or .Rmd file) if you need help with something specific.
-
-Share what you find with this project on the discussion boards as well: data visualizations, tables, statistical tests, etc.
