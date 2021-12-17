@@ -9,7 +9,7 @@ Quick links to schedule:
 -   [Tuesday: Data Frames](#tuesday-data-frames)
 -   [Wednesday: Visualization](#wednesday-visualization)
 -   [Thursday: Data Exploration and Statistics](#thursday-data-exploration-and-statistics)
--   [Friday: Programming](#friday-programming-option-1) 
+-   [Friday: Programming](#friday-programming) 
 
 ## Description
 
